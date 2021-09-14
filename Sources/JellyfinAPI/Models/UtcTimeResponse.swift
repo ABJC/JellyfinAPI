@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class UtcTimeResponse. */
 public struct UtcTimeResponse: Codable, Hashable {
+
     /** Gets the UTC time when request has been received. */
     public var requestReceptionTime: Date?
     /** Gets the UTC time when response has been sent. */

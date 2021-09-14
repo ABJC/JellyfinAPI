@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct DeviceOptions: Codable, Hashable {
+
     public var customName: String?
 
     public init(customName: String? = nil) {

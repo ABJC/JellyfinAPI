@@ -8,12 +8,14 @@
 import AnyCodable
 import Foundation
 
+
+
 open class ImageAPI {
     /**
      Delete an item's image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
      - parameter imageIndex: (query) The image index. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -33,12 +35,12 @@ open class ImageAPI {
      Delete an item's image.
      - DELETE /Items/{itemId}/Images/{imageType}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
      - parameter imageIndex: (query) The image index. (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func deleteItemImageWithRequestBuilder(itemId: String, imageType: ImageType, imageIndex: Int? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}/Images/{imageType}"
@@ -56,21 +58,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Delete an item's image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) The image index.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) The image index. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -89,12 +93,12 @@ open class ImageAPI {
      Delete an item's image.
      - DELETE /Items/{itemId}/Images/{imageType}/{imageIndex}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) The image index.
-     - returns: RequestBuilder<Void>
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) The image index. 
+     - returns: RequestBuilder<Void> 
      */
     open class func deleteItemImageByIndexWithRequestBuilder(itemId: String, imageType: ImageType, imageIndex: Int) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}/Images/{imageType}/{imageIndex}"
@@ -112,20 +116,22 @@ open class ImageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Delete the user's image.
-
-     - parameter userId: (path) User Id.
-     - parameter imageType: (path) (Unused) Image type.
+     
+     - parameter userId: (path) User Id. 
+     - parameter imageType: (path) (Unused) Image type. 
      - parameter index: (query) (Unused) Image index. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -145,12 +151,12 @@ open class ImageAPI {
      Delete the user's image.
      - DELETE /Users/{userId}/Images/{imageType}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter userId: (path) User Id.
-     - parameter imageType: (path) (Unused) Image type.
+     - parameter userId: (path) User Id. 
+     - parameter imageType: (path) (Unused) Image type. 
      - parameter index: (query) (Unused) Image index. (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func deleteUserImageWithRequestBuilder(userId: String, imageType: ImageType, index: Int? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/Images/{imageType}"
@@ -168,21 +174,23 @@ open class ImageAPI {
             "index": index?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Delete the user's image.
-
-     - parameter userId: (path) User Id.
-     - parameter imageType: (path) (Unused) Image type.
-     - parameter index: (path) (Unused) Image index.
+     
+     - parameter userId: (path) User Id. 
+     - parameter imageType: (path) (Unused) Image type. 
+     - parameter index: (path) (Unused) Image index. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -201,12 +209,12 @@ open class ImageAPI {
      Delete the user's image.
      - DELETE /Users/{userId}/Images/{imageType}/{index}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter userId: (path) User Id.
-     - parameter imageType: (path) (Unused) Image type.
-     - parameter index: (path) (Unused) Image index.
-     - returns: RequestBuilder<Void>
+     - parameter userId: (path) User Id. 
+     - parameter imageType: (path) (Unused) Image type. 
+     - parameter index: (path) (Unused) Image index. 
+     - returns: RequestBuilder<Void> 
      */
     open class func deleteUserImageByIndexWithRequestBuilder(userId: String, imageType: ImageType, index: Int) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/Images/{imageType}/{index}"
@@ -224,21 +232,23 @@ open class ImageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get artist image by name.
-
-     - parameter name: (path) Artist name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Artist name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -272,9 +282,9 @@ open class ImageAPI {
     /**
      Get artist image by name.
      - GET /Artists/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Artist name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Artist name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -291,7 +301,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getArtistImageWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Artists/{name}/Images/{imageType}/{imageIndex}"
@@ -327,20 +337,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get genre image by name.
-
-     - parameter name: (path) Genre name.
-     - parameter imageType: (path) Image type.
+     
+     - parameter name: (path) Genre name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -375,8 +387,8 @@ open class ImageAPI {
     /**
      Get genre image by name.
      - GET /Genres/{name}/Images/{imageType}
-     - parameter name: (path) Genre name.
-     - parameter imageType: (path) Image type.
+     - parameter name: (path) Genre name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -394,7 +406,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getGenreImageWithRequestBuilder(name: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Genres/{name}/Images/{imageType}"
@@ -428,21 +440,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get genre image by name.
-
-     - parameter name: (path) Genre name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Genre name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -476,9 +490,9 @@ open class ImageAPI {
     /**
      Get genre image by name.
      - GET /Genres/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Genre name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Genre name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -495,7 +509,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getGenreImageByIndexWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Genres/{name}/Images/{imageType}/{imageIndex}"
@@ -531,20 +545,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the item's image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
      - parameter maxWidth: (query) The maximum image width to return. (optional)
      - parameter maxHeight: (query) The maximum image height to return. (optional)
      - parameter width: (query) The fixed image width to return. (optional)
@@ -579,8 +595,8 @@ open class ImageAPI {
     /**
      Gets the item's image.
      - GET /Items/{itemId}/Images/{imageType}
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
      - parameter maxWidth: (query) The maximum image width to return. (optional)
      - parameter maxHeight: (query) The maximum image height to return. (optional)
      - parameter width: (query) The fixed image width to return. (optional)
@@ -598,7 +614,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getItemImageWithRequestBuilder(itemId: String, imageType: ImageType, maxWidth: Int? = nil, maxHeight: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, tag: String? = nil, cropWhitespace: Bool? = nil, format: ImageFormat? = nil, addPlayedIndicator: Bool? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Items/{itemId}/Images/{imageType}"
@@ -632,27 +648,29 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the item's image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter maxWidth: (path) The maximum image width to return.
-     - parameter maxHeight: (path) The maximum image height to return.
-     - parameter tag: (path) Optional. Supply the cache tag from the item object to receive strong caching headers.
-     - parameter format: (path) Determines the output format of the image - original,gif,jpg,png.
-     - parameter percentPlayed: (path) Optional. Percent to render for the percent played overlay.
-     - parameter unplayedCount: (path) Optional. Unplayed count overlay to render.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter maxWidth: (path) The maximum image width to return. 
+     - parameter maxHeight: (path) The maximum image height to return. 
+     - parameter tag: (path) Optional. Supply the cache tag from the item object to receive strong caching headers. 
+     - parameter format: (path) Determines the output format of the image - original,gif,jpg,png. 
+     - parameter percentPlayed: (path) Optional. Percent to render for the percent played overlay. 
+     - parameter unplayedCount: (path) Optional. Unplayed count overlay to render. 
+     - parameter imageIndex: (path) Image index. 
      - parameter width: (query) The fixed image width to return. (optional)
      - parameter height: (query) The fixed image height to return. (optional)
      - parameter quality: (query) Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. (optional)
@@ -680,15 +698,15 @@ open class ImageAPI {
     /**
      Gets the item's image.
      - GET /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter maxWidth: (path) The maximum image width to return.
-     - parameter maxHeight: (path) The maximum image height to return.
-     - parameter tag: (path) Optional. Supply the cache tag from the item object to receive strong caching headers.
-     - parameter format: (path) Determines the output format of the image - original,gif,jpg,png.
-     - parameter percentPlayed: (path) Optional. Percent to render for the percent played overlay.
-     - parameter unplayedCount: (path) Optional. Unplayed count overlay to render.
-     - parameter imageIndex: (path) Image index.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter maxWidth: (path) The maximum image width to return. 
+     - parameter maxHeight: (path) The maximum image height to return. 
+     - parameter tag: (path) Optional. Supply the cache tag from the item object to receive strong caching headers. 
+     - parameter format: (path) Determines the output format of the image - original,gif,jpg,png. 
+     - parameter percentPlayed: (path) Optional. Percent to render for the percent played overlay. 
+     - parameter unplayedCount: (path) Optional. Unplayed count overlay to render. 
+     - parameter imageIndex: (path) Image index. 
      - parameter width: (query) The fixed image width to return. (optional)
      - parameter height: (query) The fixed image height to return. (optional)
      - parameter quality: (query) Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. (optional)
@@ -699,7 +717,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getItemImage2WithRequestBuilder(itemId: String, imageType: ImageType, maxWidth: Int, maxHeight: Int, tag: String, format: ImageFormat, percentPlayed: Double, unplayedCount: Int, imageIndex: Int, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}"
@@ -747,21 +765,23 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the item's image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter maxWidth: (query) The maximum image width to return. (optional)
      - parameter maxHeight: (query) The maximum image height to return. (optional)
      - parameter width: (query) The fixed image width to return. (optional)
@@ -795,9 +815,9 @@ open class ImageAPI {
     /**
      Gets the item's image.
      - GET /Items/{itemId}/Images/{imageType}/{imageIndex}
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter maxWidth: (query) The maximum image width to return. (optional)
      - parameter maxHeight: (query) The maximum image height to return. (optional)
      - parameter width: (query) The fixed image width to return. (optional)
@@ -814,7 +834,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getItemImageByIndexWithRequestBuilder(itemId: String, imageType: ImageType, imageIndex: Int, maxWidth: Int? = nil, maxHeight: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, tag: String? = nil, cropWhitespace: Bool? = nil, format: ImageFormat? = nil, addPlayedIndicator: Bool? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Items/{itemId}/Images/{imageType}/{imageIndex}"
@@ -850,19 +870,21 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get item image infos.
-
-     - parameter itemId: (path) Item id.
+     
+     - parameter itemId: (path) Item id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -881,10 +903,10 @@ open class ImageAPI {
      Get item image infos.
      - GET /Items/{itemId}/Images
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id.
-     - returns: RequestBuilder<[ImageInfo]>
+     - parameter itemId: (path) Item id. 
+     - returns: RequestBuilder<[ImageInfo]> 
      */
     open class func getItemImageInfosWithRequestBuilder(itemId: String) -> RequestBuilder<[ImageInfo]> {
         var urlPath = "/Items/{itemId}/Images"
@@ -896,20 +918,22 @@ open class ImageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[ImageInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get music genre image by name.
-
-     - parameter name: (path) Music genre name.
-     - parameter imageType: (path) Image type.
+     
+     - parameter name: (path) Music genre name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -944,8 +968,8 @@ open class ImageAPI {
     /**
      Get music genre image by name.
      - GET /MusicGenres/{name}/Images/{imageType}
-     - parameter name: (path) Music genre name.
-     - parameter imageType: (path) Image type.
+     - parameter name: (path) Music genre name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -963,7 +987,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getMusicGenreImageWithRequestBuilder(name: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/MusicGenres/{name}/Images/{imageType}"
@@ -997,21 +1021,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get music genre image by name.
-
-     - parameter name: (path) Music genre name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Music genre name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1045,9 +1071,9 @@ open class ImageAPI {
     /**
      Get music genre image by name.
      - GET /MusicGenres/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Music genre name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Music genre name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1064,7 +1090,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getMusicGenreImageByIndexWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/MusicGenres/{name}/Images/{imageType}/{imageIndex}"
@@ -1100,20 +1126,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get person image by name.
-
-     - parameter name: (path) Person name.
-     - parameter imageType: (path) Image type.
+     
+     - parameter name: (path) Person name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1148,8 +1176,8 @@ open class ImageAPI {
     /**
      Get person image by name.
      - GET /Persons/{name}/Images/{imageType}
-     - parameter name: (path) Person name.
-     - parameter imageType: (path) Image type.
+     - parameter name: (path) Person name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1167,7 +1195,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getPersonImageWithRequestBuilder(name: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Persons/{name}/Images/{imageType}"
@@ -1201,21 +1229,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get person image by name.
-
-     - parameter name: (path) Person name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Person name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1249,9 +1279,9 @@ open class ImageAPI {
     /**
      Get person image by name.
      - GET /Persons/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Person name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Person name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1268,7 +1298,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getPersonImageByIndexWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Persons/{name}/Images/{imageType}/{imageIndex}"
@@ -1304,20 +1334,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get studio image by name.
-
-     - parameter name: (path) Studio name.
-     - parameter imageType: (path) Image type.
+     
+     - parameter name: (path) Studio name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1352,8 +1384,8 @@ open class ImageAPI {
     /**
      Get studio image by name.
      - GET /Studios/{name}/Images/{imageType}
-     - parameter name: (path) Studio name.
-     - parameter imageType: (path) Image type.
+     - parameter name: (path) Studio name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1371,7 +1403,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getStudioImageWithRequestBuilder(name: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Studios/{name}/Images/{imageType}"
@@ -1405,21 +1437,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get studio image by name.
-
-     - parameter name: (path) Studio name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Studio name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1453,9 +1487,9 @@ open class ImageAPI {
     /**
      Get studio image by name.
      - GET /Studios/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Studio name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Studio name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1472,7 +1506,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getStudioImageByIndexWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Studios/{name}/Images/{imageType}/{imageIndex}"
@@ -1508,20 +1542,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get user profile image.
-
-     - parameter userId: (path) User id.
-     - parameter imageType: (path) Image type.
+     
+     - parameter userId: (path) User id. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1556,8 +1592,8 @@ open class ImageAPI {
     /**
      Get user profile image.
      - GET /Users/{userId}/Images/{imageType}
-     - parameter userId: (path) User id.
-     - parameter imageType: (path) Image type.
+     - parameter userId: (path) User id. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1575,7 +1611,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getUserImageWithRequestBuilder(userId: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Users/{userId}/Images/{imageType}"
@@ -1609,21 +1645,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get user profile image.
-
-     - parameter userId: (path) User id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter userId: (path) User id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1657,9 +1695,9 @@ open class ImageAPI {
     /**
      Get user profile image.
      - GET /Users/{userId}/Images/{imageType}/{imageIndex}
-     - parameter userId: (path) User id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter userId: (path) User id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1676,7 +1714,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getUserImageByIndexWithRequestBuilder(userId: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Users/{userId}/Images/{imageType}/{imageIndex}"
@@ -1712,21 +1750,23 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get artist image by name.
-
-     - parameter name: (path) Artist name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Artist name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1760,9 +1800,9 @@ open class ImageAPI {
     /**
      Get artist image by name.
      - HEAD /Artists/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Artist name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Artist name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1779,7 +1819,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headArtistImageWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Artists/{name}/Images/{imageType}/{imageIndex}"
@@ -1815,20 +1855,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get genre image by name.
-
-     - parameter name: (path) Genre name.
-     - parameter imageType: (path) Image type.
+     
+     - parameter name: (path) Genre name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1863,8 +1905,8 @@ open class ImageAPI {
     /**
      Get genre image by name.
      - HEAD /Genres/{name}/Images/{imageType}
-     - parameter name: (path) Genre name.
-     - parameter imageType: (path) Image type.
+     - parameter name: (path) Genre name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1882,7 +1924,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headGenreImageWithRequestBuilder(name: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Genres/{name}/Images/{imageType}"
@@ -1916,21 +1958,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get genre image by name.
-
-     - parameter name: (path) Genre name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Genre name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1964,9 +2008,9 @@ open class ImageAPI {
     /**
      Get genre image by name.
      - HEAD /Genres/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Genre name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Genre name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -1983,7 +2027,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headGenreImageByIndexWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Genres/{name}/Images/{imageType}/{imageIndex}"
@@ -2019,20 +2063,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the item's image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
      - parameter maxWidth: (query) The maximum image width to return. (optional)
      - parameter maxHeight: (query) The maximum image height to return. (optional)
      - parameter width: (query) The fixed image width to return. (optional)
@@ -2067,8 +2113,8 @@ open class ImageAPI {
     /**
      Gets the item's image.
      - HEAD /Items/{itemId}/Images/{imageType}
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
      - parameter maxWidth: (query) The maximum image width to return. (optional)
      - parameter maxHeight: (query) The maximum image height to return. (optional)
      - parameter width: (query) The fixed image width to return. (optional)
@@ -2086,7 +2132,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headItemImageWithRequestBuilder(itemId: String, imageType: ImageType, maxWidth: Int? = nil, maxHeight: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, tag: String? = nil, cropWhitespace: Bool? = nil, format: ImageFormat? = nil, addPlayedIndicator: Bool? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Items/{itemId}/Images/{imageType}"
@@ -2120,27 +2166,29 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the item's image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter maxWidth: (path) The maximum image width to return.
-     - parameter maxHeight: (path) The maximum image height to return.
-     - parameter tag: (path) Optional. Supply the cache tag from the item object to receive strong caching headers.
-     - parameter format: (path) Determines the output format of the image - original,gif,jpg,png.
-     - parameter percentPlayed: (path) Optional. Percent to render for the percent played overlay.
-     - parameter unplayedCount: (path) Optional. Unplayed count overlay to render.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter maxWidth: (path) The maximum image width to return. 
+     - parameter maxHeight: (path) The maximum image height to return. 
+     - parameter tag: (path) Optional. Supply the cache tag from the item object to receive strong caching headers. 
+     - parameter format: (path) Determines the output format of the image - original,gif,jpg,png. 
+     - parameter percentPlayed: (path) Optional. Percent to render for the percent played overlay. 
+     - parameter unplayedCount: (path) Optional. Unplayed count overlay to render. 
+     - parameter imageIndex: (path) Image index. 
      - parameter width: (query) The fixed image width to return. (optional)
      - parameter height: (query) The fixed image height to return. (optional)
      - parameter quality: (query) Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. (optional)
@@ -2168,15 +2216,15 @@ open class ImageAPI {
     /**
      Gets the item's image.
      - HEAD /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter maxWidth: (path) The maximum image width to return.
-     - parameter maxHeight: (path) The maximum image height to return.
-     - parameter tag: (path) Optional. Supply the cache tag from the item object to receive strong caching headers.
-     - parameter format: (path) Determines the output format of the image - original,gif,jpg,png.
-     - parameter percentPlayed: (path) Optional. Percent to render for the percent played overlay.
-     - parameter unplayedCount: (path) Optional. Unplayed count overlay to render.
-     - parameter imageIndex: (path) Image index.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter maxWidth: (path) The maximum image width to return. 
+     - parameter maxHeight: (path) The maximum image height to return. 
+     - parameter tag: (path) Optional. Supply the cache tag from the item object to receive strong caching headers. 
+     - parameter format: (path) Determines the output format of the image - original,gif,jpg,png. 
+     - parameter percentPlayed: (path) Optional. Percent to render for the percent played overlay. 
+     - parameter unplayedCount: (path) Optional. Unplayed count overlay to render. 
+     - parameter imageIndex: (path) Image index. 
      - parameter width: (query) The fixed image width to return. (optional)
      - parameter height: (query) The fixed image height to return. (optional)
      - parameter quality: (query) Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. (optional)
@@ -2187,7 +2235,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headItemImage2WithRequestBuilder(itemId: String, imageType: ImageType, maxWidth: Int, maxHeight: Int, tag: String, format: ImageFormat, percentPlayed: Double, unplayedCount: Int, imageIndex: Int, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}"
@@ -2235,21 +2283,23 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the item's image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter maxWidth: (query) The maximum image width to return. (optional)
      - parameter maxHeight: (query) The maximum image height to return. (optional)
      - parameter width: (query) The fixed image width to return. (optional)
@@ -2283,9 +2333,9 @@ open class ImageAPI {
     /**
      Gets the item's image.
      - HEAD /Items/{itemId}/Images/{imageType}/{imageIndex}
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter maxWidth: (query) The maximum image width to return. (optional)
      - parameter maxHeight: (query) The maximum image height to return. (optional)
      - parameter width: (query) The fixed image width to return. (optional)
@@ -2302,7 +2352,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headItemImageByIndexWithRequestBuilder(itemId: String, imageType: ImageType, imageIndex: Int, maxWidth: Int? = nil, maxHeight: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, tag: String? = nil, cropWhitespace: Bool? = nil, format: ImageFormat? = nil, addPlayedIndicator: Bool? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Items/{itemId}/Images/{imageType}/{imageIndex}"
@@ -2338,20 +2388,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get music genre image by name.
-
-     - parameter name: (path) Music genre name.
-     - parameter imageType: (path) Image type.
+     
+     - parameter name: (path) Music genre name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2386,8 +2438,8 @@ open class ImageAPI {
     /**
      Get music genre image by name.
      - HEAD /MusicGenres/{name}/Images/{imageType}
-     - parameter name: (path) Music genre name.
-     - parameter imageType: (path) Image type.
+     - parameter name: (path) Music genre name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2405,7 +2457,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headMusicGenreImageWithRequestBuilder(name: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/MusicGenres/{name}/Images/{imageType}"
@@ -2439,21 +2491,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get music genre image by name.
-
-     - parameter name: (path) Music genre name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Music genre name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2487,9 +2541,9 @@ open class ImageAPI {
     /**
      Get music genre image by name.
      - HEAD /MusicGenres/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Music genre name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Music genre name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2506,7 +2560,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headMusicGenreImageByIndexWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/MusicGenres/{name}/Images/{imageType}/{imageIndex}"
@@ -2542,20 +2596,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get person image by name.
-
-     - parameter name: (path) Person name.
-     - parameter imageType: (path) Image type.
+     
+     - parameter name: (path) Person name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2590,8 +2646,8 @@ open class ImageAPI {
     /**
      Get person image by name.
      - HEAD /Persons/{name}/Images/{imageType}
-     - parameter name: (path) Person name.
-     - parameter imageType: (path) Image type.
+     - parameter name: (path) Person name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2609,7 +2665,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headPersonImageWithRequestBuilder(name: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Persons/{name}/Images/{imageType}"
@@ -2643,21 +2699,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get person image by name.
-
-     - parameter name: (path) Person name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Person name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2691,9 +2749,9 @@ open class ImageAPI {
     /**
      Get person image by name.
      - HEAD /Persons/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Person name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Person name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2710,7 +2768,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headPersonImageByIndexWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Persons/{name}/Images/{imageType}/{imageIndex}"
@@ -2746,20 +2804,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get studio image by name.
-
-     - parameter name: (path) Studio name.
-     - parameter imageType: (path) Image type.
+     
+     - parameter name: (path) Studio name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2794,8 +2854,8 @@ open class ImageAPI {
     /**
      Get studio image by name.
      - HEAD /Studios/{name}/Images/{imageType}
-     - parameter name: (path) Studio name.
-     - parameter imageType: (path) Image type.
+     - parameter name: (path) Studio name. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2813,7 +2873,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headStudioImageWithRequestBuilder(name: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Studios/{name}/Images/{imageType}"
@@ -2847,21 +2907,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get studio image by name.
-
-     - parameter name: (path) Studio name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter name: (path) Studio name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2895,9 +2957,9 @@ open class ImageAPI {
     /**
      Get studio image by name.
      - HEAD /Studios/{name}/Images/{imageType}/{imageIndex}
-     - parameter name: (path) Studio name.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter name: (path) Studio name. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2914,7 +2976,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headStudioImageByIndexWithRequestBuilder(name: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Studios/{name}/Images/{imageType}/{imageIndex}"
@@ -2950,20 +3012,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get user profile image.
-
-     - parameter userId: (path) User id.
-     - parameter imageType: (path) Image type.
+     
+     - parameter userId: (path) User id. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -2998,8 +3062,8 @@ open class ImageAPI {
     /**
      Get user profile image.
      - HEAD /Users/{userId}/Images/{imageType}
-     - parameter userId: (path) User id.
-     - parameter imageType: (path) Image type.
+     - parameter userId: (path) User id. 
+     - parameter imageType: (path) Image type. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -3017,7 +3081,7 @@ open class ImageAPI {
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
      - parameter imageIndex: (query) Image index. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headUserImageWithRequestBuilder(userId: String, imageType: ImageType, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil, imageIndex: Int? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Users/{userId}/Images/{imageType}"
@@ -3051,21 +3115,23 @@ open class ImageAPI {
             "imageIndex": imageIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get user profile image.
-
-     - parameter userId: (path) User id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     
+     - parameter userId: (path) User id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -3099,9 +3165,9 @@ open class ImageAPI {
     /**
      Get user profile image.
      - HEAD /Users/{userId}/Images/{imageType}/{imageIndex}
-     - parameter userId: (path) User id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Image index.
+     - parameter userId: (path) User id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Image index. 
      - parameter tag: (query) Optional. Supply the cache tag from the item object to receive strong caching headers. (optional)
      - parameter format: (query) Determines the output format of the image - original,gif,jpg,png. (optional)
      - parameter maxWidth: (query) The maximum image width to return. (optional)
@@ -3118,7 +3184,7 @@ open class ImageAPI {
      - parameter blur: (query) Optional. Blur image. (optional)
      - parameter backgroundColor: (query) Optional. Apply a background color for transparent images. (optional)
      - parameter foregroundLayer: (query) Optional. Apply a foreground layer on top of the image. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headUserImageByIndexWithRequestBuilder(userId: String, imageType: ImageType, imageIndex: Int, tag: String? = nil, format: ImageFormat? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, percentPlayed: Double? = nil, unplayedCount: Int? = nil, width: Int? = nil, height: Int? = nil, quality: Int? = nil, fillWidth: Int? = nil, fillHeight: Int? = nil, cropWhitespace: Bool? = nil, addPlayedIndicator: Bool? = nil, blur: Int? = nil, backgroundColor: String? = nil, foregroundLayer: String? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Users/{userId}/Images/{imageType}/{imageIndex}"
@@ -3154,20 +3220,22 @@ open class ImageAPI {
             "foregroundLayer": foregroundLayer?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Sets the user image.
-
-     - parameter userId: (path) User Id.
-     - parameter imageType: (path) (Unused) Image type.
+     
+     - parameter userId: (path) User Id. 
+     - parameter imageType: (path) (Unused) Image type. 
      - parameter index: (query) (Unused) Image index. (optional)
      - parameter body: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -3188,13 +3256,13 @@ open class ImageAPI {
      Sets the user image.
      - POST /Users/{userId}/Images/{imageType}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter userId: (path) User Id.
-     - parameter imageType: (path) (Unused) Image type.
+     - parameter userId: (path) User Id. 
+     - parameter imageType: (path) (Unused) Image type. 
      - parameter index: (query) (Unused) Image index. (optional)
      - parameter body: (body)  (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func postUserImageWithRequestBuilder(userId: String, imageType: ImageType, index: Int? = nil, body: URL? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/Images/{imageType}"
@@ -3212,21 +3280,23 @@ open class ImageAPI {
             "index": index?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Sets the user image.
-
-     - parameter userId: (path) User Id.
-     - parameter imageType: (path) (Unused) Image type.
-     - parameter index: (path) (Unused) Image index.
+     
+     - parameter userId: (path) User Id. 
+     - parameter imageType: (path) (Unused) Image type. 
+     - parameter index: (path) (Unused) Image index. 
      - parameter body: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -3246,13 +3316,13 @@ open class ImageAPI {
      Sets the user image.
      - POST /Users/{userId}/Images/{imageType}/{index}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter userId: (path) User Id.
-     - parameter imageType: (path) (Unused) Image type.
-     - parameter index: (path) (Unused) Image index.
+     - parameter userId: (path) User Id. 
+     - parameter imageType: (path) (Unused) Image type. 
+     - parameter index: (path) (Unused) Image index. 
      - parameter body: (body)  (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func postUserImageByIndexWithRequestBuilder(userId: String, imageType: ImageType, index: Int, body: URL? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/Images/{imageType}/{index}"
@@ -3270,20 +3340,22 @@ open class ImageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Set item image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
      - parameter body: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -3303,12 +3375,12 @@ open class ImageAPI {
      Set item image.
      - POST /Items/{itemId}/Images/{imageType}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
      - parameter body: (body)  (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func setItemImageWithRequestBuilder(itemId: String, imageType: ImageType, body: URL? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}/Images/{imageType}"
@@ -3323,21 +3395,23 @@ open class ImageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Set item image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) (Unused) Image index.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) (Unused) Image index. 
      - parameter body: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -3357,13 +3431,13 @@ open class ImageAPI {
      Set item image.
      - POST /Items/{itemId}/Images/{imageType}/{imageIndex}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) (Unused) Image index.
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) (Unused) Image index. 
      - parameter body: (body)  (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func setItemImageByIndexWithRequestBuilder(itemId: String, imageType: ImageType, imageIndex: Int, body: URL? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}/Images/{imageType}/{imageIndex}"
@@ -3381,22 +3455,24 @@ open class ImageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates the index for an item image.
-
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Old image index.
-     - parameter newIndex: (query) New image index.
+     
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Old image index. 
+     - parameter newIndex: (query) New image index. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -3415,13 +3491,13 @@ open class ImageAPI {
      Updates the index for an item image.
      - POST /Items/{itemId}/Images/{imageType}/{imageIndex}/Index
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id.
-     - parameter imageType: (path) Image type.
-     - parameter imageIndex: (path) Old image index.
-     - parameter newIndex: (query) New image index.
-     - returns: RequestBuilder<Void>
+     - parameter itemId: (path) Item id. 
+     - parameter imageType: (path) Image type. 
+     - parameter imageIndex: (path) Old image index. 
+     - parameter newIndex: (query) New image index. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updateItemImageIndexWithRequestBuilder(itemId: String, imageType: ImageType, imageIndex: Int, newIndex: Int) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}/Images/{imageType}/{imageIndex}/Index"
@@ -3442,12 +3518,15 @@ open class ImageAPI {
             "newIndex": newIndex.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

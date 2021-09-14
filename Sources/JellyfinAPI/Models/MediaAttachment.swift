@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class MediaAttachment. */
 public struct MediaAttachment: Codable, Hashable {
+
     /** Gets or sets the codec. */
     public var codec: String?
     /** Gets or sets the codec tag. */

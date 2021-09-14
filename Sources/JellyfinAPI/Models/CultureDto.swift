@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class CultureDto. */
 public struct CultureDto: Codable, Hashable {
+
     /** Gets or sets the name. */
     public var name: String?
     /** Gets or sets the display name. */

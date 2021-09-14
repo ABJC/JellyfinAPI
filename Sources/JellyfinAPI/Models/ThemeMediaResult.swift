@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class ThemeMediaResult. */
 public struct ThemeMediaResult: Codable, Hashable {
+
     /** Gets or sets the items. */
     public var items: [BaseItemDto]?
     /** The total number of records available. */

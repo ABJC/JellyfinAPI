@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class SessionInfo. */
 public struct SessionInfo: Codable, Hashable {
+
     public var playState: PlayerStateInfo?
     public var additionalUsers: [SessionUserInfo]?
     public var capabilities: ClientCapabilities?

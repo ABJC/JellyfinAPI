@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct QueryFiltersLegacy: Codable, Hashable {
+
     public var genres: [String]?
     public var tags: [String]?
     public var officialRatings: [String]?

@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct EndPointInfo: Codable, Hashable {
+
     public var isLocal: Bool?
     public var isInNetwork: Bool?
 

@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct AlbumInfoRemoteSearchQuery: Codable, Hashable {
+
     public var searchInfo: AlbumInfo?
     public var itemId: String?
     /** Will only search within the given provider when set. */

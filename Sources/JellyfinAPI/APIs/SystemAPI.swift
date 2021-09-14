@@ -8,10 +8,12 @@
 import AnyCodable
 import Foundation
 
+
+
 open class SystemAPI {
     /**
      Gets information about the request endpoint.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,9 +32,9 @@ open class SystemAPI {
      Gets information about the request endpoint.
      - GET /System/Endpoint
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<EndPointInfo>
+     - returns: RequestBuilder<EndPointInfo> 
      */
     open class func getEndpointInfoWithRequestBuilder() -> RequestBuilder<EndPointInfo> {
         let urlPath = "/System/Endpoint"
@@ -41,19 +43,21 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<EndPointInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a log file.
-
-     - parameter name: (query) The name of the log file to get.
+     
+     - parameter name: (query) The name of the log file to get. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -72,10 +76,10 @@ open class SystemAPI {
      Gets a log file.
      - GET /System/Logs/Log
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter name: (query) The name of the log file to get.
-     - returns: RequestBuilder<URL>
+     - parameter name: (query) The name of the log file to get. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getLogFileWithRequestBuilder(name: String) -> RequestBuilder<URL> {
         let urlPath = "/System/Logs/Log"
@@ -87,18 +91,20 @@ open class SystemAPI {
             "name": name.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Pings the system.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -116,7 +122,7 @@ open class SystemAPI {
     /**
      Pings the system.
      - GET /System/Ping
-     - returns: RequestBuilder<String>
+     - returns: RequestBuilder<String> 
      */
     open class func getPingSystemWithRequestBuilder() -> RequestBuilder<String> {
         let urlPath = "/System/Ping"
@@ -125,18 +131,20 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<String>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets public information about the server.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -154,7 +162,7 @@ open class SystemAPI {
     /**
      Gets public information about the server.
      - GET /System/Info/Public
-     - returns: RequestBuilder<PublicSystemInfo>
+     - returns: RequestBuilder<PublicSystemInfo> 
      */
     open class func getPublicSystemInfoWithRequestBuilder() -> RequestBuilder<PublicSystemInfo> {
         let urlPath = "/System/Info/Public"
@@ -163,18 +171,20 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<PublicSystemInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of available server log files.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -193,9 +203,9 @@ open class SystemAPI {
      Gets a list of available server log files.
      - GET /System/Logs
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<[LogFile]>
+     - returns: RequestBuilder<[LogFile]> 
      */
     open class func getServerLogsWithRequestBuilder() -> RequestBuilder<[LogFile]> {
         let urlPath = "/System/Logs"
@@ -204,18 +214,20 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[LogFile]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets information about the server.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -234,9 +246,9 @@ open class SystemAPI {
      Gets information about the server.
      - GET /System/Info
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<SystemInfo>
+     - returns: RequestBuilder<SystemInfo> 
      */
     open class func getSystemInfoWithRequestBuilder() -> RequestBuilder<SystemInfo> {
         let urlPath = "/System/Info"
@@ -245,18 +257,20 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<SystemInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets wake on lan information.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -275,9 +289,9 @@ open class SystemAPI {
      Gets wake on lan information.
      - GET /System/WakeOnLanInfo
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<[WakeOnLanInfo]>
+     - returns: RequestBuilder<[WakeOnLanInfo]> 
      */
     open class func getWakeOnLanInfoWithRequestBuilder() -> RequestBuilder<[WakeOnLanInfo]> {
         let urlPath = "/System/WakeOnLanInfo"
@@ -286,18 +300,20 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[WakeOnLanInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Pings the system.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -315,7 +331,7 @@ open class SystemAPI {
     /**
      Pings the system.
      - POST /System/Ping
-     - returns: RequestBuilder<String>
+     - returns: RequestBuilder<String> 
      */
     open class func postPingSystemWithRequestBuilder() -> RequestBuilder<String> {
         let urlPath = "/System/Ping"
@@ -324,18 +340,20 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<String>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Restarts the application.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -354,9 +372,9 @@ open class SystemAPI {
      Restarts the application.
      - POST /System/Restart
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func restartApplicationWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/System/Restart"
@@ -365,18 +383,20 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Shuts down the application.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -395,9 +415,9 @@ open class SystemAPI {
      Shuts down the application.
      - POST /System/Shutdown
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func shutdownApplicationWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/System/Shutdown"
@@ -406,12 +426,15 @@ open class SystemAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

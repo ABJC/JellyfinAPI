@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct RecommendationDto: Codable, Hashable {
+
     public var items: [BaseItemDto]?
     public var recommendationType: RecommendationType?
     public var baselineItemName: String?

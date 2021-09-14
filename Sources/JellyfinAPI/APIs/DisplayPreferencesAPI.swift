@@ -8,13 +8,15 @@
 import AnyCodable
 import Foundation
 
+
+
 open class DisplayPreferencesAPI {
     /**
      Get Display Preferences.
-
-     - parameter displayPreferencesId: (path) Display preferences id.
-     - parameter userId: (query) User id.
-     - parameter client: (query) Client.
+     
+     - parameter displayPreferencesId: (path) Display preferences id. 
+     - parameter userId: (query) User id. 
+     - parameter client: (query) Client. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -33,12 +35,12 @@ open class DisplayPreferencesAPI {
      Get Display Preferences.
      - GET /DisplayPreferences/{displayPreferencesId}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter displayPreferencesId: (path) Display preferences id.
-     - parameter userId: (query) User id.
-     - parameter client: (query) Client.
-     - returns: RequestBuilder<DisplayPreferencesDto>
+     - parameter displayPreferencesId: (path) Display preferences id. 
+     - parameter userId: (query) User id. 
+     - parameter client: (query) Client. 
+     - returns: RequestBuilder<DisplayPreferencesDto> 
      */
     open class func getDisplayPreferencesWithRequestBuilder(displayPreferencesId: String, userId: String, client: String) -> RequestBuilder<DisplayPreferencesDto> {
         var urlPath = "/DisplayPreferences/{displayPreferencesId}"
@@ -54,22 +56,24 @@ open class DisplayPreferencesAPI {
             "client": client.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<DisplayPreferencesDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Update Display Preferences.
-
-     - parameter displayPreferencesId: (path) Display preferences id.
-     - parameter userId: (query) User Id.
-     - parameter client: (query) Client.
-     - parameter displayPreferencesDto: (body) New Display Preferences object.
+     
+     - parameter displayPreferencesId: (path) Display preferences id. 
+     - parameter userId: (query) User Id. 
+     - parameter client: (query) Client. 
+     - parameter displayPreferencesDto: (body) New Display Preferences object. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -88,13 +92,13 @@ open class DisplayPreferencesAPI {
      Update Display Preferences.
      - POST /DisplayPreferences/{displayPreferencesId}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter displayPreferencesId: (path) Display preferences id.
-     - parameter userId: (query) User Id.
-     - parameter client: (query) Client.
-     - parameter displayPreferencesDto: (body) New Display Preferences object.
-     - returns: RequestBuilder<Void>
+     - parameter displayPreferencesId: (path) Display preferences id. 
+     - parameter userId: (query) User Id. 
+     - parameter client: (query) Client. 
+     - parameter displayPreferencesDto: (body) New Display Preferences object. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updateDisplayPreferencesWithRequestBuilder(displayPreferencesId: String, userId: String, client: String, displayPreferencesDto: DisplayPreferencesDto) -> RequestBuilder<Void> {
         var urlPath = "/DisplayPreferences/{displayPreferencesId}"
@@ -110,12 +114,15 @@ open class DisplayPreferencesAPI {
             "client": client.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

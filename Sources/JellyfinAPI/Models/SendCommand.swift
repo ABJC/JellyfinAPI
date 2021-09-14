@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class SendCommand. */
 public struct SendCommand: Codable, Hashable {
+
     /** Gets the group identifier. */
     public var groupId: String?
     /** Gets the playlist identifier of the playing item. */

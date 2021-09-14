@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct DeviceInfoQueryResult: Codable, Hashable {
+
     /** Gets or sets the items. */
     public var items: [DeviceInfo]?
     /** The total number of records available. */

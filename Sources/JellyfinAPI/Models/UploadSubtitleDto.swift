@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Upload subtitles dto. */
 public struct UploadSubtitleDto: Codable, Hashable {
+
     /** Gets or sets the subtitle language. */
     public var language: String
     /** Gets or sets the subtitle format. */

@@ -8,6 +8,7 @@
 import Foundation
 
 open class JSONEncodingHelper {
+
     open class func encodingParameters<T: Encodable>(forEncodableObject encodableObj: T?) -> [String: Any]? {
         var params: [String: Any]?
 
@@ -40,4 +41,5 @@ open class JSONEncodingHelper {
 
         return params
     }
+
 }

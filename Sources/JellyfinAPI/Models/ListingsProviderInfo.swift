@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct ListingsProviderInfo: Codable, Hashable {
+
     public var id: String?
     public var type: String?
     public var username: String?

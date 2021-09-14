@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class SetShuffleModeRequestDto. */
 public struct SetShuffleModeRequestDto: Codable, Hashable {
+
     public var mode: GroupShuffleMode?
 
     public init(mode: GroupShuffleMode? = nil) {

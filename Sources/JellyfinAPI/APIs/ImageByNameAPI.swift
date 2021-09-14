@@ -8,12 +8,14 @@
 import AnyCodable
 import Foundation
 
+
+
 open class ImageByNameAPI {
     /**
      Get General Image.
-
-     - parameter name: (path) The name of the image.
-     - parameter type: (path) Image Type (primary, backdrop, logo, etc).
+     
+     - parameter name: (path) The name of the image. 
+     - parameter type: (path) Image Type (primary, backdrop, logo, etc). 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,9 +33,9 @@ open class ImageByNameAPI {
     /**
      Get General Image.
      - GET /Images/General/{name}/{type}
-     - parameter name: (path) The name of the image.
-     - parameter type: (path) Image Type (primary, backdrop, logo, etc).
-     - returns: RequestBuilder<URL>
+     - parameter name: (path) The name of the image. 
+     - parameter type: (path) Image Type (primary, backdrop, logo, etc). 
+     - returns: RequestBuilder<URL> 
      */
     open class func getGeneralImageWithRequestBuilder(name: String, type: String) -> RequestBuilder<URL> {
         var urlPath = "/Images/General/{name}/{type}"
@@ -48,18 +50,20 @@ open class ImageByNameAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get all general images.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -78,9 +82,9 @@ open class ImageByNameAPI {
      Get all general images.
      - GET /Images/General
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<[ImageByNameInfo]>
+     - returns: RequestBuilder<[ImageByNameInfo]> 
      */
     open class func getGeneralImagesWithRequestBuilder() -> RequestBuilder<[ImageByNameInfo]> {
         let urlPath = "/Images/General"
@@ -89,20 +93,22 @@ open class ImageByNameAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[ImageByNameInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get media info image.
-
-     - parameter theme: (path) The theme to get the image from.
-     - parameter name: (path) The name of the image.
+     
+     - parameter theme: (path) The theme to get the image from. 
+     - parameter name: (path) The name of the image. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -120,9 +126,9 @@ open class ImageByNameAPI {
     /**
      Get media info image.
      - GET /Images/MediaInfo/{theme}/{name}
-     - parameter theme: (path) The theme to get the image from.
-     - parameter name: (path) The name of the image.
-     - returns: RequestBuilder<URL>
+     - parameter theme: (path) The theme to get the image from. 
+     - parameter name: (path) The name of the image. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getMediaInfoImageWithRequestBuilder(theme: String, name: String) -> RequestBuilder<URL> {
         var urlPath = "/Images/MediaInfo/{theme}/{name}"
@@ -137,18 +143,20 @@ open class ImageByNameAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get all media info images.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -167,9 +175,9 @@ open class ImageByNameAPI {
      Get all media info images.
      - GET /Images/MediaInfo
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<[ImageByNameInfo]>
+     - returns: RequestBuilder<[ImageByNameInfo]> 
      */
     open class func getMediaInfoImagesWithRequestBuilder() -> RequestBuilder<[ImageByNameInfo]> {
         let urlPath = "/Images/MediaInfo"
@@ -178,20 +186,22 @@ open class ImageByNameAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[ImageByNameInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get rating image.
-
-     - parameter theme: (path) The theme to get the image from.
-     - parameter name: (path) The name of the image.
+     
+     - parameter theme: (path) The theme to get the image from. 
+     - parameter name: (path) The name of the image. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -209,9 +219,9 @@ open class ImageByNameAPI {
     /**
      Get rating image.
      - GET /Images/Ratings/{theme}/{name}
-     - parameter theme: (path) The theme to get the image from.
-     - parameter name: (path) The name of the image.
-     - returns: RequestBuilder<URL>
+     - parameter theme: (path) The theme to get the image from. 
+     - parameter name: (path) The name of the image. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getRatingImageWithRequestBuilder(theme: String, name: String) -> RequestBuilder<URL> {
         var urlPath = "/Images/Ratings/{theme}/{name}"
@@ -226,18 +236,20 @@ open class ImageByNameAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get all general images.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -256,9 +268,9 @@ open class ImageByNameAPI {
      Get all general images.
      - GET /Images/Ratings
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<[ImageByNameInfo]>
+     - returns: RequestBuilder<[ImageByNameInfo]> 
      */
     open class func getRatingImagesWithRequestBuilder() -> RequestBuilder<[ImageByNameInfo]> {
         let urlPath = "/Images/Ratings"
@@ -267,12 +279,15 @@ open class ImageByNameAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[ImageByNameInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

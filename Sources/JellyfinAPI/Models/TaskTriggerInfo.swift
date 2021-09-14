@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class TaskTriggerInfo. */
 public struct TaskTriggerInfo: Codable, Hashable {
+
     /** Gets or sets the type. */
     public var type: String?
     /** Gets or sets the time of day. */

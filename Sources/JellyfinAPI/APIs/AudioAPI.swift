@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class AudioAPI {
     /**
      Gets an audio stream.
-
-     - parameter itemId: (path) The item id.
+     
+     - parameter itemId: (path) The item id. 
      - parameter container: (query) The audio container. (optional)
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
@@ -78,7 +80,7 @@ open class AudioAPI {
     /**
      Gets an audio stream.
      - GET /Audio/{itemId}/stream
-     - parameter itemId: (path) The item id.
+     - parameter itemId: (path) The item id. 
      - parameter container: (query) The audio container. (optional)
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
@@ -127,7 +129,7 @@ open class AudioAPI {
      - parameter videoStreamIndex: (query) Optional. The index of the video stream to use. If omitted the first video stream will be used. (optional)
      - parameter context: (query) Optional. The MediaBrowser.Model.Dlna.EncodingContext. (optional)
      - parameter streamOptions: (query) Optional. The streaming options. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getAudioStreamWithRequestBuilder(itemId: String, container: String? = nil, _static: Bool? = nil, params: String? = nil, tag: String? = nil, deviceProfileId: String? = nil, playSessionId: String? = nil, segmentContainer: String? = nil, segmentLength: Int? = nil, minSegments: Int? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, audioCodec: String? = nil, enableAutoStreamCopy: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, audioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, audioBitRate: Int? = nil, audioChannels: Int? = nil, maxAudioChannels: Int? = nil, profile: String? = nil, level: String? = nil, framerate: Float? = nil, maxFramerate: Float? = nil, copyTimestamps: Bool? = nil, startTimeTicks: Int64? = nil, width: Int? = nil, height: Int? = nil, videoBitRate: Int? = nil, subtitleStreamIndex: Int? = nil, subtitleMethod: SubtitleDeliveryMethod? = nil, maxRefFrames: Int? = nil, maxVideoBitDepth: Int? = nil, requireAvc: Bool? = nil, deInterlace: Bool? = nil, requireNonAnamorphic: Bool? = nil, transcodingMaxAudioChannels: Int? = nil, cpuCoreLimit: Int? = nil, liveStreamId: String? = nil, enableMpegtsM2TsMode: Bool? = nil, videoCodec: String? = nil, subtitleCodec: String? = nil, transcodeReasons: String? = nil, audioStreamIndex: Int? = nil, videoStreamIndex: Int? = nil, context: EncodingContext? = nil, streamOptions: [String: String]? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Audio/{itemId}/stream"
@@ -189,20 +191,22 @@ open class AudioAPI {
             "streamOptions": streamOptions?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets an audio stream.
-
-     - parameter itemId: (path) The item id.
-     - parameter container: (path) The audio container.
+     
+     - parameter itemId: (path) The item id. 
+     - parameter container: (path) The audio container. 
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
      - parameter tag: (query) The tag. (optional)
@@ -267,8 +271,8 @@ open class AudioAPI {
     /**
      Gets an audio stream.
      - GET /Audio/{itemId}/stream.{container}
-     - parameter itemId: (path) The item id.
-     - parameter container: (path) The audio container.
+     - parameter itemId: (path) The item id. 
+     - parameter container: (path) The audio container. 
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
      - parameter tag: (query) The tag. (optional)
@@ -316,7 +320,7 @@ open class AudioAPI {
      - parameter videoStreamIndex: (query) Optional. The index of the video stream to use. If omitted the first video stream will be used. (optional)
      - parameter context: (query) Optional. The MediaBrowser.Model.Dlna.EncodingContext. (optional)
      - parameter streamOptions: (query) Optional. The streaming options. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getAudioStreamByContainerWithRequestBuilder(itemId: String, container: String, _static: Bool? = nil, params: String? = nil, tag: String? = nil, deviceProfileId: String? = nil, playSessionId: String? = nil, segmentContainer: String? = nil, segmentLength: Int? = nil, minSegments: Int? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, audioCodec: String? = nil, enableAutoStreamCopy: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, audioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, audioBitRate: Int? = nil, audioChannels: Int? = nil, maxAudioChannels: Int? = nil, profile: String? = nil, level: String? = nil, framerate: Float? = nil, maxFramerate: Float? = nil, copyTimestamps: Bool? = nil, startTimeTicks: Int64? = nil, width: Int? = nil, height: Int? = nil, videoBitRate: Int? = nil, subtitleStreamIndex: Int? = nil, subtitleMethod: SubtitleDeliveryMethod? = nil, maxRefFrames: Int? = nil, maxVideoBitDepth: Int? = nil, requireAvc: Bool? = nil, deInterlace: Bool? = nil, requireNonAnamorphic: Bool? = nil, transcodingMaxAudioChannels: Int? = nil, cpuCoreLimit: Int? = nil, liveStreamId: String? = nil, enableMpegtsM2TsMode: Bool? = nil, videoCodec: String? = nil, subtitleCodec: String? = nil, transcodeReasons: String? = nil, audioStreamIndex: Int? = nil, videoStreamIndex: Int? = nil, context: EncodingContext? = nil, streamOptions: [String: String]? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Audio/{itemId}/stream.{container}"
@@ -380,19 +384,21 @@ open class AudioAPI {
             "streamOptions": streamOptions?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets an audio stream.
-
-     - parameter itemId: (path) The item id.
+     
+     - parameter itemId: (path) The item id. 
      - parameter container: (query) The audio container. (optional)
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
@@ -458,7 +464,7 @@ open class AudioAPI {
     /**
      Gets an audio stream.
      - HEAD /Audio/{itemId}/stream
-     - parameter itemId: (path) The item id.
+     - parameter itemId: (path) The item id. 
      - parameter container: (query) The audio container. (optional)
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
@@ -507,7 +513,7 @@ open class AudioAPI {
      - parameter videoStreamIndex: (query) Optional. The index of the video stream to use. If omitted the first video stream will be used. (optional)
      - parameter context: (query) Optional. The MediaBrowser.Model.Dlna.EncodingContext. (optional)
      - parameter streamOptions: (query) Optional. The streaming options. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headAudioStreamWithRequestBuilder(itemId: String, container: String? = nil, _static: Bool? = nil, params: String? = nil, tag: String? = nil, deviceProfileId: String? = nil, playSessionId: String? = nil, segmentContainer: String? = nil, segmentLength: Int? = nil, minSegments: Int? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, audioCodec: String? = nil, enableAutoStreamCopy: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, audioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, audioBitRate: Int? = nil, audioChannels: Int? = nil, maxAudioChannels: Int? = nil, profile: String? = nil, level: String? = nil, framerate: Float? = nil, maxFramerate: Float? = nil, copyTimestamps: Bool? = nil, startTimeTicks: Int64? = nil, width: Int? = nil, height: Int? = nil, videoBitRate: Int? = nil, subtitleStreamIndex: Int? = nil, subtitleMethod: SubtitleDeliveryMethod? = nil, maxRefFrames: Int? = nil, maxVideoBitDepth: Int? = nil, requireAvc: Bool? = nil, deInterlace: Bool? = nil, requireNonAnamorphic: Bool? = nil, transcodingMaxAudioChannels: Int? = nil, cpuCoreLimit: Int? = nil, liveStreamId: String? = nil, enableMpegtsM2TsMode: Bool? = nil, videoCodec: String? = nil, subtitleCodec: String? = nil, transcodeReasons: String? = nil, audioStreamIndex: Int? = nil, videoStreamIndex: Int? = nil, context: EncodingContext? = nil, streamOptions: [String: String]? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Audio/{itemId}/stream"
@@ -569,20 +575,22 @@ open class AudioAPI {
             "streamOptions": streamOptions?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets an audio stream.
-
-     - parameter itemId: (path) The item id.
-     - parameter container: (path) The audio container.
+     
+     - parameter itemId: (path) The item id. 
+     - parameter container: (path) The audio container. 
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
      - parameter tag: (query) The tag. (optional)
@@ -647,8 +655,8 @@ open class AudioAPI {
     /**
      Gets an audio stream.
      - HEAD /Audio/{itemId}/stream.{container}
-     - parameter itemId: (path) The item id.
-     - parameter container: (path) The audio container.
+     - parameter itemId: (path) The item id. 
+     - parameter container: (path) The audio container. 
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
      - parameter tag: (query) The tag. (optional)
@@ -696,7 +704,7 @@ open class AudioAPI {
      - parameter videoStreamIndex: (query) Optional. The index of the video stream to use. If omitted the first video stream will be used. (optional)
      - parameter context: (query) Optional. The MediaBrowser.Model.Dlna.EncodingContext. (optional)
      - parameter streamOptions: (query) Optional. The streaming options. (optional)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headAudioStreamByContainerWithRequestBuilder(itemId: String, container: String, _static: Bool? = nil, params: String? = nil, tag: String? = nil, deviceProfileId: String? = nil, playSessionId: String? = nil, segmentContainer: String? = nil, segmentLength: Int? = nil, minSegments: Int? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, audioCodec: String? = nil, enableAutoStreamCopy: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, audioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, audioBitRate: Int? = nil, audioChannels: Int? = nil, maxAudioChannels: Int? = nil, profile: String? = nil, level: String? = nil, framerate: Float? = nil, maxFramerate: Float? = nil, copyTimestamps: Bool? = nil, startTimeTicks: Int64? = nil, width: Int? = nil, height: Int? = nil, videoBitRate: Int? = nil, subtitleStreamIndex: Int? = nil, subtitleMethod: SubtitleDeliveryMethod? = nil, maxRefFrames: Int? = nil, maxVideoBitDepth: Int? = nil, requireAvc: Bool? = nil, deInterlace: Bool? = nil, requireNonAnamorphic: Bool? = nil, transcodingMaxAudioChannels: Int? = nil, cpuCoreLimit: Int? = nil, liveStreamId: String? = nil, enableMpegtsM2TsMode: Bool? = nil, videoCodec: String? = nil, subtitleCodec: String? = nil, transcodeReasons: String? = nil, audioStreamIndex: Int? = nil, videoStreamIndex: Int? = nil, context: EncodingContext? = nil, streamOptions: [String: String]? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Audio/{itemId}/stream.{container}"
@@ -760,12 +768,15 @@ open class AudioAPI {
             "streamOptions": streamOptions?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

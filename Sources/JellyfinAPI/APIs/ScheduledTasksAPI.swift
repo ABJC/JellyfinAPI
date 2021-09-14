@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class ScheduledTasksAPI {
     /**
      Get task by id.
-
-     - parameter taskId: (path) Task Id.
+     
+     - parameter taskId: (path) Task Id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +33,10 @@ open class ScheduledTasksAPI {
      Get task by id.
      - GET /ScheduledTasks/{taskId}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter taskId: (path) Task Id.
-     - returns: RequestBuilder<TaskInfo>
+     - parameter taskId: (path) Task Id. 
+     - returns: RequestBuilder<TaskInfo> 
      */
     open class func getTaskWithRequestBuilder(taskId: String) -> RequestBuilder<TaskInfo> {
         var urlPath = "/ScheduledTasks/{taskId}"
@@ -46,18 +48,20 @@ open class ScheduledTasksAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<TaskInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get tasks.
-
+     
      - parameter isHidden: (query) Optional filter tasks that are hidden, or not. (optional)
      - parameter isEnabled: (query) Optional filter tasks that are enabled, or not. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -78,11 +82,11 @@ open class ScheduledTasksAPI {
      Get tasks.
      - GET /ScheduledTasks
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter isHidden: (query) Optional filter tasks that are hidden, or not. (optional)
      - parameter isEnabled: (query) Optional filter tasks that are enabled, or not. (optional)
-     - returns: RequestBuilder<[TaskInfo]>
+     - returns: RequestBuilder<[TaskInfo]> 
      */
     open class func getTasksWithRequestBuilder(isHidden: Bool? = nil, isEnabled: Bool? = nil) -> RequestBuilder<[TaskInfo]> {
         let urlPath = "/ScheduledTasks"
@@ -95,19 +99,21 @@ open class ScheduledTasksAPI {
             "isEnabled": isEnabled?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[TaskInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Start specified task.
-
-     - parameter taskId: (path) Task Id.
+     
+     - parameter taskId: (path) Task Id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -126,10 +132,10 @@ open class ScheduledTasksAPI {
      Start specified task.
      - POST /ScheduledTasks/Running/{taskId}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter taskId: (path) Task Id.
-     - returns: RequestBuilder<Void>
+     - parameter taskId: (path) Task Id. 
+     - returns: RequestBuilder<Void> 
      */
     open class func startTaskWithRequestBuilder(taskId: String) -> RequestBuilder<Void> {
         var urlPath = "/ScheduledTasks/Running/{taskId}"
@@ -141,19 +147,21 @@ open class ScheduledTasksAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Stop specified task.
-
-     - parameter taskId: (path) Task Id.
+     
+     - parameter taskId: (path) Task Id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -172,10 +180,10 @@ open class ScheduledTasksAPI {
      Stop specified task.
      - DELETE /ScheduledTasks/Running/{taskId}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter taskId: (path) Task Id.
-     - returns: RequestBuilder<Void>
+     - parameter taskId: (path) Task Id. 
+     - returns: RequestBuilder<Void> 
      */
     open class func stopTaskWithRequestBuilder(taskId: String) -> RequestBuilder<Void> {
         var urlPath = "/ScheduledTasks/Running/{taskId}"
@@ -187,20 +195,22 @@ open class ScheduledTasksAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Update specified task triggers.
-
-     - parameter taskId: (path) Task Id.
-     - parameter taskTriggerInfo: (body) Triggers.
+     
+     - parameter taskId: (path) Task Id. 
+     - parameter taskTriggerInfo: (body) Triggers. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -219,11 +229,11 @@ open class ScheduledTasksAPI {
      Update specified task triggers.
      - POST /ScheduledTasks/{taskId}/Triggers
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter taskId: (path) Task Id.
-     - parameter taskTriggerInfo: (body) Triggers.
-     - returns: RequestBuilder<Void>
+     - parameter taskId: (path) Task Id. 
+     - parameter taskTriggerInfo: (body) Triggers. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updateTaskWithRequestBuilder(taskId: String, taskTriggerInfo: [TaskTriggerInfo]) -> RequestBuilder<Void> {
         var urlPath = "/ScheduledTasks/{taskId}/Triggers"
@@ -235,12 +245,15 @@ open class ScheduledTasksAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class MetadataOptions. */
 public struct MetadataOptions: Codable, Hashable {
+
     public var itemType: String?
     public var disabledMetadataSavers: [String]?
     public var localMetadataReaderOrder: [String]?

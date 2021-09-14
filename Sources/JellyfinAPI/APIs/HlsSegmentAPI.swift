@@ -8,12 +8,14 @@
 import AnyCodable
 import Foundation
 
+
+
 open class HlsSegmentAPI {
     /**
      Gets the specified audio segment for an audio item.
-
-     - parameter itemId: (path) The item id.
-     - parameter segmentId: (path) The segment id.
+     
+     - parameter itemId: (path) The item id. 
+     - parameter segmentId: (path) The segment id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,9 +33,9 @@ open class HlsSegmentAPI {
     /**
      Gets the specified audio segment for an audio item.
      - GET /Audio/{itemId}/hls/{segmentId}/stream.aac
-     - parameter itemId: (path) The item id.
-     - parameter segmentId: (path) The segment id.
-     - returns: RequestBuilder<URL>
+     - parameter itemId: (path) The item id. 
+     - parameter segmentId: (path) The segment id. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getHlsAudioSegmentLegacyAacWithRequestBuilder(itemId: String, segmentId: String) -> RequestBuilder<URL> {
         var urlPath = "/Audio/{itemId}/hls/{segmentId}/stream.aac"
@@ -48,20 +50,22 @@ open class HlsSegmentAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the specified audio segment for an audio item.
-
-     - parameter itemId: (path) The item id.
-     - parameter segmentId: (path) The segment id.
+     
+     - parameter itemId: (path) The item id. 
+     - parameter segmentId: (path) The segment id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -79,9 +83,9 @@ open class HlsSegmentAPI {
     /**
      Gets the specified audio segment for an audio item.
      - GET /Audio/{itemId}/hls/{segmentId}/stream.mp3
-     - parameter itemId: (path) The item id.
-     - parameter segmentId: (path) The segment id.
-     - returns: RequestBuilder<URL>
+     - parameter itemId: (path) The item id. 
+     - parameter segmentId: (path) The segment id. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getHlsAudioSegmentLegacyMp3WithRequestBuilder(itemId: String, segmentId: String) -> RequestBuilder<URL> {
         var urlPath = "/Audio/{itemId}/hls/{segmentId}/stream.mp3"
@@ -96,20 +100,22 @@ open class HlsSegmentAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a hls video playlist.
-
-     - parameter itemId: (path) The video id.
-     - parameter playlistId: (path) The playlist id.
+     
+     - parameter itemId: (path) The video id. 
+     - parameter playlistId: (path) The playlist id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -128,11 +134,11 @@ open class HlsSegmentAPI {
      Gets a hls video playlist.
      - GET /Videos/{itemId}/hls/{playlistId}/stream.m3u8
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) The video id.
-     - parameter playlistId: (path) The playlist id.
-     - returns: RequestBuilder<URL>
+     - parameter itemId: (path) The video id. 
+     - parameter playlistId: (path) The playlist id. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getHlsPlaylistLegacyWithRequestBuilder(itemId: String, playlistId: String) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{itemId}/hls/{playlistId}/stream.m3u8"
@@ -147,22 +153,24 @@ open class HlsSegmentAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a hls video segment.
-
-     - parameter itemId: (path) The item id.
-     - parameter playlistId: (path) The playlist id.
-     - parameter segmentId: (path) The segment id.
-     - parameter segmentContainer: (path) The segment container.
+     
+     - parameter itemId: (path) The item id. 
+     - parameter playlistId: (path) The playlist id. 
+     - parameter segmentId: (path) The segment id. 
+     - parameter segmentContainer: (path) The segment container. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -180,11 +188,11 @@ open class HlsSegmentAPI {
     /**
      Gets a hls video segment.
      - GET /Videos/{itemId}/hls/{playlistId}/{segmentId}.{segmentContainer}
-     - parameter itemId: (path) The item id.
-     - parameter playlistId: (path) The playlist id.
-     - parameter segmentId: (path) The segment id.
-     - parameter segmentContainer: (path) The segment container.
-     - returns: RequestBuilder<URL>
+     - parameter itemId: (path) The item id. 
+     - parameter playlistId: (path) The playlist id. 
+     - parameter segmentId: (path) The segment id. 
+     - parameter segmentContainer: (path) The segment container. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getHlsVideoSegmentLegacyWithRequestBuilder(itemId: String, playlistId: String, segmentId: String, segmentContainer: String) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{itemId}/hls/{playlistId}/{segmentId}.{segmentContainer}"
@@ -205,20 +213,22 @@ open class HlsSegmentAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Stops an active encoding.
-
-     - parameter deviceId: (query) The device id of the client requesting. Used to stop encoding processes when needed.
-     - parameter playSessionId: (query) The play session id.
+     
+     - parameter deviceId: (query) The device id of the client requesting. Used to stop encoding processes when needed. 
+     - parameter playSessionId: (query) The play session id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -237,11 +247,11 @@ open class HlsSegmentAPI {
      Stops an active encoding.
      - DELETE /Videos/ActiveEncodings
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter deviceId: (query) The device id of the client requesting. Used to stop encoding processes when needed.
-     - parameter playSessionId: (query) The play session id.
-     - returns: RequestBuilder<Void>
+     - parameter deviceId: (query) The device id of the client requesting. Used to stop encoding processes when needed. 
+     - parameter playSessionId: (query) The play session id. 
+     - returns: RequestBuilder<Void> 
      */
     open class func stopEncodingProcessWithRequestBuilder(deviceId: String, playSessionId: String) -> RequestBuilder<Void> {
         let urlPath = "/Videos/ActiveEncodings"
@@ -254,12 +264,15 @@ open class HlsSegmentAPI {
             "playSessionId": playSessionId.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

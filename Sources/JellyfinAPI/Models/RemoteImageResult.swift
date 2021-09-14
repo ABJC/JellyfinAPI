@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class RemoteImageResult. */
 public struct RemoteImageResult: Codable, Hashable {
+
     /** Gets or sets the images. */
     public var images: [RemoteImageInfo]?
     /** Gets or sets the total record count. */

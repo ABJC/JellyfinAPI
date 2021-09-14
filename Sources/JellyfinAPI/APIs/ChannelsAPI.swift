@@ -8,10 +8,12 @@
 import AnyCodable
 import Foundation
 
+
+
 open class ChannelsAPI {
     /**
      Get all channel features.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,9 +32,9 @@ open class ChannelsAPI {
      Get all channel features.
      - GET /Channels/Features
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<[ChannelFeatures]>
+     - returns: RequestBuilder<[ChannelFeatures]> 
      */
     open class func getAllChannelFeaturesWithRequestBuilder() -> RequestBuilder<[ChannelFeatures]> {
         let urlPath = "/Channels/Features"
@@ -41,19 +43,21 @@ open class ChannelsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[ChannelFeatures]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get channel features.
-
-     - parameter channelId: (path) Channel id.
+     
+     - parameter channelId: (path) Channel id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -72,10 +76,10 @@ open class ChannelsAPI {
      Get channel features.
      - GET /Channels/{channelId}/Features
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter channelId: (path) Channel id.
-     - returns: RequestBuilder<ChannelFeatures>
+     - parameter channelId: (path) Channel id. 
+     - returns: RequestBuilder<ChannelFeatures> 
      */
     open class func getChannelFeaturesWithRequestBuilder(channelId: String) -> RequestBuilder<ChannelFeatures> {
         var urlPath = "/Channels/{channelId}/Features"
@@ -87,19 +91,21 @@ open class ChannelsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ChannelFeatures>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get channel items.
-
-     - parameter channelId: (path) Channel Id.
+     
+     - parameter channelId: (path) Channel Id. 
      - parameter folderId: (query) Optional. Folder Id. (optional)
      - parameter userId: (query) Optional. User Id. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
@@ -126,9 +132,9 @@ open class ChannelsAPI {
      Get channel items.
      - GET /Channels/{channelId}/Items
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter channelId: (path) Channel Id.
+     - parameter channelId: (path) Channel Id. 
      - parameter folderId: (query) Optional. Folder Id. (optional)
      - parameter userId: (query) Optional. User Id. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
@@ -137,7 +143,7 @@ open class ChannelsAPI {
      - parameter filters: (query) Optional. Specify additional filters to apply. (optional)
      - parameter sortBy: (query) Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     open class func getChannelItemsWithRequestBuilder(channelId: String, folderId: String? = nil, userId: String? = nil, startIndex: Int? = nil, limit: Int? = nil, sortOrder: [APISortOrder]? = nil, filters: [ItemFilter]? = nil, sortBy: [String]? = nil, fields: [ItemFields]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Channels/{channelId}/Items"
@@ -159,18 +165,20 @@ open class ChannelsAPI {
             "fields": fields?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available channels.
-
+     
      - parameter userId: (query) User Id to filter by. Use System.Guid.Empty to not filter by user. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -195,7 +203,7 @@ open class ChannelsAPI {
      Gets available channels.
      - GET /Channels
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter userId: (query) User Id to filter by. Use System.Guid.Empty to not filter by user. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
@@ -203,7 +211,7 @@ open class ChannelsAPI {
      - parameter supportsLatestItems: (query) Optional. Filter by channels that support getting latest items. (optional)
      - parameter supportsMediaDeletion: (query) Optional. Filter by channels that support media deletion. (optional)
      - parameter isFavorite: (query) Optional. Filter by channels that are favorite. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     open class func getChannelsWithRequestBuilder(userId: String? = nil, startIndex: Int? = nil, limit: Int? = nil, supportsLatestItems: Bool? = nil, supportsMediaDeletion: Bool? = nil, isFavorite: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/Channels"
@@ -220,18 +228,20 @@ open class ChannelsAPI {
             "isFavorite": isFavorite?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets latest channel items.
-
+     
      - parameter userId: (query) Optional. User Id. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -256,7 +266,7 @@ open class ChannelsAPI {
      Gets latest channel items.
      - GET /Channels/Items/Latest
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter userId: (query) Optional. User Id. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
@@ -264,7 +274,7 @@ open class ChannelsAPI {
      - parameter filters: (query) Optional. Specify additional filters to apply. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
      - parameter channelIds: (query) Optional. Specify one or more channel id&#39;s, comma delimited. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     open class func getLatestChannelItemsWithRequestBuilder(userId: String? = nil, startIndex: Int? = nil, limit: Int? = nil, filters: [ItemFilter]? = nil, fields: [ItemFields]? = nil, channelIds: [String]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/Channels/Items/Latest"
@@ -281,12 +291,15 @@ open class ChannelsAPI {
             "channelIds": channelIds?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

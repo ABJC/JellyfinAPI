@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class PlaybackStopInfo. */
 public struct PlaybackStopInfo: Codable, Hashable {
+
     public var item: BaseItemDto?
     /** Gets or sets the item identifier. */
     public var itemId: String?

@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** The startup configuration DTO. */
 public struct StartupConfigurationDto: Codable, Hashable {
+
     /** Gets or sets UI language culture. */
     public var uICulture: String?
     /** Gets or sets the metadata country code. */

@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** The startup user DTO. */
 public struct StartupUserDto: Codable, Hashable {
+
     /** Gets or sets the username. */
     public var name: String?
     /** Gets or sets the user&#39;s password. */

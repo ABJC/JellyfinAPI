@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** This is a serializable stub class that is used by the api to provide information about installed plugins. */
 public struct PluginInfo: Codable, Hashable {
+
     /** Gets or sets the name. */
     public var name: String?
     public var version: Version?

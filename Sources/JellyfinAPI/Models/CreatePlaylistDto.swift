@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Create new playlist dto. */
 public struct CreatePlaylistDto: Codable, Hashable {
+
     /** Gets or sets the name of the new playlist. */
     public var name: String?
     /** Gets or sets item ids to add to the playlist. */

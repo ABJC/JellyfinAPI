@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class UniversalAudioAPI {
     /**
      Gets an audio stream.
-
-     - parameter itemId: (path) The item id.
+     
+     - parameter itemId: (path) The item id. 
      - parameter container: (query) Optional. The audio container. (optional)
      - parameter mediaSourceId: (query) The media version id, if playing an alternate version. (optional)
      - parameter deviceId: (query) The device id of the client requesting. Used to stop encoding processes when needed. (optional)
@@ -48,9 +50,9 @@ open class UniversalAudioAPI {
      Gets an audio stream.
      - GET /Audio/{itemId}/universal
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id.
+     - parameter itemId: (path) The item id. 
      - parameter container: (query) Optional. The audio container. (optional)
      - parameter mediaSourceId: (query) The media version id, if playing an alternate version. (optional)
      - parameter deviceId: (query) The device id of the client requesting. Used to stop encoding processes when needed. (optional)
@@ -68,7 +70,7 @@ open class UniversalAudioAPI {
      - parameter enableRemoteMedia: (query) Optional. Whether to enable remote media. (optional)
      - parameter breakOnNonKeyFrames: (query) Optional. Whether to break on non key frames. (optional, default to false)
      - parameter enableRedirection: (query) Whether to enable redirection. Defaults to true. (optional, default to true)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func getUniversalAudioStreamWithRequestBuilder(itemId: String, container: [String]? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, userId: String? = nil, audioCodec: String? = nil, maxAudioChannels: Int? = nil, transcodingAudioChannels: Int? = nil, maxStreamingBitrate: Int? = nil, audioBitRate: Int? = nil, startTimeTicks: Int64? = nil, transcodingContainer: String? = nil, transcodingProtocol: String? = nil, maxAudioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, enableRemoteMedia: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, enableRedirection: Bool? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Audio/{itemId}/universal"
@@ -99,19 +101,21 @@ open class UniversalAudioAPI {
             "enableRedirection": enableRedirection?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets an audio stream.
-
-     - parameter itemId: (path) The item id.
+     
+     - parameter itemId: (path) The item id. 
      - parameter container: (query) Optional. The audio container. (optional)
      - parameter mediaSourceId: (query) The media version id, if playing an alternate version. (optional)
      - parameter deviceId: (query) The device id of the client requesting. Used to stop encoding processes when needed. (optional)
@@ -147,9 +151,9 @@ open class UniversalAudioAPI {
      Gets an audio stream.
      - HEAD /Audio/{itemId}/universal
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id.
+     - parameter itemId: (path) The item id. 
      - parameter container: (query) Optional. The audio container. (optional)
      - parameter mediaSourceId: (query) The media version id, if playing an alternate version. (optional)
      - parameter deviceId: (query) The device id of the client requesting. Used to stop encoding processes when needed. (optional)
@@ -167,7 +171,7 @@ open class UniversalAudioAPI {
      - parameter enableRemoteMedia: (query) Optional. Whether to enable remote media. (optional)
      - parameter breakOnNonKeyFrames: (query) Optional. Whether to break on non key frames. (optional, default to false)
      - parameter enableRedirection: (query) Whether to enable redirection. Defaults to true. (optional, default to true)
-     - returns: RequestBuilder<URL>
+     - returns: RequestBuilder<URL> 
      */
     open class func headUniversalAudioStreamWithRequestBuilder(itemId: String, container: [String]? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, userId: String? = nil, audioCodec: String? = nil, maxAudioChannels: Int? = nil, transcodingAudioChannels: Int? = nil, maxStreamingBitrate: Int? = nil, audioBitRate: Int? = nil, startTimeTicks: Int64? = nil, transcodingContainer: String? = nil, transcodingProtocol: String? = nil, maxAudioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, enableRemoteMedia: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, enableRedirection: Bool? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Audio/{itemId}/universal"
@@ -198,12 +202,15 @@ open class UniversalAudioAPI {
             "enableRedirection": enableRedirection?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

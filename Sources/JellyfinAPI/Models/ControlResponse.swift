@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct ControlResponse: Codable, Hashable {
+
     public var headers: [String: String]?
     public var xml: String?
     public var isSuccessful: Bool?

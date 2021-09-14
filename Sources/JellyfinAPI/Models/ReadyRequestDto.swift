@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class ReadyRequest. */
 public struct ReadyRequestDto: Codable, Hashable {
+
     /** Gets or sets when the request has been made by the client. */
     public var when: Date?
     /** Gets or sets the position ticks. */

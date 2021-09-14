@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class RepositoryInfo. */
 public struct RepositoryInfo: Codable, Hashable {
+
     /** Gets or sets the name. */
     public var name: String?
     /** Gets or sets the URL. */

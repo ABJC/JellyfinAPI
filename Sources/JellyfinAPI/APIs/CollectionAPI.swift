@@ -8,12 +8,14 @@
 import AnyCodable
 import Foundation
 
+
+
 open class CollectionAPI {
     /**
      Adds items to a collection.
-
-     - parameter collectionId: (path) The collection id.
-     - parameter ids: (query) Item ids, comma delimited.
+     
+     - parameter collectionId: (path) The collection id. 
+     - parameter ids: (query) Item ids, comma delimited. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -32,11 +34,11 @@ open class CollectionAPI {
      Adds items to a collection.
      - POST /Collections/{collectionId}/Items
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter collectionId: (path) The collection id.
-     - parameter ids: (query) Item ids, comma delimited.
-     - returns: RequestBuilder<Void>
+     - parameter collectionId: (path) The collection id. 
+     - parameter ids: (query) Item ids, comma delimited. 
+     - returns: RequestBuilder<Void> 
      */
     open class func addToCollectionWithRequestBuilder(collectionId: String, ids: [String]) -> RequestBuilder<Void> {
         var urlPath = "/Collections/{collectionId}/Items"
@@ -51,18 +53,20 @@ open class CollectionAPI {
             "ids": ids.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates a new collection.
-
+     
      - parameter name: (query) The name of the collection. (optional)
      - parameter ids: (query) Item Ids to add to the collection. (optional)
      - parameter parentId: (query) Optional. Create the collection within a specific folder. (optional)
@@ -85,13 +89,13 @@ open class CollectionAPI {
      Creates a new collection.
      - POST /Collections
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter name: (query) The name of the collection. (optional)
      - parameter ids: (query) Item Ids to add to the collection. (optional)
      - parameter parentId: (query) Optional. Create the collection within a specific folder. (optional)
      - parameter isLocked: (query) Whether or not to lock the new collection. (optional, default to false)
-     - returns: RequestBuilder<CollectionCreationResult>
+     - returns: RequestBuilder<CollectionCreationResult> 
      */
     open class func createCollectionWithRequestBuilder(name: String? = nil, ids: [String]? = nil, parentId: String? = nil, isLocked: Bool? = nil) -> RequestBuilder<CollectionCreationResult> {
         let urlPath = "/Collections"
@@ -106,20 +110,22 @@ open class CollectionAPI {
             "isLocked": isLocked?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<CollectionCreationResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Removes items from a collection.
-
-     - parameter collectionId: (path) The collection id.
-     - parameter ids: (query) Item ids, comma delimited.
+     
+     - parameter collectionId: (path) The collection id. 
+     - parameter ids: (query) Item ids, comma delimited. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -138,11 +144,11 @@ open class CollectionAPI {
      Removes items from a collection.
      - DELETE /Collections/{collectionId}/Items
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter collectionId: (path) The collection id.
-     - parameter ids: (query) Item ids, comma delimited.
-     - returns: RequestBuilder<Void>
+     - parameter collectionId: (path) The collection id. 
+     - parameter ids: (query) Item ids, comma delimited. 
+     - returns: RequestBuilder<Void> 
      */
     open class func removeFromCollectionWithRequestBuilder(collectionId: String, ids: [String]) -> RequestBuilder<Void> {
         var urlPath = "/Collections/{collectionId}/Items"
@@ -157,12 +163,15 @@ open class CollectionAPI {
             "ids": ids.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

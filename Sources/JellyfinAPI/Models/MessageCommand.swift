@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct MessageCommand: Codable, Hashable {
+
     public var header: String?
     public var text: String
     public var timeoutMs: Int64?

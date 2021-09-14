@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class BaseItem. */
 public struct BaseItem: Codable, Hashable {
+
     public var size: Int64?
     public var container: String?
     public var dateLastSaved: Date?

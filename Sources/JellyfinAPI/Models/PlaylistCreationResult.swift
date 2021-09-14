@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct PlaylistCreationResult: Codable, Hashable {
+
     public var id: String?
 
     public init(id: String? = nil) {

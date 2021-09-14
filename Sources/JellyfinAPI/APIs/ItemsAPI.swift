@@ -8,10 +8,12 @@
 import AnyCodable
 import Foundation
 
+
+
 open class ItemsAPI {
     /**
      Gets items based on a query.
-
+     
      - parameter userId: (query) The user id supplied as query parameter. (optional)
      - parameter maxOfficialRating: (query) Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). (optional)
      - parameter hasThemeSong: (query) Optional filter by items with theme songs. (optional)
@@ -110,7 +112,7 @@ open class ItemsAPI {
      Gets items based on a query.
      - GET /Items
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter userId: (query) The user id supplied as query parameter. (optional)
      - parameter maxOfficialRating: (query) Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). (optional)
@@ -192,7 +194,7 @@ open class ItemsAPI {
      - parameter genreIds: (query) Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. (optional)
      - parameter enableTotalRecordCount: (query) Optional. Enable the total record count. (optional, default to true)
      - parameter enableImages: (query) Optional, include image information in output. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     open class func getItemsWithRequestBuilder(userId: String? = nil, maxOfficialRating: String? = nil, hasThemeSong: Bool? = nil, hasThemeVideo: Bool? = nil, hasSubtitles: Bool? = nil, hasSpecialFeature: Bool? = nil, hasTrailer: Bool? = nil, adjacentTo: String? = nil, parentIndexNumber: Int? = nil, hasParentalRating: Bool? = nil, isHd: Bool? = nil, is4K: Bool? = nil, locationTypes: [LocationType]? = nil, excludeLocationTypes: [LocationType]? = nil, isMissing: Bool? = nil, isUnaired: Bool? = nil, minCommunityRating: Double? = nil, minCriticRating: Double? = nil, minPremiereDate: Date? = nil, minDateLastSaved: Date? = nil, minDateLastSavedForUser: Date? = nil, maxPremiereDate: Date? = nil, hasOverview: Bool? = nil, hasImdbId: Bool? = nil, hasTmdbId: Bool? = nil, hasTvdbId: Bool? = nil, excludeItemIds: [String]? = nil, startIndex: Int? = nil, limit: Int? = nil, recursive: Bool? = nil, searchTerm: String? = nil, sortOrder: [APISortOrder]? = nil, parentId: String? = nil, fields: [ItemFields]? = nil, excludeItemTypes: [String]? = nil, includeItemTypes: [String]? = nil, filters: [ItemFilter]? = nil, isFavorite: Bool? = nil, mediaTypes: [String]? = nil, imageTypes: [ImageType]? = nil, sortBy: [String]? = nil, isPlayed: Bool? = nil, genres: [String]? = nil, officialRatings: [String]? = nil, tags: [String]? = nil, years: [Int]? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, person: String? = nil, personIds: [String]? = nil, personTypes: [String]? = nil, studios: [String]? = nil, artists: [String]? = nil, excludeArtistIds: [String]? = nil, artistIds: [String]? = nil, albumArtistIds: [String]? = nil, contributingArtistIds: [String]? = nil, albums: [String]? = nil, albumIds: [String]? = nil, ids: [String]? = nil, videoTypes: [VideoType]? = nil, minOfficialRating: String? = nil, isLocked: Bool? = nil, isPlaceHolder: Bool? = nil, hasOfficialRating: Bool? = nil, collapseBoxSetItems: Bool? = nil, minWidth: Int? = nil, minHeight: Int? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, is3D: Bool? = nil, seriesStatus: [SeriesStatus]? = nil, nameStartsWithOrGreater: String? = nil, nameStartsWith: String? = nil, nameLessThan: String? = nil, studioIds: [String]? = nil, genreIds: [String]? = nil, enableTotalRecordCount: Bool? = nil, enableImages: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/Items"
@@ -283,19 +285,21 @@ open class ItemsAPI {
             "enableImages": enableImages?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets items based on a query.
-
-     - parameter userId: (path) The user id supplied as query parameter.
+     
+     - parameter userId: (path) The user id supplied as query parameter. 
      - parameter maxOfficialRating: (query) Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). (optional)
      - parameter hasThemeSong: (query) Optional filter by items with theme songs. (optional)
      - parameter hasThemeVideo: (query) Optional filter by items with theme videos. (optional)
@@ -393,9 +397,9 @@ open class ItemsAPI {
      Gets items based on a query.
      - GET /Users/{userId}/Items
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter userId: (path) The user id supplied as query parameter.
+     - parameter userId: (path) The user id supplied as query parameter. 
      - parameter maxOfficialRating: (query) Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). (optional)
      - parameter hasThemeSong: (query) Optional filter by items with theme songs. (optional)
      - parameter hasThemeVideo: (query) Optional filter by items with theme videos. (optional)
@@ -475,7 +479,7 @@ open class ItemsAPI {
      - parameter genreIds: (query) Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimeted. (optional)
      - parameter enableTotalRecordCount: (query) Optional. Enable the total record count. (optional, default to true)
      - parameter enableImages: (query) Optional, include image information in output. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     open class func getItemsByUserIdWithRequestBuilder(userId: String, maxOfficialRating: String? = nil, hasThemeSong: Bool? = nil, hasThemeVideo: Bool? = nil, hasSubtitles: Bool? = nil, hasSpecialFeature: Bool? = nil, hasTrailer: Bool? = nil, adjacentTo: String? = nil, parentIndexNumber: Int? = nil, hasParentalRating: Bool? = nil, isHd: Bool? = nil, is4K: Bool? = nil, locationTypes: [LocationType]? = nil, excludeLocationTypes: [LocationType]? = nil, isMissing: Bool? = nil, isUnaired: Bool? = nil, minCommunityRating: Double? = nil, minCriticRating: Double? = nil, minPremiereDate: Date? = nil, minDateLastSaved: Date? = nil, minDateLastSavedForUser: Date? = nil, maxPremiereDate: Date? = nil, hasOverview: Bool? = nil, hasImdbId: Bool? = nil, hasTmdbId: Bool? = nil, hasTvdbId: Bool? = nil, excludeItemIds: [String]? = nil, startIndex: Int? = nil, limit: Int? = nil, recursive: Bool? = nil, searchTerm: String? = nil, sortOrder: [APISortOrder]? = nil, parentId: String? = nil, fields: [ItemFields]? = nil, excludeItemTypes: [String]? = nil, includeItemTypes: [String]? = nil, filters: [ItemFilter]? = nil, isFavorite: Bool? = nil, mediaTypes: [String]? = nil, imageTypes: [ImageType]? = nil, sortBy: [String]? = nil, isPlayed: Bool? = nil, genres: [String]? = nil, officialRatings: [String]? = nil, tags: [String]? = nil, years: [Int]? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, person: String? = nil, personIds: [String]? = nil, personTypes: [String]? = nil, studios: [String]? = nil, artists: [String]? = nil, excludeArtistIds: [String]? = nil, artistIds: [String]? = nil, albumArtistIds: [String]? = nil, contributingArtistIds: [String]? = nil, albums: [String]? = nil, albumIds: [String]? = nil, ids: [String]? = nil, videoTypes: [VideoType]? = nil, minOfficialRating: String? = nil, isLocked: Bool? = nil, isPlaceHolder: Bool? = nil, hasOfficialRating: Bool? = nil, collapseBoxSetItems: Bool? = nil, minWidth: Int? = nil, minHeight: Int? = nil, maxWidth: Int? = nil, maxHeight: Int? = nil, is3D: Bool? = nil, seriesStatus: [SeriesStatus]? = nil, nameStartsWithOrGreater: String? = nil, nameStartsWith: String? = nil, nameLessThan: String? = nil, studioIds: [String]? = nil, genreIds: [String]? = nil, enableTotalRecordCount: Bool? = nil, enableImages: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Users/{userId}/Items"
@@ -568,19 +572,21 @@ open class ItemsAPI {
             "enableImages": enableImages?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets items based on a query.
-
-     - parameter userId: (path) The user id.
+     
+     - parameter userId: (path) The user id. 
      - parameter startIndex: (query) The start index. (optional)
      - parameter limit: (query) The item limit. (optional)
      - parameter searchTerm: (query) The search term. (optional)
@@ -612,9 +618,9 @@ open class ItemsAPI {
      Gets items based on a query.
      - GET /Users/{userId}/Items/Resume
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter userId: (path) The user id.
+     - parameter userId: (path) The user id. 
      - parameter startIndex: (query) The start index. (optional)
      - parameter limit: (query) The item limit. (optional)
      - parameter searchTerm: (query) The search term. (optional)
@@ -628,7 +634,7 @@ open class ItemsAPI {
      - parameter includeItemTypes: (query) Optional. If specified, results will be filtered based on the item type. This allows multiple, comma delimited. (optional)
      - parameter enableTotalRecordCount: (query) Optional. Enable the total record count. (optional, default to true)
      - parameter enableImages: (query) Optional. Include image information in output. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     open class func getResumeItemsWithRequestBuilder(userId: String, startIndex: Int? = nil, limit: Int? = nil, searchTerm: String? = nil, parentId: String? = nil, fields: [ItemFields]? = nil, mediaTypes: [String]? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, excludeItemTypes: [String]? = nil, includeItemTypes: [String]? = nil, enableTotalRecordCount: Bool? = nil, enableImages: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Users/{userId}/Items/Resume"
@@ -655,12 +661,15 @@ open class ItemsAPI {
             "enableImages": enableImages?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

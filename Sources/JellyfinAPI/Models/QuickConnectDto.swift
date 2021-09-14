@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** The quick connect request body. */
 public struct QuickConnectDto: Codable, Hashable {
+
     /** Gets or sets the quick connect token. */
     public var token: String
 

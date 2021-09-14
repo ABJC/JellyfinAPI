@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** The notification summary DTO. */
 public struct NotificationsSummaryDto: Codable, Hashable {
+
     /** Gets or sets the number of unread notifications. */
     public var unreadCount: Int?
     public var maxUnreadNotificationLevel: NotificationLevel?

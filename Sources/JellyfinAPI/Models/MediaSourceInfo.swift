@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct MediaSourceInfo: Codable, Hashable {
+
     public var _protocol: MediaProtocol?
     public var id: String?
     public var path: String?

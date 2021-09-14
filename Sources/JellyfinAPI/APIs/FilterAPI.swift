@@ -8,10 +8,12 @@
 import AnyCodable
 import Foundation
 
+
+
 open class FilterAPI {
     /**
      Gets query filters.
-
+     
      - parameter userId: (query) Optional. User id. (optional)
      - parameter parentId: (query) Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. (optional)
      - parameter includeItemTypes: (query) Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. (optional)
@@ -40,7 +42,7 @@ open class FilterAPI {
      Gets query filters.
      - GET /Items/Filters2
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter userId: (query) Optional. User id. (optional)
      - parameter parentId: (query) Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. (optional)
@@ -52,7 +54,7 @@ open class FilterAPI {
      - parameter isNews: (query) Optional. Is item news. (optional)
      - parameter isSeries: (query) Optional. Is item series. (optional)
      - parameter recursive: (query) Optional. Search recursive. (optional)
-     - returns: RequestBuilder<QueryFilters>
+     - returns: RequestBuilder<QueryFilters> 
      */
     open class func getQueryFiltersWithRequestBuilder(userId: String? = nil, parentId: String? = nil, includeItemTypes: [String]? = nil, isAiring: Bool? = nil, isMovie: Bool? = nil, isSports: Bool? = nil, isKids: Bool? = nil, isNews: Bool? = nil, isSeries: Bool? = nil, recursive: Bool? = nil) -> RequestBuilder<QueryFilters> {
         let urlPath = "/Items/Filters2"
@@ -73,18 +75,20 @@ open class FilterAPI {
             "recursive": recursive?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<QueryFilters>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets legacy query filters.
-
+     
      - parameter userId: (query) Optional. User id. (optional)
      - parameter parentId: (query) Optional. Parent id. (optional)
      - parameter includeItemTypes: (query) Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. (optional)
@@ -107,13 +111,13 @@ open class FilterAPI {
      Gets legacy query filters.
      - GET /Items/Filters
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter userId: (query) Optional. User id. (optional)
      - parameter parentId: (query) Optional. Parent id. (optional)
      - parameter includeItemTypes: (query) Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. (optional)
      - parameter mediaTypes: (query) Optional. Filter by MediaType. Allows multiple, comma delimited. (optional)
-     - returns: RequestBuilder<QueryFiltersLegacy>
+     - returns: RequestBuilder<QueryFiltersLegacy> 
      */
     open class func getQueryFiltersLegacyWithRequestBuilder(userId: String? = nil, parentId: String? = nil, includeItemTypes: [String]? = nil, mediaTypes: [String]? = nil) -> RequestBuilder<QueryFiltersLegacy> {
         let urlPath = "/Items/Filters"
@@ -128,12 +132,15 @@ open class FilterAPI {
             "mediaTypes": mediaTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<QueryFiltersLegacy>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

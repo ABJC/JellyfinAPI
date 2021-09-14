@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Validate path object. */
 public struct ValidatePathDto: Codable, Hashable {
+
     /** Gets or sets a value indicating whether validate if path is writable. */
     public var validateWritable: Bool?
     /** Gets or sets the path. */

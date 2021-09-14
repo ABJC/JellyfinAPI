@@ -8,10 +8,12 @@
 import AnyCodable
 import Foundation
 
+
+
 open class QuickConnectAPI {
     /**
      Temporarily activates quick connect for five minutes.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,9 +32,9 @@ open class QuickConnectAPI {
      Temporarily activates quick connect for five minutes.
      - POST /QuickConnect/Activate
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func activateWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/QuickConnect/Activate"
@@ -41,19 +43,21 @@ open class QuickConnectAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Authorizes a pending quick connect request.
-
-     - parameter code: (query) Quick connect code to authorize.
+     
+     - parameter code: (query) Quick connect code to authorize. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -72,10 +76,10 @@ open class QuickConnectAPI {
      Authorizes a pending quick connect request.
      - POST /QuickConnect/Authorize
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter code: (query) Quick connect code to authorize.
-     - returns: RequestBuilder<Bool>
+     - parameter code: (query) Quick connect code to authorize. 
+     - returns: RequestBuilder<Bool> 
      */
     open class func authorizeWithRequestBuilder(code: String) -> RequestBuilder<Bool> {
         let urlPath = "/QuickConnect/Authorize"
@@ -87,18 +91,20 @@ open class QuickConnectAPI {
             "code": code.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Bool>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Enables or disables quick connect.
-
+     
      - parameter status: (query) New MediaBrowser.Model.QuickConnect.QuickConnectState. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -118,10 +124,10 @@ open class QuickConnectAPI {
      Enables or disables quick connect.
      - POST /QuickConnect/Available
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter status: (query) New MediaBrowser.Model.QuickConnect.QuickConnectState. (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func availableWithRequestBuilder(status: QuickConnectState? = nil) -> RequestBuilder<Void> {
         let urlPath = "/QuickConnect/Available"
@@ -133,19 +139,21 @@ open class QuickConnectAPI {
             "status": status?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Attempts to retrieve authentication information.
-
-     - parameter secret: (query) Secret previously returned from the Initiate endpoint.
+     
+     - parameter secret: (query) Secret previously returned from the Initiate endpoint. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -163,8 +171,8 @@ open class QuickConnectAPI {
     /**
      Attempts to retrieve authentication information.
      - GET /QuickConnect/Connect
-     - parameter secret: (query) Secret previously returned from the Initiate endpoint.
-     - returns: RequestBuilder<QuickConnectResult>
+     - parameter secret: (query) Secret previously returned from the Initiate endpoint. 
+     - returns: RequestBuilder<QuickConnectResult> 
      */
     open class func connectWithRequestBuilder(secret: String) -> RequestBuilder<QuickConnectResult> {
         let urlPath = "/QuickConnect/Connect"
@@ -176,18 +184,20 @@ open class QuickConnectAPI {
             "secret": secret.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<QuickConnectResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Deauthorize all quick connect devices for the current user.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -206,9 +216,9 @@ open class QuickConnectAPI {
      Deauthorize all quick connect devices for the current user.
      - POST /QuickConnect/Deauthorize
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Int>
+     - returns: RequestBuilder<Int> 
      */
     open class func deauthorizeWithRequestBuilder() -> RequestBuilder<Int> {
         let urlPath = "/QuickConnect/Deauthorize"
@@ -217,18 +227,20 @@ open class QuickConnectAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Int>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the current quick connect state.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -246,7 +258,7 @@ open class QuickConnectAPI {
     /**
      Gets the current quick connect state.
      - GET /QuickConnect/Status
-     - returns: RequestBuilder<QuickConnectState>
+     - returns: RequestBuilder<QuickConnectState> 
      */
     open class func getStatusWithRequestBuilder() -> RequestBuilder<QuickConnectState> {
         let urlPath = "/QuickConnect/Status"
@@ -255,18 +267,20 @@ open class QuickConnectAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<QuickConnectState>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Initiate a new quick connect request.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -284,7 +298,7 @@ open class QuickConnectAPI {
     /**
      Initiate a new quick connect request.
      - GET /QuickConnect/Initiate
-     - returns: RequestBuilder<QuickConnectResult>
+     - returns: RequestBuilder<QuickConnectResult> 
      */
     open class func initiateWithRequestBuilder() -> RequestBuilder<QuickConnectResult> {
         let urlPath = "/QuickConnect/Initiate"
@@ -293,12 +307,15 @@ open class QuickConnectAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<QuickConnectResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

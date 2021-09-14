@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Update library options dto. */
 public struct UpdateLibraryOptionsDto: Codable, Hashable {
+
     /** Gets or sets the library item id. */
     public var id: String?
     public var libraryOptions: LibraryOptions?

@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class SearchAPI {
     /**
      Gets the search hint result.
-
-     - parameter searchTerm: (query) The search term to filter on.
+     
+     - parameter searchTerm: (query) The search term to filter on. 
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter userId: (query) Optional. Supply a user id to search within a user&#39;s library or omit to search all. (optional)
@@ -48,9 +50,9 @@ open class SearchAPI {
      Gets the search hint result.
      - GET /Search/Hints
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter searchTerm: (query) The search term to filter on.
+     - parameter searchTerm: (query) The search term to filter on. 
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter userId: (query) Optional. Supply a user id to search within a user&#39;s library or omit to search all. (optional)
@@ -68,7 +70,7 @@ open class SearchAPI {
      - parameter includeGenres: (query) Optional filter whether to include genres. (optional, default to true)
      - parameter includeStudios: (query) Optional filter whether to include studios. (optional, default to true)
      - parameter includeArtists: (query) Optional filter whether to include artists. (optional, default to true)
-     - returns: RequestBuilder<SearchHintResult>
+     - returns: RequestBuilder<SearchHintResult> 
      */
     open class func callGetWithRequestBuilder(searchTerm: String, startIndex: Int? = nil, limit: Int? = nil, userId: String? = nil, includeItemTypes: [String]? = nil, excludeItemTypes: [String]? = nil, mediaTypes: [String]? = nil, parentId: String? = nil, isMovie: Bool? = nil, isSeries: Bool? = nil, isNews: Bool? = nil, isKids: Bool? = nil, isSports: Bool? = nil, includePeople: Bool? = nil, includeMedia: Bool? = nil, includeGenres: Bool? = nil, includeStudios: Bool? = nil, includeArtists: Bool? = nil) -> RequestBuilder<SearchHintResult> {
         let urlPath = "/Search/Hints"
@@ -97,12 +99,15 @@ open class SearchAPI {
             "includeArtists": includeArtists?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<SearchHintResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

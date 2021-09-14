@@ -8,10 +8,12 @@
 import AnyCodable
 import Foundation
 
+
+
 open class StartupAPI {
     /**
      Completes the startup wizard.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,9 +32,9 @@ open class StartupAPI {
      Completes the startup wizard.
      - POST /Startup/Complete
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func completeWizardWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/Startup/Complete"
@@ -41,18 +43,20 @@ open class StartupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the first user.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -71,9 +75,9 @@ open class StartupAPI {
      Gets the first user.
      - GET /Startup/User
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<StartupUserDto>
+     - returns: RequestBuilder<StartupUserDto> 
      */
     open class func getFirstUserWithRequestBuilder() -> RequestBuilder<StartupUserDto> {
         let urlPath = "/Startup/User"
@@ -82,18 +86,20 @@ open class StartupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<StartupUserDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the first user.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -112,9 +118,9 @@ open class StartupAPI {
      Gets the first user.
      - GET /Startup/FirstUser
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<StartupUserDto>
+     - returns: RequestBuilder<StartupUserDto> 
      */
     open class func getFirstUser2WithRequestBuilder() -> RequestBuilder<StartupUserDto> {
         let urlPath = "/Startup/FirstUser"
@@ -123,18 +129,20 @@ open class StartupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<StartupUserDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the initial startup wizard configuration.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -153,9 +161,9 @@ open class StartupAPI {
      Gets the initial startup wizard configuration.
      - GET /Startup/Configuration
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<StartupConfigurationDto>
+     - returns: RequestBuilder<StartupConfigurationDto> 
      */
     open class func getStartupConfigurationWithRequestBuilder() -> RequestBuilder<StartupConfigurationDto> {
         let urlPath = "/Startup/Configuration"
@@ -164,19 +172,21 @@ open class StartupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<StartupConfigurationDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Sets remote access and UPnP.
-
-     - parameter startupRemoteAccessDto: (body) The startup remote access dto.
+     
+     - parameter startupRemoteAccessDto: (body) The startup remote access dto. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -195,10 +205,10 @@ open class StartupAPI {
      Sets remote access and UPnP.
      - POST /Startup/RemoteAccess
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter startupRemoteAccessDto: (body) The startup remote access dto.
-     - returns: RequestBuilder<Void>
+     - parameter startupRemoteAccessDto: (body) The startup remote access dto. 
+     - returns: RequestBuilder<Void> 
      */
     open class func setRemoteAccessWithRequestBuilder(startupRemoteAccessDto: StartupRemoteAccessDto) -> RequestBuilder<Void> {
         let urlPath = "/Startup/RemoteAccess"
@@ -207,19 +217,21 @@ open class StartupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Sets the initial startup wizard configuration.
-
-     - parameter startupConfigurationDto: (body) The updated startup configuration.
+     
+     - parameter startupConfigurationDto: (body) The updated startup configuration. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -238,10 +250,10 @@ open class StartupAPI {
      Sets the initial startup wizard configuration.
      - POST /Startup/Configuration
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter startupConfigurationDto: (body) The updated startup configuration.
-     - returns: RequestBuilder<Void>
+     - parameter startupConfigurationDto: (body) The updated startup configuration. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updateInitialConfigurationWithRequestBuilder(startupConfigurationDto: StartupConfigurationDto) -> RequestBuilder<Void> {
         let urlPath = "/Startup/Configuration"
@@ -250,18 +262,20 @@ open class StartupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Sets the user name and password.
-
+     
      - parameter startupUserDto: (body) The DTO containing username and password. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -281,10 +295,10 @@ open class StartupAPI {
      Sets the user name and password.
      - POST /Startup/User
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter startupUserDto: (body) The DTO containing username and password. (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func updateStartupUserWithRequestBuilder(startupUserDto: StartupUserDto? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Startup/User"
@@ -293,12 +307,15 @@ open class StartupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

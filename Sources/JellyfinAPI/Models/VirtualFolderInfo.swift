@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Used to hold information about a user&#39;s list of configured virtual folders. */
 public struct VirtualFolderInfo: Codable, Hashable {
+
     /** Gets or sets the name. */
     public var name: String?
     /** Gets or sets the locations. */

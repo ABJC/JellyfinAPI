@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class DevicesAPI {
     /**
      Deletes a device.
-
-     - parameter id: (query) Device Id.
+     
+     - parameter id: (query) Device Id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +33,10 @@ open class DevicesAPI {
      Deletes a device.
      - DELETE /Devices
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter id: (query) Device Id.
-     - returns: RequestBuilder<Void>
+     - parameter id: (query) Device Id. 
+     - returns: RequestBuilder<Void> 
      */
     open class func deleteDeviceWithRequestBuilder(id: String) -> RequestBuilder<Void> {
         let urlPath = "/Devices"
@@ -46,19 +48,21 @@ open class DevicesAPI {
             "id": id.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get info for a device.
-
-     - parameter id: (query) Device Id.
+     
+     - parameter id: (query) Device Id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -77,10 +81,10 @@ open class DevicesAPI {
      Get info for a device.
      - GET /Devices/Info
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter id: (query) Device Id.
-     - returns: RequestBuilder<DeviceInfo>
+     - parameter id: (query) Device Id. 
+     - returns: RequestBuilder<DeviceInfo> 
      */
     open class func getDeviceInfoWithRequestBuilder(id: String) -> RequestBuilder<DeviceInfo> {
         let urlPath = "/Devices/Info"
@@ -92,19 +96,21 @@ open class DevicesAPI {
             "id": id.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<DeviceInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get options for a device.
-
-     - parameter id: (query) Device Id.
+     
+     - parameter id: (query) Device Id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -123,10 +129,10 @@ open class DevicesAPI {
      Get options for a device.
      - GET /Devices/Options
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter id: (query) Device Id.
-     - returns: RequestBuilder<DeviceOptions>
+     - parameter id: (query) Device Id. 
+     - returns: RequestBuilder<DeviceOptions> 
      */
     open class func getDeviceOptionsWithRequestBuilder(id: String) -> RequestBuilder<DeviceOptions> {
         let urlPath = "/Devices/Options"
@@ -138,18 +144,20 @@ open class DevicesAPI {
             "id": id.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<DeviceOptions>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get Devices.
-
+     
      - parameter supportsSync: (query) Gets or sets a value indicating whether [supports synchronize]. (optional)
      - parameter userId: (query) Gets or sets the user identifier. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -170,11 +178,11 @@ open class DevicesAPI {
      Get Devices.
      - GET /Devices
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter supportsSync: (query) Gets or sets a value indicating whether [supports synchronize]. (optional)
      - parameter userId: (query) Gets or sets the user identifier. (optional)
-     - returns: RequestBuilder<DeviceInfoQueryResult>
+     - returns: RequestBuilder<DeviceInfoQueryResult> 
      */
     open class func getDevicesWithRequestBuilder(supportsSync: Bool? = nil, userId: String? = nil) -> RequestBuilder<DeviceInfoQueryResult> {
         let urlPath = "/Devices"
@@ -187,20 +195,22 @@ open class DevicesAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<DeviceInfoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Update device options.
-
-     - parameter id: (query) Device Id.
-     - parameter deviceOptions: (body) Device Options.
+     
+     - parameter id: (query) Device Id. 
+     - parameter deviceOptions: (body) Device Options. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -219,11 +229,11 @@ open class DevicesAPI {
      Update device options.
      - POST /Devices/Options
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter id: (query) Device Id.
-     - parameter deviceOptions: (body) Device Options.
-     - returns: RequestBuilder<Void>
+     - parameter id: (query) Device Id. 
+     - parameter deviceOptions: (body) Device Options. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updateDeviceOptionsWithRequestBuilder(id: String, deviceOptions: DeviceOptions) -> RequestBuilder<Void> {
         let urlPath = "/Devices/Options"
@@ -235,12 +245,15 @@ open class DevicesAPI {
             "id": id.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

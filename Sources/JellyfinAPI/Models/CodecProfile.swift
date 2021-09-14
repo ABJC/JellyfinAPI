@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct CodecProfile: Codable, Hashable {
+
     public var type: CodecType?
     public var conditions: [ProfileCondition]?
     public var applyConditions: [ProfileCondition]?

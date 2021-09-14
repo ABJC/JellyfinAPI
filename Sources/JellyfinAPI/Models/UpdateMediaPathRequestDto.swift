@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Update library options dto. */
 public struct UpdateMediaPathRequestDto: Codable, Hashable {
+
     /** Gets or sets the library name. */
     public var name: String
     public var pathInfo: MediaPathInfo

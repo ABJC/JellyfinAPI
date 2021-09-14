@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class SyncPlayAPI {
     /**
      Notify SyncPlay group that member is buffering.
-
-     - parameter bufferRequestDto: (body) The player status.
+     
+     - parameter bufferRequestDto: (body) The player status. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +33,10 @@ open class SyncPlayAPI {
      Notify SyncPlay group that member is buffering.
      - POST /SyncPlay/Buffering
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter bufferRequestDto: (body) The player status.
-     - returns: RequestBuilder<Void>
+     - parameter bufferRequestDto: (body) The player status. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayBufferingWithRequestBuilder(bufferRequestDto: BufferRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Buffering"
@@ -43,19 +45,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Create a new SyncPlay group.
-
-     - parameter newGroupRequestDto: (body) The settings of the new group.
+     
+     - parameter newGroupRequestDto: (body) The settings of the new group. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -74,10 +78,10 @@ open class SyncPlayAPI {
      Create a new SyncPlay group.
      - POST /SyncPlay/New
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter newGroupRequestDto: (body) The settings of the new group.
-     - returns: RequestBuilder<Void>
+     - parameter newGroupRequestDto: (body) The settings of the new group. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayCreateGroupWithRequestBuilder(newGroupRequestDto: NewGroupRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/New"
@@ -86,18 +90,20 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets all SyncPlay groups.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -116,9 +122,9 @@ open class SyncPlayAPI {
      Gets all SyncPlay groups.
      - GET /SyncPlay/List
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<[GroupInfoDto]>
+     - returns: RequestBuilder<[GroupInfoDto]> 
      */
     open class func syncPlayGetGroupsWithRequestBuilder() -> RequestBuilder<[GroupInfoDto]> {
         let urlPath = "/SyncPlay/List"
@@ -127,19 +133,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[GroupInfoDto]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Join an existing SyncPlay group.
-
-     - parameter joinGroupRequestDto: (body) The group to join.
+     
+     - parameter joinGroupRequestDto: (body) The group to join. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -158,10 +166,10 @@ open class SyncPlayAPI {
      Join an existing SyncPlay group.
      - POST /SyncPlay/Join
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter joinGroupRequestDto: (body) The group to join.
-     - returns: RequestBuilder<Void>
+     - parameter joinGroupRequestDto: (body) The group to join. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayJoinGroupWithRequestBuilder(joinGroupRequestDto: JoinGroupRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Join"
@@ -170,18 +178,20 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Leave the joined SyncPlay group.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -200,9 +210,9 @@ open class SyncPlayAPI {
      Leave the joined SyncPlay group.
      - POST /SyncPlay/Leave
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayLeaveGroupWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Leave"
@@ -211,19 +221,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request to move an item in the playlist in SyncPlay group.
-
-     - parameter movePlaylistItemRequestDto: (body) The new position for the item.
+     
+     - parameter movePlaylistItemRequestDto: (body) The new position for the item. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -242,10 +254,10 @@ open class SyncPlayAPI {
      Request to move an item in the playlist in SyncPlay group.
      - POST /SyncPlay/MovePlaylistItem
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter movePlaylistItemRequestDto: (body) The new position for the item.
-     - returns: RequestBuilder<Void>
+     - parameter movePlaylistItemRequestDto: (body) The new position for the item. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayMovePlaylistItemWithRequestBuilder(movePlaylistItemRequestDto: MovePlaylistItemRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/MovePlaylistItem"
@@ -254,19 +266,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request next item in SyncPlay group.
-
-     - parameter nextItemRequestDto: (body) The current item information.
+     
+     - parameter nextItemRequestDto: (body) The current item information. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -285,10 +299,10 @@ open class SyncPlayAPI {
      Request next item in SyncPlay group.
      - POST /SyncPlay/NextItem
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter nextItemRequestDto: (body) The current item information.
-     - returns: RequestBuilder<Void>
+     - parameter nextItemRequestDto: (body) The current item information. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayNextItemWithRequestBuilder(nextItemRequestDto: NextItemRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/NextItem"
@@ -297,18 +311,20 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request pause in SyncPlay group.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -327,9 +343,9 @@ open class SyncPlayAPI {
      Request pause in SyncPlay group.
      - POST /SyncPlay/Pause
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayPauseWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Pause"
@@ -338,19 +354,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Update session ping.
-
-     - parameter pingRequestDto: (body) The new ping.
+     
+     - parameter pingRequestDto: (body) The new ping. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -369,10 +387,10 @@ open class SyncPlayAPI {
      Update session ping.
      - POST /SyncPlay/Ping
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pingRequestDto: (body) The new ping.
-     - returns: RequestBuilder<Void>
+     - parameter pingRequestDto: (body) The new ping. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayPingWithRequestBuilder(pingRequestDto: PingRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Ping"
@@ -381,19 +399,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request previous item in SyncPlay group.
-
-     - parameter previousItemRequestDto: (body) The current item information.
+     
+     - parameter previousItemRequestDto: (body) The current item information. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -412,10 +432,10 @@ open class SyncPlayAPI {
      Request previous item in SyncPlay group.
      - POST /SyncPlay/PreviousItem
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter previousItemRequestDto: (body) The current item information.
-     - returns: RequestBuilder<Void>
+     - parameter previousItemRequestDto: (body) The current item information. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayPreviousItemWithRequestBuilder(previousItemRequestDto: PreviousItemRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/PreviousItem"
@@ -424,19 +444,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request to queue items to the playlist of a SyncPlay group.
-
-     - parameter queueRequestDto: (body) The items to add.
+     
+     - parameter queueRequestDto: (body) The items to add. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -455,10 +477,10 @@ open class SyncPlayAPI {
      Request to queue items to the playlist of a SyncPlay group.
      - POST /SyncPlay/Queue
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter queueRequestDto: (body) The items to add.
-     - returns: RequestBuilder<Void>
+     - parameter queueRequestDto: (body) The items to add. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayQueueWithRequestBuilder(queueRequestDto: QueueRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Queue"
@@ -467,19 +489,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Notify SyncPlay group that member is ready for playback.
-
-     - parameter readyRequestDto: (body) The player status.
+     
+     - parameter readyRequestDto: (body) The player status. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -498,10 +522,10 @@ open class SyncPlayAPI {
      Notify SyncPlay group that member is ready for playback.
      - POST /SyncPlay/Ready
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter readyRequestDto: (body) The player status.
-     - returns: RequestBuilder<Void>
+     - parameter readyRequestDto: (body) The player status. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayReadyWithRequestBuilder(readyRequestDto: ReadyRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Ready"
@@ -510,19 +534,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request to remove items from the playlist in SyncPlay group.
-
-     - parameter removeFromPlaylistRequestDto: (body) The items to remove.
+     
+     - parameter removeFromPlaylistRequestDto: (body) The items to remove. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -541,10 +567,10 @@ open class SyncPlayAPI {
      Request to remove items from the playlist in SyncPlay group.
      - POST /SyncPlay/RemoveFromPlaylist
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter removeFromPlaylistRequestDto: (body) The items to remove.
-     - returns: RequestBuilder<Void>
+     - parameter removeFromPlaylistRequestDto: (body) The items to remove. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayRemoveFromPlaylistWithRequestBuilder(removeFromPlaylistRequestDto: RemoveFromPlaylistRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/RemoveFromPlaylist"
@@ -553,19 +579,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request seek in SyncPlay group.
-
-     - parameter seekRequestDto: (body) The new playback position.
+     
+     - parameter seekRequestDto: (body) The new playback position. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -584,10 +612,10 @@ open class SyncPlayAPI {
      Request seek in SyncPlay group.
      - POST /SyncPlay/Seek
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter seekRequestDto: (body) The new playback position.
-     - returns: RequestBuilder<Void>
+     - parameter seekRequestDto: (body) The new playback position. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlaySeekWithRequestBuilder(seekRequestDto: SeekRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Seek"
@@ -596,19 +624,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request SyncPlay group to ignore member during group-wait.
-
-     - parameter ignoreWaitRequestDto: (body) The settings to set.
+     
+     - parameter ignoreWaitRequestDto: (body) The settings to set. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -627,10 +657,10 @@ open class SyncPlayAPI {
      Request SyncPlay group to ignore member during group-wait.
      - POST /SyncPlay/SetIgnoreWait
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter ignoreWaitRequestDto: (body) The settings to set.
-     - returns: RequestBuilder<Void>
+     - parameter ignoreWaitRequestDto: (body) The settings to set. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlaySetIgnoreWaitWithRequestBuilder(ignoreWaitRequestDto: IgnoreWaitRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/SetIgnoreWait"
@@ -639,19 +669,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request to set new playlist in SyncPlay group.
-
-     - parameter playRequestDto: (body) The new playlist to play in the group.
+     
+     - parameter playRequestDto: (body) The new playlist to play in the group. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -670,10 +702,10 @@ open class SyncPlayAPI {
      Request to set new playlist in SyncPlay group.
      - POST /SyncPlay/SetNewQueue
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter playRequestDto: (body) The new playlist to play in the group.
-     - returns: RequestBuilder<Void>
+     - parameter playRequestDto: (body) The new playlist to play in the group. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlaySetNewQueueWithRequestBuilder(playRequestDto: PlayRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/SetNewQueue"
@@ -682,19 +714,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request to change playlist item in SyncPlay group.
-
-     - parameter setPlaylistItemRequestDto: (body) The new item to play.
+     
+     - parameter setPlaylistItemRequestDto: (body) The new item to play. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -713,10 +747,10 @@ open class SyncPlayAPI {
      Request to change playlist item in SyncPlay group.
      - POST /SyncPlay/SetPlaylistItem
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter setPlaylistItemRequestDto: (body) The new item to play.
-     - returns: RequestBuilder<Void>
+     - parameter setPlaylistItemRequestDto: (body) The new item to play. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlaySetPlaylistItemWithRequestBuilder(setPlaylistItemRequestDto: SetPlaylistItemRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/SetPlaylistItem"
@@ -725,19 +759,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request to set repeat mode in SyncPlay group.
-
-     - parameter setRepeatModeRequestDto: (body) The new repeat mode.
+     
+     - parameter setRepeatModeRequestDto: (body) The new repeat mode. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -756,10 +792,10 @@ open class SyncPlayAPI {
      Request to set repeat mode in SyncPlay group.
      - POST /SyncPlay/SetRepeatMode
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter setRepeatModeRequestDto: (body) The new repeat mode.
-     - returns: RequestBuilder<Void>
+     - parameter setRepeatModeRequestDto: (body) The new repeat mode. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlaySetRepeatModeWithRequestBuilder(setRepeatModeRequestDto: SetRepeatModeRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/SetRepeatMode"
@@ -768,19 +804,21 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request to set shuffle mode in SyncPlay group.
-
-     - parameter setShuffleModeRequestDto: (body) The new shuffle mode.
+     
+     - parameter setShuffleModeRequestDto: (body) The new shuffle mode. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -799,10 +837,10 @@ open class SyncPlayAPI {
      Request to set shuffle mode in SyncPlay group.
      - POST /SyncPlay/SetShuffleMode
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter setShuffleModeRequestDto: (body) The new shuffle mode.
-     - returns: RequestBuilder<Void>
+     - parameter setShuffleModeRequestDto: (body) The new shuffle mode. 
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlaySetShuffleModeWithRequestBuilder(setShuffleModeRequestDto: SetShuffleModeRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/SetShuffleMode"
@@ -811,18 +849,20 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request stop in SyncPlay group.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -841,9 +881,9 @@ open class SyncPlayAPI {
      Request stop in SyncPlay group.
      - POST /SyncPlay/Stop
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayStopWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Stop"
@@ -852,18 +892,20 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Request unpause in SyncPlay group.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -882,9 +924,9 @@ open class SyncPlayAPI {
      Request unpause in SyncPlay group.
      - POST /SyncPlay/Unpause
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func syncPlayUnpauseWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/SyncPlay/Unpause"
@@ -893,12 +935,15 @@ open class SyncPlayAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

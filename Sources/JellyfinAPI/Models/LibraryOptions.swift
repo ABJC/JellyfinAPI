@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct LibraryOptions: Codable, Hashable {
+
     public var enablePhotos: Bool?
     public var enableRealtimeMonitor: Bool?
     public var enableChapterImageExtraction: Bool?

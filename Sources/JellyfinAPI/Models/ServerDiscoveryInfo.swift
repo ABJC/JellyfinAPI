@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct ServerDiscoveryInfo: Codable, Hashable {
+
     /** Gets or sets the address. */
     public var address: String?
     /** Gets or sets the server identifier. */

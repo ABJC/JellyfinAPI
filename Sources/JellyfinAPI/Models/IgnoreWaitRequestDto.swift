@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class IgnoreWaitRequestDto. */
 public struct IgnoreWaitRequestDto: Codable, Hashable {
+
     /** Gets or sets a value indicating whether the client should be ignored. */
     public var ignoreWait: Bool?
 

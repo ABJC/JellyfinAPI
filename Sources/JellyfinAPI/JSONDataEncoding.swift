@@ -8,6 +8,7 @@
 import Foundation
 
 public struct JSONDataEncoding {
+
     // MARK: Properties
 
     private static let jsonDataKey = "jsonData"
@@ -48,4 +49,5 @@ public struct JSONDataEncoding {
         }
         return returnedParams
     }
+
 }

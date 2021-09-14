@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Stores the result of an incoming quick connect request. */
 public struct QuickConnectResult: Codable, Hashable {
+
     /** Gets a value indicating whether this request is authorized. */
     public var authenticated: Bool?
     /** Gets or sets the secret value used to uniquely identify this request. Can be used to retrieve authentication information. */

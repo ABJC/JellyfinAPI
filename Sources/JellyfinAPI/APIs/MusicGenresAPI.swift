@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class MusicGenresAPI {
     /**
      Gets a music genre, by name.
-
-     - parameter genreName: (path) The genre name.
+     
+     - parameter genreName: (path) The genre name. 
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -32,11 +34,11 @@ open class MusicGenresAPI {
      Gets a music genre, by name.
      - GET /MusicGenres/{genreName}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter genreName: (path) The genre name.
+     - parameter genreName: (path) The genre name. 
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDto>
+     - returns: RequestBuilder<BaseItemDto> 
      */
     open class func getMusicGenreWithRequestBuilder(genreName: String, userId: String? = nil) -> RequestBuilder<BaseItemDto> {
         var urlPath = "/MusicGenres/{genreName}"
@@ -51,18 +53,20 @@ open class MusicGenresAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets all music genres from a given item, folder, or the entire library.
-
+     
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter searchTerm: (query) The search term. (optional)
@@ -98,7 +102,7 @@ open class MusicGenresAPI {
      Gets all music genres from a given item, folder, or the entire library.
      - GET /MusicGenres
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -116,7 +120,7 @@ open class MusicGenresAPI {
      - parameter nameLessThan: (query) Optional filter by items whose name is equally or lesser than a given input string. (optional)
      - parameter enableImages: (query) Optional, include image information in output. (optional, default to true)
      - parameter enableTotalRecordCount: (query) Optional. Include total record count. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func getMusicGenresWithRequestBuilder(startIndex: Int? = nil, limit: Int? = nil, searchTerm: String? = nil, parentId: String? = nil, fields: [ItemFields]? = nil, excludeItemTypes: [String]? = nil, includeItemTypes: [String]? = nil, isFavorite: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, userId: String? = nil, nameStartsWithOrGreater: String? = nil, nameStartsWith: String? = nil, nameLessThan: String? = nil, enableImages: Bool? = nil, enableTotalRecordCount: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
@@ -144,12 +148,15 @@ open class MusicGenresAPI {
             "enableTotalRecordCount": enableTotalRecordCount?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

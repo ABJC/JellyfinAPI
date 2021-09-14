@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** The notification DTO. */
 public struct NotificationDto: Codable, Hashable {
+
     /** Gets or sets the notification ID. Defaults to an empty string. */
     public var id: String?
     /** Gets or sets the notification&#39;s user ID. Defaults to an empty string. */

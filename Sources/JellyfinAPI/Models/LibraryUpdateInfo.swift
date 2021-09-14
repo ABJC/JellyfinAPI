@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class LibraryUpdateInfo. */
 public struct LibraryUpdateInfo: Codable, Hashable {
+
     /** Gets or sets the folders added to. */
     public var foldersAddedTo: [String]?
     /** Gets or sets the folders removed from. */

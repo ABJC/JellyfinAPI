@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Open live stream dto. */
 public struct OpenLiveStreamDto: Codable, Hashable {
+
     /** Gets or sets the open token. */
     public var openToken: String?
     /** Gets or sets the user id. */

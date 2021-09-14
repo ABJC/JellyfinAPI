@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class PlaylistsAPI {
     /**
      Adds items to a playlist.
-
-     - parameter playlistId: (path) The playlist id.
+     
+     - parameter playlistId: (path) The playlist id. 
      - parameter ids: (query) Item id, comma delimited. (optional)
      - parameter userId: (query) The userId. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -33,12 +35,12 @@ open class PlaylistsAPI {
      Adds items to a playlist.
      - POST /Playlists/{playlistId}/Items
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter playlistId: (path) The playlist id.
+     - parameter playlistId: (path) The playlist id. 
      - parameter ids: (query) Item id, comma delimited. (optional)
      - parameter userId: (query) The userId. (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func addToPlaylistWithRequestBuilder(playlistId: String, ids: [String]? = nil, userId: String? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Playlists/{playlistId}/Items"
@@ -54,18 +56,20 @@ open class PlaylistsAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates a new playlist.
-
+     
      - parameter name: (query) The playlist name. (optional)
      - parameter ids: (query) The item ids. (optional)
      - parameter userId: (query) The user id. (optional)
@@ -90,14 +94,14 @@ open class PlaylistsAPI {
      - POST /Playlists
      - For backwards compatibility parameters can be sent via Query or Body, with Query having higher precedence.  Query parameters are obsolete.
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
      - parameter name: (query) The playlist name. (optional)
      - parameter ids: (query) The item ids. (optional)
      - parameter userId: (query) The user id. (optional)
      - parameter mediaType: (query) The media type. (optional)
      - parameter createPlaylistDto: (body) The create playlist payload. (optional)
-     - returns: RequestBuilder<PlaylistCreationResult>
+     - returns: RequestBuilder<PlaylistCreationResult> 
      */
     open class func createPlaylistWithRequestBuilder(name: String? = nil, ids: [String]? = nil, userId: String? = nil, mediaType: String? = nil, createPlaylistDto: CreatePlaylistDto? = nil) -> RequestBuilder<PlaylistCreationResult> {
         let urlPath = "/Playlists"
@@ -112,20 +116,22 @@ open class PlaylistsAPI {
             "mediaType": mediaType?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<PlaylistCreationResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the original items of a playlist.
-
-     - parameter playlistId: (path) The playlist id.
-     - parameter userId: (query) User id.
+     
+     - parameter playlistId: (path) The playlist id. 
+     - parameter userId: (query) User id. 
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -151,10 +157,10 @@ open class PlaylistsAPI {
      Gets the original items of a playlist.
      - GET /Playlists/{playlistId}/Items
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter playlistId: (path) The playlist id.
-     - parameter userId: (query) User id.
+     - parameter playlistId: (path) The playlist id. 
+     - parameter userId: (query) User id. 
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -162,7 +168,7 @@ open class PlaylistsAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     open class func getPlaylistItemsWithRequestBuilder(playlistId: String, userId: String, startIndex: Int? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Playlists/{playlistId}/Items"
@@ -184,21 +190,23 @@ open class PlaylistsAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Moves a playlist item.
-
-     - parameter playlistId: (path) The playlist id.
-     - parameter itemId: (path) The item id.
-     - parameter newIndex: (path) The new index.
+     
+     - parameter playlistId: (path) The playlist id. 
+     - parameter itemId: (path) The item id. 
+     - parameter newIndex: (path) The new index. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -217,12 +225,12 @@ open class PlaylistsAPI {
      Moves a playlist item.
      - POST /Playlists/{playlistId}/Items/{itemId}/Move/{newIndex}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter playlistId: (path) The playlist id.
-     - parameter itemId: (path) The item id.
-     - parameter newIndex: (path) The new index.
-     - returns: RequestBuilder<Void>
+     - parameter playlistId: (path) The playlist id. 
+     - parameter itemId: (path) The item id. 
+     - parameter newIndex: (path) The new index. 
+     - returns: RequestBuilder<Void> 
      */
     open class func moveItemWithRequestBuilder(playlistId: String, itemId: String, newIndex: Int) -> RequestBuilder<Void> {
         var urlPath = "/Playlists/{playlistId}/Items/{itemId}/Move/{newIndex}"
@@ -240,19 +248,21 @@ open class PlaylistsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Removes items from a playlist.
-
-     - parameter playlistId: (path) The playlist id.
+     
+     - parameter playlistId: (path) The playlist id. 
      - parameter entryIds: (query) The item ids, comma delimited. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -272,11 +282,11 @@ open class PlaylistsAPI {
      Removes items from a playlist.
      - DELETE /Playlists/{playlistId}/Items
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter playlistId: (path) The playlist id.
+     - parameter playlistId: (path) The playlist id. 
      - parameter entryIds: (query) The item ids, comma delimited. (optional)
-     - returns: RequestBuilder<Void>
+     - returns: RequestBuilder<Void> 
      */
     open class func removeFromPlaylistWithRequestBuilder(playlistId: String, entryIds: [String]? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Playlists/{playlistId}/Items"
@@ -291,12 +301,15 @@ open class PlaylistsAPI {
             "entryIds": entryIds?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

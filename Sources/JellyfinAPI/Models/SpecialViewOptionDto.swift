@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Special view option dto. */
 public struct SpecialViewOptionDto: Codable, Hashable {
+
     /** Gets or sets view option name. */
     public var name: String?
     /** Gets or sets view option id. */

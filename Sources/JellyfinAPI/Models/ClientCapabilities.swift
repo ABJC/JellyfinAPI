@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct ClientCapabilities: Codable, Hashable {
+
     public var playableMediaTypes: [String]?
     public var supportedCommands: [GeneralCommandType]?
     public var supportsMediaControl: Bool?

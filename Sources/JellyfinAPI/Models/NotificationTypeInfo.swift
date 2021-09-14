@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct NotificationTypeInfo: Codable, Hashable {
+
     public var type: String?
     public var name: String?
     public var enabled: Bool?

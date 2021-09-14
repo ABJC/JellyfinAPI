@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct GuideInfo: Codable, Hashable {
+
     /** Gets or sets the start date. */
     public var startDate: Date?
     /** Gets or sets the end date. */

@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class SeekRequestDto. */
 public struct SeekRequestDto: Codable, Hashable {
+
     /** Gets or sets the position ticks. */
     public var positionTicks: Int64?
 

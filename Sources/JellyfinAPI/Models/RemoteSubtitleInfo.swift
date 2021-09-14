@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct RemoteSubtitleInfo: Codable, Hashable {
+
     public var threeLetterISOLanguageName: String?
     public var id: String?
     public var providerName: String?

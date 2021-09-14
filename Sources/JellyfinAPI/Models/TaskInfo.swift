@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class TaskInfo. */
 public struct TaskInfo: Codable, Hashable {
+
     /** Gets or sets the name. */
     public var name: String?
     public var state: TaskState?

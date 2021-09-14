@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct TranscodingProfile: Codable, Hashable {
+
     public var container: String?
     public var type: DlnaProfileType?
     public var videoCodec: String?

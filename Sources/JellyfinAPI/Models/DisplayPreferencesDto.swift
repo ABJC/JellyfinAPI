@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Defines the display preferences for any item that supports them (usually Folders). */
 public struct DisplayPreferencesDto: Codable, Hashable {
+
     /** Gets or sets the user id. */
     public var id: String?
     /** Gets or sets the type of the view. */

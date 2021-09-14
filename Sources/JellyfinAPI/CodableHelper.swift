@@ -30,12 +30,10 @@ open class CodableHelper {
         get { return customDateFormatter ?? defaultDateFormatter }
         set { customDateFormatter = newValue }
     }
-
     public static var jsonDecoder: JSONDecoder {
         get { return customJSONDecoder ?? defaultJSONDecoder }
         set { customJSONDecoder = newValue }
     }
-
     public static var jsonEncoder: JSONEncoder {
         get { return customJSONEncoder ?? defaultJSONEncoder }
         set { customJSONEncoder = newValue }

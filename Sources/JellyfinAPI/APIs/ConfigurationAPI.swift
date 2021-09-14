@@ -8,10 +8,12 @@
 import AnyCodable
 import Foundation
 
+
+
 open class ConfigurationAPI {
     /**
      Gets application configuration.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,9 +32,9 @@ open class ConfigurationAPI {
      Gets application configuration.
      - GET /System/Configuration
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<ServerConfiguration>
+     - returns: RequestBuilder<ServerConfiguration> 
      */
     open class func getConfigurationWithRequestBuilder() -> RequestBuilder<ServerConfiguration> {
         let urlPath = "/System/Configuration"
@@ -41,18 +43,20 @@ open class ConfigurationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ServerConfiguration>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a default MetadataOptions object.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -71,9 +75,9 @@ open class ConfigurationAPI {
      Gets a default MetadataOptions object.
      - GET /System/Configuration/MetadataOptions/Default
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<MetadataOptions>
+     - returns: RequestBuilder<MetadataOptions> 
      */
     open class func getDefaultMetadataOptionsWithRequestBuilder() -> RequestBuilder<MetadataOptions> {
         let urlPath = "/System/Configuration/MetadataOptions/Default"
@@ -82,19 +86,21 @@ open class ConfigurationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<MetadataOptions>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a named configuration.
-
-     - parameter key: (path) Configuration key.
+     
+     - parameter key: (path) Configuration key. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -113,10 +119,10 @@ open class ConfigurationAPI {
      Gets a named configuration.
      - GET /System/Configuration/{key}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter key: (path) Configuration key.
-     - returns: RequestBuilder<URL>
+     - parameter key: (path) Configuration key. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getNamedConfigurationWithRequestBuilder(key: String) -> RequestBuilder<URL> {
         var urlPath = "/System/Configuration/{key}"
@@ -128,19 +134,21 @@ open class ConfigurationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates application configuration.
-
-     - parameter serverConfiguration: (body) Configuration.
+     
+     - parameter serverConfiguration: (body) Configuration. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -159,10 +167,10 @@ open class ConfigurationAPI {
      Updates application configuration.
      - POST /System/Configuration
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter serverConfiguration: (body) Configuration.
-     - returns: RequestBuilder<Void>
+     - parameter serverConfiguration: (body) Configuration. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updateConfigurationWithRequestBuilder(serverConfiguration: ServerConfiguration) -> RequestBuilder<Void> {
         let urlPath = "/System/Configuration"
@@ -171,19 +179,21 @@ open class ConfigurationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates the path to the media encoder.
-
-     - parameter mediaEncoderPathDto: (body) Media encoder path form body.
+     
+     - parameter mediaEncoderPathDto: (body) Media encoder path form body. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -202,10 +212,10 @@ open class ConfigurationAPI {
      Updates the path to the media encoder.
      - POST /System/MediaEncoder/Path
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter mediaEncoderPathDto: (body) Media encoder path form body.
-     - returns: RequestBuilder<Void>
+     - parameter mediaEncoderPathDto: (body) Media encoder path form body. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updateMediaEncoderPathWithRequestBuilder(mediaEncoderPathDto: MediaEncoderPathDto) -> RequestBuilder<Void> {
         let urlPath = "/System/MediaEncoder/Path"
@@ -214,19 +224,21 @@ open class ConfigurationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates named configuration.
-
-     - parameter key: (path) Configuration key.
+     
+     - parameter key: (path) Configuration key. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -245,10 +257,10 @@ open class ConfigurationAPI {
      Updates named configuration.
      - POST /System/Configuration/{key}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter key: (path) Configuration key.
-     - returns: RequestBuilder<Void>
+     - parameter key: (path) Configuration key. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updateNamedConfigurationWithRequestBuilder(key: String) -> RequestBuilder<Void> {
         var urlPath = "/System/Configuration/{key}"
@@ -260,12 +272,15 @@ open class ConfigurationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

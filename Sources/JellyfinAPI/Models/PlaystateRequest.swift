@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct PlaystateRequest: Codable, Hashable {
+
     public var command: PlaystateCommand?
     public var seekPositionTicks: Int64?
     /** Gets or sets the controlling user identifier. */

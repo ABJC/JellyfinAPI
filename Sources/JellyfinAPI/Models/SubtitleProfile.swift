@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct SubtitleProfile: Codable, Hashable {
+
     public var format: String?
     public var method: SubtitleDeliveryMethod?
     public var didlMode: String?

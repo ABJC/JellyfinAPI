@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct DeviceInfo: Codable, Hashable {
+
     public var name: String?
     /** Gets or sets the identifier. */
     public var id: String?

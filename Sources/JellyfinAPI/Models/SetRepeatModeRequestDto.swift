@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class SetRepeatModeRequestDto. */
 public struct SetRepeatModeRequestDto: Codable, Hashable {
+
     public var mode: GroupRepeatMode?
 
     public init(mode: GroupRepeatMode? = nil) {

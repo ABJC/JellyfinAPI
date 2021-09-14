@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Library options result dto. */
 public struct LibraryOptionsResultDto: Codable, Hashable {
+
     /** Gets or sets the metadata savers. */
     public var metadataSavers: [LibraryOptionInfoDto]?
     /** Gets or sets the metadata readers. */

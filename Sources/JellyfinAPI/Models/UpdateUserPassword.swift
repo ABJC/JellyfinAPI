@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** The update user password request body. */
 public struct UpdateUserPassword: Codable, Hashable {
+
     /** Gets or sets the current sha1-hashed password. */
     public var currentPassword: String?
     /** Gets or sets the current plain text password. */

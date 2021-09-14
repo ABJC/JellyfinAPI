@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Defines the MediaBrowser.Model.Dlna.DeviceProfile. */
 public struct DeviceProfile: Codable, Hashable {
+
     /** Gets or sets the Name. */
     public var name: String?
     /** Gets or sets the Id. */

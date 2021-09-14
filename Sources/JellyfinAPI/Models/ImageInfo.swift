@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class ImageInfo. */
 public struct ImageInfo: Codable, Hashable {
+
     public var imageType: ImageType?
     /** Gets or sets the index of the image. */
     public var imageIndex: Int?

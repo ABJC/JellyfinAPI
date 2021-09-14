@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class UserConfiguration. */
 public struct UserConfiguration: Codable, Hashable {
+
     /** Gets or sets the audio language preference. */
     public var audioLanguagePreference: String?
     /** Gets or sets a value indicating whether [play default audio track]. */

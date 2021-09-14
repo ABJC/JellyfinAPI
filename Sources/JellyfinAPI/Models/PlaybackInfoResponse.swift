@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class PlaybackInfoResponse. */
 public struct PlaybackInfoResponse: Codable, Hashable {
+
     /** Gets or sets the media sources. */
     public var mediaSources: [MediaSourceInfo]?
     /** Gets or sets the play session identifier. */

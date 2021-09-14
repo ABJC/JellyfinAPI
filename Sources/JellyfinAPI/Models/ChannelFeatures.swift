@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct ChannelFeatures: Codable, Hashable {
+
     /** Gets or sets the name. */
     public var name: String?
     /** Gets or sets the identifier. */

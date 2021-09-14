@@ -8,11 +8,13 @@
 import AnyCodable
 import Foundation
 
+
+
 open class UserViewsAPI {
     /**
      Get user view grouping options.
-
-     - parameter userId: (path) User id.
+     
+     - parameter userId: (path) User id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,8 +32,8 @@ open class UserViewsAPI {
     /**
      Get user view grouping options.
      - GET /Users/{userId}/GroupingOptions
-     - parameter userId: (path) User id.
-     - returns: RequestBuilder<[SpecialViewOptionDto]>
+     - parameter userId: (path) User id. 
+     - returns: RequestBuilder<[SpecialViewOptionDto]> 
      */
     open class func getGroupingOptionsWithRequestBuilder(userId: String) -> RequestBuilder<[SpecialViewOptionDto]> {
         var urlPath = "/Users/{userId}/GroupingOptions"
@@ -43,19 +45,21 @@ open class UserViewsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[SpecialViewOptionDto]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get user views.
-
-     - parameter userId: (path) User id.
+     
+     - parameter userId: (path) User id. 
      - parameter includeExternalContent: (query) Whether or not to include external views such as channels or live tv. (optional)
      - parameter presetViews: (query) Preset views. (optional)
      - parameter includeHidden: (query) Whether or not to include hidden content. (optional, default to false)
@@ -76,11 +80,11 @@ open class UserViewsAPI {
     /**
      Get user views.
      - GET /Users/{userId}/Views
-     - parameter userId: (path) User id.
+     - parameter userId: (path) User id. 
      - parameter includeExternalContent: (query) Whether or not to include external views such as channels or live tv. (optional)
      - parameter presetViews: (query) Preset views. (optional)
      - parameter includeHidden: (query) Whether or not to include hidden content. (optional, default to false)
-     - returns: RequestBuilder<BaseItemDtoQueryResult>
+     - returns: RequestBuilder<BaseItemDtoQueryResult> 
      */
     open class func getUserViewsWithRequestBuilder(userId: String, includeExternalContent: Bool? = nil, presetViews: [String]? = nil, includeHidden: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Users/{userId}/Views"
@@ -97,12 +101,15 @@ open class UserViewsAPI {
             "includeHidden": includeHidden?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

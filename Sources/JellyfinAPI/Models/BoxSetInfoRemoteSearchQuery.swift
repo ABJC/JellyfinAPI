@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct BoxSetInfoRemoteSearchQuery: Codable, Hashable {
+
     public var searchInfo: BoxSetInfo?
     public var itemId: String?
     /** Will only search within the given provider when set. */

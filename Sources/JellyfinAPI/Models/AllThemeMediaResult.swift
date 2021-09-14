@@ -7,10 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 public struct AllThemeMediaResult: Codable, Hashable {
+
     public var themeVideosResult: ThemeMediaResult?
     public var themeSongsResult: ThemeMediaResult?
     public var soundtrackSongsResult: ThemeMediaResult?

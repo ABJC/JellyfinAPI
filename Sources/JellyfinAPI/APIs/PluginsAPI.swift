@@ -8,12 +8,14 @@
 import AnyCodable
 import Foundation
 
+
+
 open class PluginsAPI {
     /**
      Disable a plugin.
-
-     - parameter pluginId: (path) Plugin id.
-     - parameter version: (path) Plugin version.
+     
+     - parameter pluginId: (path) Plugin id. 
+     - parameter version: (path) Plugin version. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -32,11 +34,11 @@ open class PluginsAPI {
      Disable a plugin.
      - POST /Plugins/{pluginId}/{version}/Disable
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginId: (path) Plugin id.
-     - parameter version: (path) Plugin version.
-     - returns: RequestBuilder<Void>
+     - parameter pluginId: (path) Plugin id. 
+     - parameter version: (path) Plugin version. 
+     - returns: RequestBuilder<Void> 
      */
     open class func disablePluginWithRequestBuilder(pluginId: String, version: Version) -> RequestBuilder<Void> {
         var urlPath = "/Plugins/{pluginId}/{version}/Disable"
@@ -51,20 +53,22 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Enables a disabled plugin.
-
-     - parameter pluginId: (path) Plugin id.
-     - parameter version: (path) Plugin version.
+     
+     - parameter pluginId: (path) Plugin id. 
+     - parameter version: (path) Plugin version. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -83,11 +87,11 @@ open class PluginsAPI {
      Enables a disabled plugin.
      - POST /Plugins/{pluginId}/{version}/Enable
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginId: (path) Plugin id.
-     - parameter version: (path) Plugin version.
-     - returns: RequestBuilder<Void>
+     - parameter pluginId: (path) Plugin id. 
+     - parameter version: (path) Plugin version. 
+     - returns: RequestBuilder<Void> 
      */
     open class func enablePluginWithRequestBuilder(pluginId: String, version: Version) -> RequestBuilder<Void> {
         var urlPath = "/Plugins/{pluginId}/{version}/Enable"
@@ -102,19 +106,21 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets plugin configuration.
-
-     - parameter pluginId: (path) Plugin id.
+     
+     - parameter pluginId: (path) Plugin id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -133,10 +139,10 @@ open class PluginsAPI {
      Gets plugin configuration.
      - GET /Plugins/{pluginId}/Configuration
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginId: (path) Plugin id.
-     - returns: RequestBuilder<AnyCodable>
+     - parameter pluginId: (path) Plugin id. 
+     - returns: RequestBuilder<AnyCodable> 
      */
     open class func getPluginConfigurationWithRequestBuilder(pluginId: String) -> RequestBuilder<AnyCodable> {
         var urlPath = "/Plugins/{pluginId}/Configuration"
@@ -148,20 +154,22 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<AnyCodable>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a plugin's image.
-
-     - parameter pluginId: (path) Plugin id.
-     - parameter version: (path) Plugin version.
+     
+     - parameter pluginId: (path) Plugin id. 
+     - parameter version: (path) Plugin version. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -180,11 +188,11 @@ open class PluginsAPI {
      Gets a plugin's image.
      - GET /Plugins/{pluginId}/{version}/Image
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginId: (path) Plugin id.
-     - parameter version: (path) Plugin version.
-     - returns: RequestBuilder<URL>
+     - parameter pluginId: (path) Plugin id. 
+     - parameter version: (path) Plugin version. 
+     - returns: RequestBuilder<URL> 
      */
     open class func getPluginImageWithRequestBuilder(pluginId: String, version: Version) -> RequestBuilder<URL> {
         var urlPath = "/Plugins/{pluginId}/{version}/Image"
@@ -199,19 +207,21 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a plugin's manifest.
-
-     - parameter pluginId: (path) Plugin id.
+     
+     - parameter pluginId: (path) Plugin id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -230,10 +240,10 @@ open class PluginsAPI {
      Gets a plugin's manifest.
      - POST /Plugins/{pluginId}/Manifest
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginId: (path) Plugin id.
-     - returns: RequestBuilder<Void>
+     - parameter pluginId: (path) Plugin id. 
+     - returns: RequestBuilder<Void> 
      */
     open class func getPluginManifestWithRequestBuilder(pluginId: String) -> RequestBuilder<Void> {
         var urlPath = "/Plugins/{pluginId}/Manifest"
@@ -245,18 +255,20 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of currently installed plugins.
-
+     
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -275,9 +287,9 @@ open class PluginsAPI {
      Gets a list of currently installed plugins.
      - GET /Plugins
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - returns: RequestBuilder<[PluginInfo]>
+     - returns: RequestBuilder<[PluginInfo]> 
      */
     open class func getPluginsWithRequestBuilder() -> RequestBuilder<[PluginInfo]> {
         let urlPath = "/Plugins"
@@ -286,19 +298,21 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[PluginInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Uninstalls a plugin.
-
-     - parameter pluginId: (path) Plugin id.
+     
+     - parameter pluginId: (path) Plugin id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -318,10 +332,10 @@ open class PluginsAPI {
      Uninstalls a plugin.
      - DELETE /Plugins/{pluginId}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginId: (path) Plugin id.
-     - returns: RequestBuilder<Void>
+     - parameter pluginId: (path) Plugin id. 
+     - returns: RequestBuilder<Void> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func uninstallPluginWithRequestBuilder(pluginId: String) -> RequestBuilder<Void> {
@@ -334,20 +348,22 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Uninstalls a plugin by version.
-
-     - parameter pluginId: (path) Plugin id.
-     - parameter version: (path) Plugin version.
+     
+     - parameter pluginId: (path) Plugin id. 
+     - parameter version: (path) Plugin version. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -366,11 +382,11 @@ open class PluginsAPI {
      Uninstalls a plugin by version.
      - DELETE /Plugins/{pluginId}/{version}
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginId: (path) Plugin id.
-     - parameter version: (path) Plugin version.
-     - returns: RequestBuilder<Void>
+     - parameter pluginId: (path) Plugin id. 
+     - parameter version: (path) Plugin version. 
+     - returns: RequestBuilder<Void> 
      */
     open class func uninstallPluginByVersionWithRequestBuilder(pluginId: String, version: Version) -> RequestBuilder<Void> {
         var urlPath = "/Plugins/{pluginId}/{version}"
@@ -385,19 +401,21 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates plugin configuration.
-
-     - parameter pluginId: (path) Plugin id.
+     
+     - parameter pluginId: (path) Plugin id. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -417,10 +435,10 @@ open class PluginsAPI {
      - POST /Plugins/{pluginId}/Configuration
      - Accepts plugin configuration as JSON body.
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginId: (path) Plugin id.
-     - returns: RequestBuilder<Void>
+     - parameter pluginId: (path) Plugin id. 
+     - returns: RequestBuilder<Void> 
      */
     open class func updatePluginConfigurationWithRequestBuilder(pluginId: String) -> RequestBuilder<Void> {
         var urlPath = "/Plugins/{pluginId}/Configuration"
@@ -432,19 +450,21 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates plugin security info.
-
-     - parameter pluginSecurityInfo: (body) Plugin security info.
+     
+     - parameter pluginSecurityInfo: (body) Plugin security info. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -464,10 +484,10 @@ open class PluginsAPI {
      Updates plugin security info.
      - POST /Plugins/SecurityInfo
      - API Key:
-       - type: apiKey X-Emby-Authorization
+       - type: apiKey X-Emby-Authorization 
        - name: CustomAuthentication
-     - parameter pluginSecurityInfo: (body) Plugin security info.
-     - returns: RequestBuilder<Void>
+     - parameter pluginSecurityInfo: (body) Plugin security info. 
+     - returns: RequestBuilder<Void> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func updatePluginSecurityInfoWithRequestBuilder(pluginSecurityInfo: PluginSecurityInfo) -> RequestBuilder<Void> {
@@ -477,12 +497,15 @@ open class PluginsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [:]
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
+
 }

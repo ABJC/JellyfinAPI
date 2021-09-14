@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** The configuration page info. */
 public struct ConfigurationPageInfo: Codable, Hashable {
+
     /** Gets or sets the name. */
     public var name: String?
     /** Gets or sets a value indicating whether the configurations page is enabled in the main menu. */

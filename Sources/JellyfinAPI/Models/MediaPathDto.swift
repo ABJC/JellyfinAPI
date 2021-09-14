@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Media Path dto. */
 public struct MediaPathDto: Codable, Hashable {
+
     /** Gets or sets the name of the library. */
     public var name: String
     /** Gets or sets the path to add. */

@@ -7,11 +7,12 @@
 
 import Foundation
 #if canImport(AnyCodable)
-    import AnyCodable
+import AnyCodable
 #endif
 
 /** Class PlaybackProgressInfo. */
 public struct PlaybackProgressInfo: Codable, Hashable {
+
     /** Gets or sets a value indicating whether this instance can seek. */
     public var canSeek: Bool?
     public var item: BaseItemDto?
