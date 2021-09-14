@@ -11,8 +11,8 @@ import Foundation
 open class VideosAPI {
     /**
      Removes alternate video sources.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +31,10 @@ open class VideosAPI {
      Removes alternate video sources.
      - DELETE /Videos/{itemId}/AlternateSources
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - returns: RequestBuilder<Void> 
+     - parameter itemId: (path) The item id.
+     - returns: RequestBuilder<Void>
      */
     open class func deleteAlternateSourcesWithRequestBuilder(itemId: String) -> RequestBuilder<Void> {
         var urlPath = "/Videos/{itemId}/AlternateSources"
@@ -46,21 +46,19 @@ open class VideosAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets additional parts for a video.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -80,11 +78,11 @@ open class VideosAPI {
      Gets additional parts for a video.
      - GET /Videos/{itemId}/AdditionalParts
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getAdditionalPartWithRequestBuilder(itemId: String, userId: String? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Videos/{itemId}/AdditionalParts"
@@ -99,21 +97,19 @@ open class VideosAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a video stream.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter container: (query) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. (optional)
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
@@ -179,7 +175,7 @@ open class VideosAPI {
     /**
      Gets a video stream.
      - GET /Videos/{itemId}/stream
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter container: (query) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. (optional)
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
@@ -228,7 +224,7 @@ open class VideosAPI {
      - parameter videoStreamIndex: (query) Optional. The index of the video stream to use. If omitted the first video stream will be used. (optional)
      - parameter context: (query) Optional. The MediaBrowser.Model.Dlna.EncodingContext. (optional)
      - parameter streamOptions: (query) Optional. The streaming options. (optional)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func getVideoStreamWithRequestBuilder(itemId: String, container: String? = nil, _static: Bool? = nil, params: String? = nil, tag: String? = nil, deviceProfileId: String? = nil, playSessionId: String? = nil, segmentContainer: String? = nil, segmentLength: Int? = nil, minSegments: Int? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, audioCodec: String? = nil, enableAutoStreamCopy: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, audioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, audioBitRate: Int? = nil, audioChannels: Int? = nil, maxAudioChannels: Int? = nil, profile: String? = nil, level: String? = nil, framerate: Float? = nil, maxFramerate: Float? = nil, copyTimestamps: Bool? = nil, startTimeTicks: Int64? = nil, width: Int? = nil, height: Int? = nil, videoBitRate: Int? = nil, subtitleStreamIndex: Int? = nil, subtitleMethod: SubtitleDeliveryMethod? = nil, maxRefFrames: Int? = nil, maxVideoBitDepth: Int? = nil, requireAvc: Bool? = nil, deInterlace: Bool? = nil, requireNonAnamorphic: Bool? = nil, transcodingMaxAudioChannels: Int? = nil, cpuCoreLimit: Int? = nil, liveStreamId: String? = nil, enableMpegtsM2TsMode: Bool? = nil, videoCodec: String? = nil, subtitleCodec: String? = nil, transcodeReasons: String? = nil, audioStreamIndex: Int? = nil, videoStreamIndex: Int? = nil, context: EncodingContext? = nil, streamOptions: [String: String]? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{itemId}/stream"
@@ -290,22 +286,20 @@ open class VideosAPI {
             "streamOptions": streamOptions?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a video stream.
-     
-     - parameter itemId: (path) The item id. 
-     - parameter container: (path) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. 
+
+     - parameter itemId: (path) The item id.
+     - parameter container: (path) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
      - parameter tag: (query) The tag. (optional)
@@ -370,8 +364,8 @@ open class VideosAPI {
     /**
      Gets a video stream.
      - GET /Videos/{itemId}/stream.{container}
-     - parameter itemId: (path) The item id. 
-     - parameter container: (path) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. 
+     - parameter itemId: (path) The item id.
+     - parameter container: (path) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
      - parameter tag: (query) The tag. (optional)
@@ -419,7 +413,7 @@ open class VideosAPI {
      - parameter videoStreamIndex: (query) Optional. The index of the video stream to use. If omitted the first video stream will be used. (optional)
      - parameter context: (query) Optional. The MediaBrowser.Model.Dlna.EncodingContext. (optional)
      - parameter streamOptions: (query) Optional. The streaming options. (optional)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func getVideoStreamByContainerWithRequestBuilder(itemId: String, container: String, _static: Bool? = nil, params: String? = nil, tag: String? = nil, deviceProfileId: String? = nil, playSessionId: String? = nil, segmentContainer: String? = nil, segmentLength: Int? = nil, minSegments: Int? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, audioCodec: String? = nil, enableAutoStreamCopy: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, audioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, audioBitRate: Int? = nil, audioChannels: Int? = nil, maxAudioChannels: Int? = nil, profile: String? = nil, level: String? = nil, framerate: Float? = nil, maxFramerate: Float? = nil, copyTimestamps: Bool? = nil, startTimeTicks: Int64? = nil, width: Int? = nil, height: Int? = nil, videoBitRate: Int? = nil, subtitleStreamIndex: Int? = nil, subtitleMethod: SubtitleDeliveryMethod? = nil, maxRefFrames: Int? = nil, maxVideoBitDepth: Int? = nil, requireAvc: Bool? = nil, deInterlace: Bool? = nil, requireNonAnamorphic: Bool? = nil, transcodingMaxAudioChannels: Int? = nil, cpuCoreLimit: Int? = nil, liveStreamId: String? = nil, enableMpegtsM2TsMode: Bool? = nil, videoCodec: String? = nil, subtitleCodec: String? = nil, transcodeReasons: String? = nil, audioStreamIndex: Int? = nil, videoStreamIndex: Int? = nil, context: EncodingContext? = nil, streamOptions: [String: String]? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{itemId}/stream.{container}"
@@ -483,21 +477,19 @@ open class VideosAPI {
             "streamOptions": streamOptions?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a video stream.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter container: (query) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. (optional)
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
@@ -563,7 +555,7 @@ open class VideosAPI {
     /**
      Gets a video stream.
      - HEAD /Videos/{itemId}/stream
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter container: (query) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. (optional)
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
@@ -612,7 +604,7 @@ open class VideosAPI {
      - parameter videoStreamIndex: (query) Optional. The index of the video stream to use. If omitted the first video stream will be used. (optional)
      - parameter context: (query) Optional. The MediaBrowser.Model.Dlna.EncodingContext. (optional)
      - parameter streamOptions: (query) Optional. The streaming options. (optional)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func headVideoStreamWithRequestBuilder(itemId: String, container: String? = nil, _static: Bool? = nil, params: String? = nil, tag: String? = nil, deviceProfileId: String? = nil, playSessionId: String? = nil, segmentContainer: String? = nil, segmentLength: Int? = nil, minSegments: Int? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, audioCodec: String? = nil, enableAutoStreamCopy: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, audioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, audioBitRate: Int? = nil, audioChannels: Int? = nil, maxAudioChannels: Int? = nil, profile: String? = nil, level: String? = nil, framerate: Float? = nil, maxFramerate: Float? = nil, copyTimestamps: Bool? = nil, startTimeTicks: Int64? = nil, width: Int? = nil, height: Int? = nil, videoBitRate: Int? = nil, subtitleStreamIndex: Int? = nil, subtitleMethod: SubtitleDeliveryMethod? = nil, maxRefFrames: Int? = nil, maxVideoBitDepth: Int? = nil, requireAvc: Bool? = nil, deInterlace: Bool? = nil, requireNonAnamorphic: Bool? = nil, transcodingMaxAudioChannels: Int? = nil, cpuCoreLimit: Int? = nil, liveStreamId: String? = nil, enableMpegtsM2TsMode: Bool? = nil, videoCodec: String? = nil, subtitleCodec: String? = nil, transcodeReasons: String? = nil, audioStreamIndex: Int? = nil, videoStreamIndex: Int? = nil, context: EncodingContext? = nil, streamOptions: [String: String]? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{itemId}/stream"
@@ -674,22 +666,20 @@ open class VideosAPI {
             "streamOptions": streamOptions?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a video stream.
-     
-     - parameter itemId: (path) The item id. 
-     - parameter container: (path) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. 
+
+     - parameter itemId: (path) The item id.
+     - parameter container: (path) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
      - parameter tag: (query) The tag. (optional)
@@ -754,8 +744,8 @@ open class VideosAPI {
     /**
      Gets a video stream.
      - HEAD /Videos/{itemId}/stream.{container}
-     - parameter itemId: (path) The item id. 
-     - parameter container: (path) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. 
+     - parameter itemId: (path) The item id.
+     - parameter container: (path) The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
      - parameter _static: (query) Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. (optional)
      - parameter params: (query) The streaming parameters. (optional)
      - parameter tag: (query) The tag. (optional)
@@ -803,7 +793,7 @@ open class VideosAPI {
      - parameter videoStreamIndex: (query) Optional. The index of the video stream to use. If omitted the first video stream will be used. (optional)
      - parameter context: (query) Optional. The MediaBrowser.Model.Dlna.EncodingContext. (optional)
      - parameter streamOptions: (query) Optional. The streaming options. (optional)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func headVideoStreamByContainerWithRequestBuilder(itemId: String, container: String, _static: Bool? = nil, params: String? = nil, tag: String? = nil, deviceProfileId: String? = nil, playSessionId: String? = nil, segmentContainer: String? = nil, segmentLength: Int? = nil, minSegments: Int? = nil, mediaSourceId: String? = nil, deviceId: String? = nil, audioCodec: String? = nil, enableAutoStreamCopy: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, breakOnNonKeyFrames: Bool? = nil, audioSampleRate: Int? = nil, maxAudioBitDepth: Int? = nil, audioBitRate: Int? = nil, audioChannels: Int? = nil, maxAudioChannels: Int? = nil, profile: String? = nil, level: String? = nil, framerate: Float? = nil, maxFramerate: Float? = nil, copyTimestamps: Bool? = nil, startTimeTicks: Int64? = nil, width: Int? = nil, height: Int? = nil, videoBitRate: Int? = nil, subtitleStreamIndex: Int? = nil, subtitleMethod: SubtitleDeliveryMethod? = nil, maxRefFrames: Int? = nil, maxVideoBitDepth: Int? = nil, requireAvc: Bool? = nil, deInterlace: Bool? = nil, requireNonAnamorphic: Bool? = nil, transcodingMaxAudioChannels: Int? = nil, cpuCoreLimit: Int? = nil, liveStreamId: String? = nil, enableMpegtsM2TsMode: Bool? = nil, videoCodec: String? = nil, subtitleCodec: String? = nil, transcodeReasons: String? = nil, audioStreamIndex: Int? = nil, videoStreamIndex: Int? = nil, context: EncodingContext? = nil, streamOptions: [String: String]? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{itemId}/stream.{container}"
@@ -867,21 +857,19 @@ open class VideosAPI {
             "streamOptions": streamOptions?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "HEAD", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "HEAD", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Merges videos into a single record.
-     
-     - parameter ids: (query) Item id list. This allows multiple, comma delimited. 
+
+     - parameter ids: (query) Item id list. This allows multiple, comma delimited.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -900,10 +888,10 @@ open class VideosAPI {
      Merges videos into a single record.
      - POST /Videos/MergeVersions
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter ids: (query) Item id list. This allows multiple, comma delimited. 
-     - returns: RequestBuilder<Void> 
+     - parameter ids: (query) Item id list. This allows multiple, comma delimited.
+     - returns: RequestBuilder<Void>
      */
     open class func mergeVersionsWithRequestBuilder(ids: [String]) -> RequestBuilder<Void> {
         let urlPath = "/Videos/MergeVersions"
@@ -915,15 +903,12 @@ open class VideosAPI {
             "ids": ids.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

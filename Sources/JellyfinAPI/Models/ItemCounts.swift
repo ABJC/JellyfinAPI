@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class LibrarySummary. */
 public struct ItemCounts: Codable, Hashable {
-
     /** Gets or sets the movie count. */
     public var movieCount: Int?
     /** Gets or sets the series count. */

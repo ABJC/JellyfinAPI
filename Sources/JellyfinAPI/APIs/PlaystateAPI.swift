@@ -11,9 +11,9 @@ import Foundation
 open class PlaystateAPI {
     /**
      Marks an item as played for user.
-     
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter datePlayed: (query) Optional. The date the item was played. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -33,12 +33,12 @@ open class PlaystateAPI {
      Marks an item as played for user.
      - POST /Users/{userId}/PlayedItems/{itemId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter datePlayed: (query) Optional. The date the item was played. (optional)
-     - returns: RequestBuilder<UserItemDataDto> 
+     - returns: RequestBuilder<UserItemDataDto>
      */
     open class func markPlayedItemWithRequestBuilder(userId: String, itemId: String, datePlayed: Date? = nil) -> RequestBuilder<UserItemDataDto> {
         var urlPath = "/Users/{userId}/PlayedItems/{itemId}"
@@ -56,22 +56,20 @@ open class PlaystateAPI {
             "datePlayed": datePlayed?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<UserItemDataDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Marks an item as unplayed for user.
-     
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -90,11 +88,11 @@ open class PlaystateAPI {
      Marks an item as unplayed for user.
      - DELETE /Users/{userId}/PlayedItems/{itemId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
-     - returns: RequestBuilder<UserItemDataDto> 
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
+     - returns: RequestBuilder<UserItemDataDto>
      */
     open class func markUnplayedItemWithRequestBuilder(userId: String, itemId: String) -> RequestBuilder<UserItemDataDto> {
         var urlPath = "/Users/{userId}/PlayedItems/{itemId}"
@@ -109,22 +107,20 @@ open class PlaystateAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<UserItemDataDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports a user's playback progress.
-     
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter mediaSourceId: (query) The id of the MediaSource. (optional)
      - parameter positionTicks: (query) Optional. The current position, in ticks. 1 tick &#x3D; 10000 ms. (optional)
      - parameter audioStreamIndex: (query) The audio stream index. (optional)
@@ -154,10 +150,10 @@ open class PlaystateAPI {
      Reports a user's playback progress.
      - POST /Users/{userId}/PlayingItems/{itemId}/Progress
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter mediaSourceId: (query) The id of the MediaSource. (optional)
      - parameter positionTicks: (query) Optional. The current position, in ticks. 1 tick &#x3D; 10000 ms. (optional)
      - parameter audioStreamIndex: (query) The audio stream index. (optional)
@@ -169,7 +165,7 @@ open class PlaystateAPI {
      - parameter repeatMode: (query) The repeat mode. (optional)
      - parameter isPaused: (query) Indicates if the player is paused. (optional, default to false)
      - parameter isMuted: (query) Indicates if the player is muted. (optional, default to false)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func onPlaybackProgressWithRequestBuilder(userId: String, itemId: String, mediaSourceId: String? = nil, positionTicks: Int64? = nil, audioStreamIndex: Int? = nil, subtitleStreamIndex: Int? = nil, volumeLevel: Int? = nil, playMethod: PlayMethod? = nil, liveStreamId: String? = nil, playSessionId: String? = nil, repeatMode: RepeatMode? = nil, isPaused: Bool? = nil, isMuted: Bool? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/PlayingItems/{itemId}/Progress"
@@ -197,22 +193,20 @@ open class PlaystateAPI {
             "isMuted": isMuted?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that a user has begun playing an item.
-     
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter mediaSourceId: (query) The id of the MediaSource. (optional)
      - parameter audioStreamIndex: (query) The audio stream index. (optional)
      - parameter subtitleStreamIndex: (query) The subtitle stream index. (optional)
@@ -238,10 +232,10 @@ open class PlaystateAPI {
      Reports that a user has begun playing an item.
      - POST /Users/{userId}/PlayingItems/{itemId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter mediaSourceId: (query) The id of the MediaSource. (optional)
      - parameter audioStreamIndex: (query) The audio stream index. (optional)
      - parameter subtitleStreamIndex: (query) The subtitle stream index. (optional)
@@ -249,7 +243,7 @@ open class PlaystateAPI {
      - parameter liveStreamId: (query) The live stream id. (optional)
      - parameter playSessionId: (query) The play session id. (optional)
      - parameter canSeek: (query) Indicates if the client can seek. (optional, default to false)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func onPlaybackStartWithRequestBuilder(userId: String, itemId: String, mediaSourceId: String? = nil, audioStreamIndex: Int? = nil, subtitleStreamIndex: Int? = nil, playMethod: PlayMethod? = nil, liveStreamId: String? = nil, playSessionId: String? = nil, canSeek: Bool? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/PlayingItems/{itemId}"
@@ -273,22 +267,20 @@ open class PlaystateAPI {
             "canSeek": canSeek?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that a user has stopped playing an item.
-     
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter mediaSourceId: (query) The id of the MediaSource. (optional)
      - parameter nextMediaType: (query) The next media type that will play. (optional)
      - parameter positionTicks: (query) Optional. The position, in ticks, where playback stopped. 1 tick &#x3D; 10000 ms. (optional)
@@ -312,16 +304,16 @@ open class PlaystateAPI {
      Reports that a user has stopped playing an item.
      - DELETE /Users/{userId}/PlayingItems/{itemId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) User id. 
-     - parameter itemId: (path) Item id. 
+     - parameter userId: (path) User id.
+     - parameter itemId: (path) Item id.
      - parameter mediaSourceId: (query) The id of the MediaSource. (optional)
      - parameter nextMediaType: (query) The next media type that will play. (optional)
      - parameter positionTicks: (query) Optional. The position, in ticks, where playback stopped. 1 tick &#x3D; 10000 ms. (optional)
      - parameter liveStreamId: (query) The live stream id. (optional)
      - parameter playSessionId: (query) The play session id. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func onPlaybackStoppedWithRequestBuilder(userId: String, itemId: String, mediaSourceId: String? = nil, nextMediaType: String? = nil, positionTicks: Int64? = nil, liveStreamId: String? = nil, playSessionId: String? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/PlayingItems/{itemId}"
@@ -343,21 +335,19 @@ open class PlaystateAPI {
             "playSessionId": playSessionId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Pings a playback session.
-     
-     - parameter playSessionId: (query) Playback session id. 
+
+     - parameter playSessionId: (query) Playback session id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -376,10 +366,10 @@ open class PlaystateAPI {
      Pings a playback session.
      - POST /Sessions/Playing/Ping
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter playSessionId: (query) Playback session id. 
-     - returns: RequestBuilder<Void> 
+     - parameter playSessionId: (query) Playback session id.
+     - returns: RequestBuilder<Void>
      */
     open class func pingPlaybackSessionWithRequestBuilder(playSessionId: String) -> RequestBuilder<Void> {
         let urlPath = "/Sessions/Playing/Ping"
@@ -391,20 +381,18 @@ open class PlaystateAPI {
             "playSessionId": playSessionId.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports playback progress within a session.
-     
+
      - parameter playbackProgressInfo: (body) The playback progress info. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -424,10 +412,10 @@ open class PlaystateAPI {
      Reports playback progress within a session.
      - POST /Sessions/Playing/Progress
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter playbackProgressInfo: (body) The playback progress info. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func reportPlaybackProgressWithRequestBuilder(playbackProgressInfo: PlaybackProgressInfo? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Sessions/Playing/Progress"
@@ -436,20 +424,18 @@ open class PlaystateAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports playback has started within a session.
-     
+
      - parameter playbackStartInfo: (body) The playback start info. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -469,10 +455,10 @@ open class PlaystateAPI {
      Reports playback has started within a session.
      - POST /Sessions/Playing
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter playbackStartInfo: (body) The playback start info. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func reportPlaybackStartWithRequestBuilder(playbackStartInfo: PlaybackStartInfo? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Sessions/Playing"
@@ -481,20 +467,18 @@ open class PlaystateAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports playback has stopped within a session.
-     
+
      - parameter playbackStopInfo: (body) The playback stop info. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -514,10 +498,10 @@ open class PlaystateAPI {
      Reports playback has stopped within a session.
      - POST /Sessions/Playing/Stopped
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter playbackStopInfo: (body) The playback stop info. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func reportPlaybackStoppedWithRequestBuilder(playbackStopInfo: PlaybackStopInfo? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Sessions/Playing/Stopped"
@@ -526,15 +510,12 @@ open class PlaystateAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

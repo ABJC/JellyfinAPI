@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class UserItemDataDto. */
 public struct UserItemDataDto: Codable, Hashable {
-
     /** Gets or sets the rating. */
     public var rating: Double?
     /** Gets or sets the played percentage. */

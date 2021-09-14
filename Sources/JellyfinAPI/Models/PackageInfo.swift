@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class PackageInfo. */
 public struct PackageInfo: Codable, Hashable {
-
     /** Gets or sets the name. */
     public var name: String?
     /** Gets or sets a long description of the plugin containing features or helpful explanations. */

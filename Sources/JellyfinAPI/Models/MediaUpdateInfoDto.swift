@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Media Update Info Dto. */
 public struct MediaUpdateInfoDto: Codable, Hashable {
-
     /** Gets or sets the list of updates. */
     public var updates: [MediaUpdateInfoPathDto]?
 

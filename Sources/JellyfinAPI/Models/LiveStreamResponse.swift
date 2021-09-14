@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct LiveStreamResponse: Codable, Hashable {
-
     public var mediaSource: MediaSourceInfo?
 
     public init(mediaSource: MediaSourceInfo? = nil) {

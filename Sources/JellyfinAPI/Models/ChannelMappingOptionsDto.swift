@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Channel mapping options dto. */
 public struct ChannelMappingOptionsDto: Codable, Hashable {
-
     /** Gets or sets list of tuner channels. */
     public var tunerChannels: [TunerChannelMapping]?
     /** Gets or sets list of provider channels. */

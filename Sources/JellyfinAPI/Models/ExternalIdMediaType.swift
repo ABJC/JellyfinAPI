@@ -7,7 +7,7 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** The specific media type of an MediaBrowser.Model.Providers.ExternalIdInfo. */

@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** The update user easy password request body. */
 public struct UpdateUserEasyPassword: Codable, Hashable {
-
     /** Gets or sets the new sha1-hashed password. */
     public var newPassword: String?
     /** Gets or sets the new password. */

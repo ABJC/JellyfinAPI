@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct ContainerProfile: Codable, Hashable {
-
     public var type: DlnaProfileType?
     public var conditions: [ProfileCondition]?
     public var container: String?

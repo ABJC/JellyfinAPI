@@ -11,8 +11,8 @@ import Foundation
 open class PackageAPI {
     /**
      Cancels a package installation.
-     
-     - parameter packageId: (path) Installation Id. 
+
+     - parameter packageId: (path) Installation Id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +31,10 @@ open class PackageAPI {
      Cancels a package installation.
      - DELETE /Packages/Installing/{packageId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter packageId: (path) Installation Id. 
-     - returns: RequestBuilder<Void> 
+     - parameter packageId: (path) Installation Id.
+     - returns: RequestBuilder<Void>
      */
     open class func cancelPackageInstallationWithRequestBuilder(packageId: String) -> RequestBuilder<Void> {
         var urlPath = "/Packages/Installing/{packageId}"
@@ -46,21 +46,19 @@ open class PackageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a package by name or assembly GUID.
-     
-     - parameter name: (path) The name of the package. 
+
+     - parameter name: (path) The name of the package.
      - parameter assemblyGuid: (query) The GUID of the associated assembly. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -80,11 +78,11 @@ open class PackageAPI {
      Gets a package by name or assembly GUID.
      - GET /Packages/{name}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter name: (path) The name of the package. 
+     - parameter name: (path) The name of the package.
      - parameter assemblyGuid: (query) The GUID of the associated assembly. (optional)
-     - returns: RequestBuilder<PackageInfo> 
+     - returns: RequestBuilder<PackageInfo>
      */
     open class func getPackageInfoWithRequestBuilder(name: String, assemblyGuid: String? = nil) -> RequestBuilder<PackageInfo> {
         var urlPath = "/Packages/{name}"
@@ -99,20 +97,18 @@ open class PackageAPI {
             "assemblyGuid": assemblyGuid?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<PackageInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available packages.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -131,9 +127,9 @@ open class PackageAPI {
      Gets available packages.
      - GET /Packages
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[PackageInfo]> 
+     - returns: RequestBuilder<[PackageInfo]>
      */
     open class func getPackagesWithRequestBuilder() -> RequestBuilder<[PackageInfo]> {
         let urlPath = "/Packages"
@@ -142,20 +138,18 @@ open class PackageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[PackageInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets all package repositories.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -174,9 +168,9 @@ open class PackageAPI {
      Gets all package repositories.
      - GET /Repositories
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[RepositoryInfo]> 
+     - returns: RequestBuilder<[RepositoryInfo]>
      */
     open class func getRepositoriesWithRequestBuilder() -> RequestBuilder<[RepositoryInfo]> {
         let urlPath = "/Repositories"
@@ -185,21 +179,19 @@ open class PackageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RepositoryInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Installs a package.
-     
-     - parameter name: (path) Package name. 
+
+     - parameter name: (path) Package name.
      - parameter assemblyGuid: (query) GUID of the associated assembly. (optional)
      - parameter version: (query) Optional version. Defaults to latest version. (optional)
      - parameter repositoryUrl: (query) Optional. Specify the repository to install from. (optional)
@@ -221,13 +213,13 @@ open class PackageAPI {
      Installs a package.
      - POST /Packages/Installed/{name}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter name: (path) Package name. 
+     - parameter name: (path) Package name.
      - parameter assemblyGuid: (query) GUID of the associated assembly. (optional)
      - parameter version: (query) Optional version. Defaults to latest version. (optional)
      - parameter repositoryUrl: (query) Optional. Specify the repository to install from. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func installPackageWithRequestBuilder(name: String, assemblyGuid: String? = nil, version: String? = nil, repositoryUrl: String? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Packages/Installed/{name}"
@@ -244,21 +236,19 @@ open class PackageAPI {
             "repositoryUrl": repositoryUrl?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Sets the enabled and existing package repositories.
-     
-     - parameter repositoryInfo: (body) The list of package repositories. 
+
+     - parameter repositoryInfo: (body) The list of package repositories.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -277,10 +267,10 @@ open class PackageAPI {
      Sets the enabled and existing package repositories.
      - POST /Repositories
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter repositoryInfo: (body) The list of package repositories. 
-     - returns: RequestBuilder<Void> 
+     - parameter repositoryInfo: (body) The list of package repositories.
+     - returns: RequestBuilder<Void>
      */
     open class func setRepositoriesWithRequestBuilder(repositoryInfo: [RepositoryInfo]) -> RequestBuilder<Void> {
         let urlPath = "/Repositories"
@@ -289,15 +279,12 @@ open class PackageAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

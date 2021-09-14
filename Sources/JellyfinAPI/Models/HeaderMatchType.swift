@@ -7,7 +7,7 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public enum HeaderMatchType: String, Codable, CaseIterable {

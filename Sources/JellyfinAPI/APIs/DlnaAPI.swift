@@ -11,7 +11,7 @@ import Foundation
 open class DlnaAPI {
     /**
      Creates a profile.
-     
+
      - parameter deviceProfile: (body) Device profile. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -31,10 +31,10 @@ open class DlnaAPI {
      Creates a profile.
      - POST /Dlna/Profiles
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter deviceProfile: (body) Device profile. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func createProfileWithRequestBuilder(deviceProfile: DeviceProfile? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Dlna/Profiles"
@@ -43,21 +43,19 @@ open class DlnaAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Deletes a profile.
-     
-     - parameter profileId: (path) Profile id. 
+
+     - parameter profileId: (path) Profile id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -76,10 +74,10 @@ open class DlnaAPI {
      Deletes a profile.
      - DELETE /Dlna/Profiles/{profileId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter profileId: (path) Profile id. 
-     - returns: RequestBuilder<Void> 
+     - parameter profileId: (path) Profile id.
+     - returns: RequestBuilder<Void>
      */
     open class func deleteProfileWithRequestBuilder(profileId: String) -> RequestBuilder<Void> {
         var urlPath = "/Dlna/Profiles/{profileId}"
@@ -91,20 +89,18 @@ open class DlnaAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the default profile.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -123,9 +119,9 @@ open class DlnaAPI {
      Gets the default profile.
      - GET /Dlna/Profiles/Default
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<DeviceProfile> 
+     - returns: RequestBuilder<DeviceProfile>
      */
     open class func getDefaultProfileWithRequestBuilder() -> RequestBuilder<DeviceProfile> {
         let urlPath = "/Dlna/Profiles/Default"
@@ -134,21 +130,19 @@ open class DlnaAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<DeviceProfile>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a single profile.
-     
-     - parameter profileId: (path) Profile Id. 
+
+     - parameter profileId: (path) Profile Id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -167,10 +161,10 @@ open class DlnaAPI {
      Gets a single profile.
      - GET /Dlna/Profiles/{profileId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter profileId: (path) Profile Id. 
-     - returns: RequestBuilder<DeviceProfile> 
+     - parameter profileId: (path) Profile Id.
+     - returns: RequestBuilder<DeviceProfile>
      */
     open class func getProfileWithRequestBuilder(profileId: String) -> RequestBuilder<DeviceProfile> {
         var urlPath = "/Dlna/Profiles/{profileId}"
@@ -182,20 +176,18 @@ open class DlnaAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<DeviceProfile>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get profile infos.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -214,9 +206,9 @@ open class DlnaAPI {
      Get profile infos.
      - GET /Dlna/ProfileInfos
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[DeviceProfileInfo]> 
+     - returns: RequestBuilder<[DeviceProfileInfo]>
      */
     open class func getProfileInfosWithRequestBuilder() -> RequestBuilder<[DeviceProfileInfo]> {
         let urlPath = "/Dlna/ProfileInfos"
@@ -225,21 +217,19 @@ open class DlnaAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[DeviceProfileInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a profile.
-     
-     - parameter profileId: (path) Profile id. 
+
+     - parameter profileId: (path) Profile id.
      - parameter deviceProfile: (body) Device profile. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -259,11 +249,11 @@ open class DlnaAPI {
      Updates a profile.
      - POST /Dlna/Profiles/{profileId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter profileId: (path) Profile id. 
+     - parameter profileId: (path) Profile id.
      - parameter deviceProfile: (body) Device profile. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func updateProfileWithRequestBuilder(profileId: String, deviceProfile: DeviceProfile? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Dlna/Profiles/{profileId}"
@@ -275,15 +265,12 @@ open class DlnaAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

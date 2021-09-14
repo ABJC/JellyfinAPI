@@ -11,7 +11,7 @@ import Foundation
 open class MoviesAPI {
     /**
      Gets movie recommendations.
-     
+
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter parentId: (query) Specify this to localize the search to a specific item or folder. Omit to use the root. (optional)
      - parameter fields: (query) Optional. The fields to return. (optional)
@@ -35,14 +35,14 @@ open class MoviesAPI {
      Gets movie recommendations.
      - GET /Movies/Recommendations
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter parentId: (query) Specify this to localize the search to a specific item or folder. Omit to use the root. (optional)
      - parameter fields: (query) Optional. The fields to return. (optional)
      - parameter categoryLimit: (query) The max number of categories to return. (optional, default to 5)
      - parameter itemLimit: (query) The max number of items to return per category. (optional, default to 8)
-     - returns: RequestBuilder<[RecommendationDto]> 
+     - returns: RequestBuilder<[RecommendationDto]>
      */
     open class func getMovieRecommendationsWithRequestBuilder(userId: String? = nil, parentId: String? = nil, fields: [ItemFields]? = nil, categoryLimit: Int? = nil, itemLimit: Int? = nil) -> RequestBuilder<[RecommendationDto]> {
         let urlPath = "/Movies/Recommendations"
@@ -58,15 +58,12 @@ open class MoviesAPI {
             "itemLimit": itemLimit?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RecommendationDto]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

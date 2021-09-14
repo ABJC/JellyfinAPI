@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Represents the external id information for serialization to the client. */
 public struct ExternalIdInfo: Codable, Hashable {
-
     /** Gets or sets the display name of the external id provider (IE: IMDB, MusicBrainz, etc). */
     public var name: String?
     /** Gets or sets the unique key for this id. This key should be unique across all providers. */

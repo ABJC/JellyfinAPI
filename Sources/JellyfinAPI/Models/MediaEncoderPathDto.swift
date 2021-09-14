@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Media Encoder Path Dto. */
 public struct MediaEncoderPathDto: Codable, Hashable {
-
     /** Gets or sets media encoder path. */
     public var path: String?
     /** Gets or sets media encoder path type. */

@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class ChapterInfo. */
 public struct ChapterInfo: Codable, Hashable {
-
     /** Gets or sets the start position ticks. */
     public var startPositionTicks: Int64?
     /** Gets or sets the name. */

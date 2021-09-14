@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct DeviceIdentification: Codable, Hashable {
-
     /** Gets or sets the name of the friendly. */
     public var friendlyName: String?
     /** Gets or sets the model number. */

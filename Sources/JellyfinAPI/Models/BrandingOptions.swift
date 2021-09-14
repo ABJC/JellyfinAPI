@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct BrandingOptions: Codable, Hashable {
-
     /** Gets or sets the login disclaimer. */
     public var loginDisclaimer: String?
     /** Gets or sets the custom CSS. */

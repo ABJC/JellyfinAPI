@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Represents the server configuration. */
 public struct ServerConfiguration: Codable, Hashable {
-
     /** Gets or sets the number of days we should retain log files. */
     public var logFileRetentionDays: Int?
     /** Gets or sets a value indicating whether this instance is first run. */

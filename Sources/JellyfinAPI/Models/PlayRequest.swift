@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class PlayRequest. */
 public struct PlayRequest: Codable, Hashable {
-
     /** Gets or sets the item ids. */
     public var itemIds: [String]?
     /** Gets or sets the start position ticks that the first item should be played at. */

@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct TranscodingInfo: Codable, Hashable {
-
     public var audioCodec: String?
     public var videoCodec: String?
     public var container: String?

@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class FileSystemEntryInfo. */
 public struct FileSystemEntryInfo: Codable, Hashable {
-
     /** Gets the name. */
     public var name: String?
     /** Gets the path. */

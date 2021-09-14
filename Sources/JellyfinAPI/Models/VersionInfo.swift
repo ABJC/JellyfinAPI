@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Defines the MediaBrowser.Model.Updates.VersionInfo class. */
 public struct VersionInfo: Codable, Hashable {
-
     /** Gets or sets the version. */
     public var version: String?
     public var versionNumber: Version?

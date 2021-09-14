@@ -11,7 +11,7 @@ import Foundation
 open class EnvironmentAPI {
     /**
      Get Default directory browser.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,9 +30,9 @@ open class EnvironmentAPI {
      Get Default directory browser.
      - GET /Environment/DefaultDirectoryBrowser
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<DefaultDirectoryBrowserInfoDto> 
+     - returns: RequestBuilder<DefaultDirectoryBrowserInfoDto>
      */
     open class func getDefaultDirectoryBrowserWithRequestBuilder() -> RequestBuilder<DefaultDirectoryBrowserInfoDto> {
         let urlPath = "/Environment/DefaultDirectoryBrowser"
@@ -41,21 +41,19 @@ open class EnvironmentAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<DefaultDirectoryBrowserInfoDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the contents of a given directory in the file system.
-     
-     - parameter path: (query) The path. 
+
+     - parameter path: (query) The path.
      - parameter includeFiles: (query) An optional filter to include or exclude files from the results. true/false. (optional, default to false)
      - parameter includeDirectories: (query) An optional filter to include or exclude folders from the results. true/false. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -76,12 +74,12 @@ open class EnvironmentAPI {
      Gets the contents of a given directory in the file system.
      - GET /Environment/DirectoryContents
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter path: (query) The path. 
+     - parameter path: (query) The path.
      - parameter includeFiles: (query) An optional filter to include or exclude files from the results. true/false. (optional, default to false)
      - parameter includeDirectories: (query) An optional filter to include or exclude folders from the results. true/false. (optional, default to false)
-     - returns: RequestBuilder<[FileSystemEntryInfo]> 
+     - returns: RequestBuilder<[FileSystemEntryInfo]>
      */
     open class func getDirectoryContentsWithRequestBuilder(path: String, includeFiles: Bool? = nil, includeDirectories: Bool? = nil) -> RequestBuilder<[FileSystemEntryInfo]> {
         let urlPath = "/Environment/DirectoryContents"
@@ -95,20 +93,18 @@ open class EnvironmentAPI {
             "includeDirectories": includeDirectories?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[FileSystemEntryInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available drives from the server's file system.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -127,9 +123,9 @@ open class EnvironmentAPI {
      Gets available drives from the server's file system.
      - GET /Environment/Drives
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[FileSystemEntryInfo]> 
+     - returns: RequestBuilder<[FileSystemEntryInfo]>
      */
     open class func getDrivesWithRequestBuilder() -> RequestBuilder<[FileSystemEntryInfo]> {
         let urlPath = "/Environment/Drives"
@@ -138,20 +134,18 @@ open class EnvironmentAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[FileSystemEntryInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets network paths.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -171,9 +165,9 @@ open class EnvironmentAPI {
      Gets network paths.
      - GET /Environment/NetworkShares
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[FileSystemEntryInfo]> 
+     - returns: RequestBuilder<[FileSystemEntryInfo]>
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func getNetworkSharesWithRequestBuilder() -> RequestBuilder<[FileSystemEntryInfo]> {
@@ -183,21 +177,19 @@ open class EnvironmentAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[FileSystemEntryInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the parent path of a given path.
-     
-     - parameter path: (query) The path. 
+
+     - parameter path: (query) The path.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -216,10 +208,10 @@ open class EnvironmentAPI {
      Gets the parent path of a given path.
      - GET /Environment/ParentPath
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter path: (query) The path. 
-     - returns: RequestBuilder<String> 
+     - parameter path: (query) The path.
+     - returns: RequestBuilder<String>
      */
     open class func getParentPathWithRequestBuilder(path: String) -> RequestBuilder<String> {
         let urlPath = "/Environment/ParentPath"
@@ -231,21 +223,19 @@ open class EnvironmentAPI {
             "path": path.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<String>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Validates path.
-     
-     - parameter validatePathDto: (body) Validate request object. 
+
+     - parameter validatePathDto: (body) Validate request object.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -264,10 +254,10 @@ open class EnvironmentAPI {
      Validates path.
      - POST /Environment/ValidatePath
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter validatePathDto: (body) Validate request object. 
-     - returns: RequestBuilder<Void> 
+     - parameter validatePathDto: (body) Validate request object.
+     - returns: RequestBuilder<Void>
      */
     open class func validatePathWithRequestBuilder(validatePathDto: ValidatePathDto) -> RequestBuilder<Void> {
         let urlPath = "/Environment/ValidatePath"
@@ -276,15 +266,12 @@ open class EnvironmentAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

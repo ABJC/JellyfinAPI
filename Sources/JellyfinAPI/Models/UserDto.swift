@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class UserDto. */
 public struct UserDto: Codable, Hashable {
-
     /** Gets or sets the name. */
     public var name: String?
     /** Gets or sets the server identifier. */

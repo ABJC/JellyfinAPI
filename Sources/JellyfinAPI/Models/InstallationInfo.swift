@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class InstallationInfo. */
 public struct InstallationInfo: Codable, Hashable {
-
     /** Gets or sets the Id. */
     public var guid: String?
     /** Gets or sets the name. */

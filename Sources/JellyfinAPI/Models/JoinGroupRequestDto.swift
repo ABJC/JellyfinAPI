@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class JoinGroupRequestDto. */
 public struct JoinGroupRequestDto: Codable, Hashable {
-
     /** Gets or sets the group identifier. */
     public var groupId: String?
 

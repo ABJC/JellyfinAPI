@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Library option info dto. */
 public struct LibraryOptionInfoDto: Codable, Hashable {
-
     /** Gets or sets name. */
     public var name: String?
     /** Gets or sets a value indicating whether default enabled. */

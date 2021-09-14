@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct TunerChannelMapping: Codable, Hashable {
-
     public var name: String?
     public var providerChannelName: String?
     public var providerChannelId: String?

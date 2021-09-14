@@ -11,8 +11,8 @@ import Foundation
 open class NotificationsAPI {
     /**
      Sends a notification to all admins.
-     
-     - parameter adminNotificationDto: (body) The notification request. 
+
+     - parameter adminNotificationDto: (body) The notification request.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +31,10 @@ open class NotificationsAPI {
      Sends a notification to all admins.
      - POST /Notifications/Admin
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter adminNotificationDto: (body) The notification request. 
-     - returns: RequestBuilder<Void> 
+     - parameter adminNotificationDto: (body) The notification request.
+     - returns: RequestBuilder<Void>
      */
     open class func createAdminNotificationWithRequestBuilder(adminNotificationDto: AdminNotificationDto) -> RequestBuilder<Void> {
         let urlPath = "/Notifications/Admin"
@@ -43,20 +43,18 @@ open class NotificationsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets notification services.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -75,9 +73,9 @@ open class NotificationsAPI {
      Gets notification services.
      - GET /Notifications/Services
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[NameIdPair]> 
+     - returns: RequestBuilder<[NameIdPair]>
      */
     open class func getNotificationServicesWithRequestBuilder() -> RequestBuilder<[NameIdPair]> {
         let urlPath = "/Notifications/Services"
@@ -86,20 +84,18 @@ open class NotificationsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[NameIdPair]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets notification types.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -118,9 +114,9 @@ open class NotificationsAPI {
      Gets notification types.
      - GET /Notifications/Types
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[NotificationTypeInfo]> 
+     - returns: RequestBuilder<[NotificationTypeInfo]>
      */
     open class func getNotificationTypesWithRequestBuilder() -> RequestBuilder<[NotificationTypeInfo]> {
         let urlPath = "/Notifications/Types"
@@ -129,21 +125,19 @@ open class NotificationsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[NotificationTypeInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a user's notifications.
-     
-     - parameter userId: (path)  
+
+     - parameter userId: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -162,10 +156,10 @@ open class NotificationsAPI {
      Gets a user's notifications.
      - GET /Notifications/{userId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path)  
-     - returns: RequestBuilder<NotificationResultDto> 
+     - parameter userId: (path)
+     - returns: RequestBuilder<NotificationResultDto>
      */
     open class func getNotificationsWithRequestBuilder(userId: String) -> RequestBuilder<NotificationResultDto> {
         var urlPath = "/Notifications/{userId}"
@@ -177,21 +171,19 @@ open class NotificationsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<NotificationResultDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a user's notification summary.
-     
-     - parameter userId: (path)  
+
+     - parameter userId: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -210,10 +202,10 @@ open class NotificationsAPI {
      Gets a user's notification summary.
      - GET /Notifications/{userId}/Summary
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path)  
-     - returns: RequestBuilder<NotificationsSummaryDto> 
+     - parameter userId: (path)
+     - returns: RequestBuilder<NotificationsSummaryDto>
      */
     open class func getNotificationsSummaryWithRequestBuilder(userId: String) -> RequestBuilder<NotificationsSummaryDto> {
         var urlPath = "/Notifications/{userId}/Summary"
@@ -225,21 +217,19 @@ open class NotificationsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<NotificationsSummaryDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Sets notifications as read.
-     
-     - parameter userId: (path)  
+
+     - parameter userId: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -258,10 +248,10 @@ open class NotificationsAPI {
      Sets notifications as read.
      - POST /Notifications/{userId}/Read
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path)  
-     - returns: RequestBuilder<Void> 
+     - parameter userId: (path)
+     - returns: RequestBuilder<Void>
      */
     open class func setReadWithRequestBuilder(userId: String) -> RequestBuilder<Void> {
         var urlPath = "/Notifications/{userId}/Read"
@@ -273,21 +263,19 @@ open class NotificationsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Sets notifications as unread.
-     
-     - parameter userId: (path)  
+
+     - parameter userId: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -306,10 +294,10 @@ open class NotificationsAPI {
      Sets notifications as unread.
      - POST /Notifications/{userId}/Unread
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path)  
-     - returns: RequestBuilder<Void> 
+     - parameter userId: (path)
+     - returns: RequestBuilder<Void>
      */
     open class func setUnreadWithRequestBuilder(userId: String) -> RequestBuilder<Void> {
         var urlPath = "/Notifications/{userId}/Unread"
@@ -321,15 +309,12 @@ open class NotificationsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

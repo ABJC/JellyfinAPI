@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class MediaStream. */
 public struct MediaStream: Codable, Hashable {
-
     /** Gets or sets the codec. */
     public var codec: String?
     /** Gets or sets the codec tag. */

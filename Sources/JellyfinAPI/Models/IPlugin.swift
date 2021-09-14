@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Defines the MediaBrowser.Common.Plugins.IPlugin. */
 public struct IPlugin: Codable, Hashable {
-
     /** Gets the name of the plugin. */
     public var name: String?
     /** Gets the Description. */

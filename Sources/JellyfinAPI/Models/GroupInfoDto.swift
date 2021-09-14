@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class GroupInfoDto. */
 public struct GroupInfoDto: Codable, Hashable {
-
     /** Gets the group identifier. */
     public var groupId: String?
     /** Gets the group name. */

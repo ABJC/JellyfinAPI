@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct QueueItem: Codable, Hashable {
-
     public var id: String?
     public var playlistItemId: String?
 

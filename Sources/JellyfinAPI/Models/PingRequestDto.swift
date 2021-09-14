@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class PingRequestDto. */
 public struct PingRequestDto: Codable, Hashable {
-
     /** Gets or sets the ping time. */
     public var ping: Int64?
 

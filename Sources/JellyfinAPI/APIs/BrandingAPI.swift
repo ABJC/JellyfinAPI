@@ -11,7 +11,7 @@ import Foundation
 open class BrandingAPI {
     /**
      Gets branding css.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -29,7 +29,7 @@ open class BrandingAPI {
     /**
      Gets branding css.
      - GET /Branding/Css
-     - returns: RequestBuilder<String> 
+     - returns: RequestBuilder<String>
      */
     open class func getBrandingCssWithRequestBuilder() -> RequestBuilder<String> {
         let urlPath = "/Branding/Css"
@@ -38,20 +38,18 @@ open class BrandingAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<String>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets branding css.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -69,7 +67,7 @@ open class BrandingAPI {
     /**
      Gets branding css.
      - GET /Branding/Css.css
-     - returns: RequestBuilder<String> 
+     - returns: RequestBuilder<String>
      */
     open class func getBrandingCss2WithRequestBuilder() -> RequestBuilder<String> {
         let urlPath = "/Branding/Css.css"
@@ -78,20 +76,18 @@ open class BrandingAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<String>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets branding configuration.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -109,7 +105,7 @@ open class BrandingAPI {
     /**
      Gets branding configuration.
      - GET /Branding/Configuration
-     - returns: RequestBuilder<BrandingOptions> 
+     - returns: RequestBuilder<BrandingOptions>
      */
     open class func getBrandingOptionsWithRequestBuilder() -> RequestBuilder<BrandingOptions> {
         let urlPath = "/Branding/Configuration"
@@ -118,15 +114,12 @@ open class BrandingAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BrandingOptions>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

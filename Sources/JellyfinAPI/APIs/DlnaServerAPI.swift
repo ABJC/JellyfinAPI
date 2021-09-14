@@ -11,8 +11,8 @@ import Foundation
 open class DlnaServerAPI {
     /**
      Gets Dlna media receiver registrar xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,8 +30,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna media receiver registrar xml.
      - GET /Dlna/{serverId}/ConnectionManager
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getConnectionManagerWithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/ConnectionManager"
@@ -43,21 +43,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets Dlna media receiver registrar xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -75,8 +73,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna media receiver registrar xml.
      - GET /Dlna/{serverId}/ConnectionManager/ConnectionManager
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getConnectionManager2WithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/ConnectionManager/ConnectionManager"
@@ -88,21 +86,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets Dlna media receiver registrar xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -120,8 +116,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna media receiver registrar xml.
      - GET /Dlna/{serverId}/ConnectionManager/ConnectionManager.xml
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getConnectionManager3WithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/ConnectionManager/ConnectionManager.xml"
@@ -133,21 +129,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets Dlna content directory xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -165,8 +159,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna content directory xml.
      - GET /Dlna/{serverId}/ContentDirectory
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getContentDirectoryWithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/ContentDirectory"
@@ -178,21 +172,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets Dlna content directory xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -210,8 +202,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna content directory xml.
      - GET /Dlna/{serverId}/ContentDirectory/ContentDirectory
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getContentDirectory2WithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/ContentDirectory/ContentDirectory"
@@ -223,21 +215,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets Dlna content directory xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -255,8 +245,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna content directory xml.
      - GET /Dlna/{serverId}/ContentDirectory/ContentDirectory.xml
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getContentDirectory3WithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/ContentDirectory/ContentDirectory.xml"
@@ -268,21 +258,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get Description Xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -300,8 +288,8 @@ open class DlnaServerAPI {
     /**
      Get Description Xml.
      - GET /Dlna/{serverId}/description
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getDescriptionXmlWithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/description"
@@ -313,21 +301,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get Description Xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -345,8 +331,8 @@ open class DlnaServerAPI {
     /**
      Get Description Xml.
      - GET /Dlna/{serverId}/description.xml
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getDescriptionXml2WithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/description.xml"
@@ -358,21 +344,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a server icon.
-     
-     - parameter fileName: (path) The icon filename. 
+
+     - parameter fileName: (path) The icon filename.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -390,8 +374,8 @@ open class DlnaServerAPI {
     /**
      Gets a server icon.
      - GET /Dlna/icons/{fileName}
-     - parameter fileName: (path) The icon filename. 
-     - returns: RequestBuilder<URL> 
+     - parameter fileName: (path) The icon filename.
+     - returns: RequestBuilder<URL>
      */
     open class func getIconWithRequestBuilder(fileName: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/icons/{fileName}"
@@ -403,22 +387,20 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a server icon.
-     
-     - parameter serverId: (path) Server UUID. 
-     - parameter fileName: (path) The icon filename. 
+
+     - parameter serverId: (path) Server UUID.
+     - parameter fileName: (path) The icon filename.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -436,9 +418,9 @@ open class DlnaServerAPI {
     /**
      Gets a server icon.
      - GET /Dlna/{serverId}/icons/{fileName}
-     - parameter serverId: (path) Server UUID. 
-     - parameter fileName: (path) The icon filename. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - parameter fileName: (path) The icon filename.
+     - returns: RequestBuilder<URL>
      */
     open class func getIconIdWithRequestBuilder(serverId: String, fileName: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/icons/{fileName}"
@@ -453,21 +435,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets Dlna media receiver registrar xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -485,8 +465,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna media receiver registrar xml.
      - GET /Dlna/{serverId}/MediaReceiverRegistrar
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getMediaReceiverRegistrarWithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/MediaReceiverRegistrar"
@@ -498,21 +478,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets Dlna media receiver registrar xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -530,8 +508,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna media receiver registrar xml.
      - GET /Dlna/{serverId}/MediaReceiverRegistrar/MediaReceiverRegistrar
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getMediaReceiverRegistrar2WithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/MediaReceiverRegistrar/MediaReceiverRegistrar"
@@ -543,21 +521,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets Dlna media receiver registrar xml.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -575,8 +551,8 @@ open class DlnaServerAPI {
     /**
      Gets Dlna media receiver registrar xml.
      - GET /Dlna/{serverId}/MediaReceiverRegistrar/MediaReceiverRegistrar.xml
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func getMediaReceiverRegistrar3WithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/MediaReceiverRegistrar/MediaReceiverRegistrar.xml"
@@ -588,21 +564,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Process a connection manager control request.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -620,8 +594,8 @@ open class DlnaServerAPI {
     /**
      Process a connection manager control request.
      - POST /Dlna/{serverId}/ConnectionManager/Control
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func processConnectionManagerControlRequestWithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/ConnectionManager/Control"
@@ -633,21 +607,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Process a content directory control request.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -665,8 +637,8 @@ open class DlnaServerAPI {
     /**
      Process a content directory control request.
      - POST /Dlna/{serverId}/ContentDirectory/Control
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func processContentDirectoryControlRequestWithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/ContentDirectory/Control"
@@ -678,21 +650,19 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Process a media receiver registrar control request.
-     
-     - parameter serverId: (path) Server UUID. 
+
+     - parameter serverId: (path) Server UUID.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -710,8 +680,8 @@ open class DlnaServerAPI {
     /**
      Process a media receiver registrar control request.
      - POST /Dlna/{serverId}/MediaReceiverRegistrar/Control
-     - parameter serverId: (path) Server UUID. 
-     - returns: RequestBuilder<URL> 
+     - parameter serverId: (path) Server UUID.
+     - returns: RequestBuilder<URL>
      */
     open class func processMediaReceiverRegistrarControlRequestWithRequestBuilder(serverId: String) -> RequestBuilder<URL> {
         var urlPath = "/Dlna/{serverId}/MediaReceiverRegistrar/Control"
@@ -723,15 +693,12 @@ open class DlnaServerAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** The create user by name request body. */
 public struct CreateUserByName: Codable, Hashable {
-
     /** Gets or sets the username. */
     public var name: String?
     /** Gets or sets the password. */

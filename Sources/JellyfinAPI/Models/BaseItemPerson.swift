@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** This is used by the api to get information about a Person within a BaseItem. */
 public struct BaseItemPerson: Codable, Hashable {
-
     /** Gets or sets the name. */
     public var name: String?
     /** Gets or sets the identifier. */

@@ -11,9 +11,9 @@ import Foundation
 open class SessionAPI {
     /**
      Adds an additional user to a session.
-     
-     - parameter sessionId: (path) The session id. 
-     - parameter userId: (path) The user id. 
+
+     - parameter sessionId: (path) The session id.
+     - parameter userId: (path) The user id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -32,11 +32,11 @@ open class SessionAPI {
      Adds an additional user to a session.
      - POST /Sessions/{sessionId}/User/{userId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session id. 
-     - parameter userId: (path) The user id. 
-     - returns: RequestBuilder<Void> 
+     - parameter sessionId: (path) The session id.
+     - parameter userId: (path) The user id.
+     - returns: RequestBuilder<Void>
      */
     open class func addUserToSessionWithRequestBuilder(sessionId: String, userId: String) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/User/{userId}"
@@ -51,24 +51,22 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Instructs a session to browse to an item or view.
-     
-     - parameter sessionId: (path) The session Id. 
-     - parameter itemType: (query) The type of item to browse to. 
-     - parameter itemId: (query) The Id of the item. 
-     - parameter itemName: (query) The name of the item. 
+
+     - parameter sessionId: (path) The session Id.
+     - parameter itemType: (query) The type of item to browse to.
+     - parameter itemId: (query) The Id of the item.
+     - parameter itemName: (query) The name of the item.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -87,13 +85,13 @@ open class SessionAPI {
      Instructs a session to browse to an item or view.
      - POST /Sessions/{sessionId}/Viewing
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session Id. 
-     - parameter itemType: (query) The type of item to browse to. 
-     - parameter itemId: (query) The Id of the item. 
-     - parameter itemName: (query) The name of the item. 
-     - returns: RequestBuilder<Void> 
+     - parameter sessionId: (path) The session Id.
+     - parameter itemType: (query) The type of item to browse to.
+     - parameter itemId: (query) The Id of the item.
+     - parameter itemName: (query) The name of the item.
+     - returns: RequestBuilder<Void>
      */
     open class func displayContentWithRequestBuilder(sessionId: String, itemType: String, itemId: String, itemName: String) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/Viewing"
@@ -110,20 +108,18 @@ open class SessionAPI {
             "itemName": itemName.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get all auth providers.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -142,9 +138,9 @@ open class SessionAPI {
      Get all auth providers.
      - GET /Auth/Providers
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[NameIdPair]> 
+     - returns: RequestBuilder<[NameIdPair]>
      */
     open class func getAuthProvidersWithRequestBuilder() -> RequestBuilder<[NameIdPair]> {
         let urlPath = "/Auth/Providers"
@@ -153,20 +149,18 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[NameIdPair]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get all password reset providers.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -185,9 +179,9 @@ open class SessionAPI {
      Get all password reset providers.
      - GET /Auth/PasswordResetProviders
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[NameIdPair]> 
+     - returns: RequestBuilder<[NameIdPair]>
      */
     open class func getPasswordResetProvidersWithRequestBuilder() -> RequestBuilder<[NameIdPair]> {
         let urlPath = "/Auth/PasswordResetProviders"
@@ -196,20 +190,18 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[NameIdPair]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of sessions.
-     
+
      - parameter controllableByUserId: (query) Filter by sessions that a given user is allowed to remote control. (optional)
      - parameter deviceId: (query) Filter by device Id. (optional)
      - parameter activeWithinSeconds: (query) Optional. Filter by sessions that were active in the last n seconds. (optional)
@@ -231,12 +223,12 @@ open class SessionAPI {
      Gets a list of sessions.
      - GET /Sessions
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter controllableByUserId: (query) Filter by sessions that a given user is allowed to remote control. (optional)
      - parameter deviceId: (query) Filter by device Id. (optional)
      - parameter activeWithinSeconds: (query) Optional. Filter by sessions that were active in the last n seconds. (optional)
-     - returns: RequestBuilder<[SessionInfo]> 
+     - returns: RequestBuilder<[SessionInfo]>
      */
     open class func getSessionsWithRequestBuilder(controllableByUserId: String? = nil, deviceId: String? = nil, activeWithinSeconds: Int? = nil) -> RequestBuilder<[SessionInfo]> {
         let urlPath = "/Sessions"
@@ -250,23 +242,21 @@ open class SessionAPI {
             "activeWithinSeconds": activeWithinSeconds?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[SessionInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Instructs a session to play an item.
-     
-     - parameter sessionId: (path) The session id. 
-     - parameter playCommand: (query) The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now. 
-     - parameter itemIds: (query) The ids of the items to play, comma delimited. 
+
+     - parameter sessionId: (path) The session id.
+     - parameter playCommand: (query) The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.
+     - parameter itemIds: (query) The ids of the items to play, comma delimited.
      - parameter startPositionTicks: (query) The starting position of the first item. (optional)
      - parameter mediaSourceId: (query) Optional. The media source id. (optional)
      - parameter audioStreamIndex: (query) Optional. The index of the audio stream to play. (optional)
@@ -290,17 +280,17 @@ open class SessionAPI {
      Instructs a session to play an item.
      - POST /Sessions/{sessionId}/Playing
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session id. 
-     - parameter playCommand: (query) The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now. 
-     - parameter itemIds: (query) The ids of the items to play, comma delimited. 
+     - parameter sessionId: (path) The session id.
+     - parameter playCommand: (query) The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.
+     - parameter itemIds: (query) The ids of the items to play, comma delimited.
      - parameter startPositionTicks: (query) The starting position of the first item. (optional)
      - parameter mediaSourceId: (query) Optional. The media source id. (optional)
      - parameter audioStreamIndex: (query) Optional. The index of the audio stream to play. (optional)
      - parameter subtitleStreamIndex: (query) Optional. The index of the subtitle stream to play. (optional)
      - parameter startIndex: (query) Optional. The start index. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func playWithRequestBuilder(sessionId: String, playCommand: PlayCommand, itemIds: [String], startPositionTicks: Int64? = nil, mediaSourceId: String? = nil, audioStreamIndex: Int? = nil, subtitleStreamIndex: Int? = nil, startIndex: Int? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/Playing"
@@ -321,20 +311,18 @@ open class SessionAPI {
             "startIndex": startIndex?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates capabilities for a device.
-     
+
      - parameter id: (query) The session id. (optional)
      - parameter playableMediaTypes: (query) A list of playable media types, comma delimited. Audio, Video, Book, Photo. (optional)
      - parameter supportedCommands: (query) A list of supported remote control commands, comma delimited. (optional)
@@ -359,7 +347,7 @@ open class SessionAPI {
      Updates capabilities for a device.
      - POST /Sessions/Capabilities
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter id: (query) The session id. (optional)
      - parameter playableMediaTypes: (query) A list of playable media types, comma delimited. Audio, Video, Book, Photo. (optional)
@@ -367,7 +355,7 @@ open class SessionAPI {
      - parameter supportsMediaControl: (query) Determines whether media can be played remotely.. (optional, default to false)
      - parameter supportsSync: (query) Determines whether sync is supported. (optional, default to false)
      - parameter supportsPersistentIdentifier: (query) Determines whether the device supports a unique identifier. (optional, default to true)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func postCapabilitiesWithRequestBuilder(id: String? = nil, playableMediaTypes: [String]? = nil, supportedCommands: [GeneralCommandType]? = nil, supportsMediaControl: Bool? = nil, supportsSync: Bool? = nil, supportsPersistentIdentifier: Bool? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Sessions/Capabilities"
@@ -384,21 +372,19 @@ open class SessionAPI {
             "supportsPersistentIdentifier": supportsPersistentIdentifier?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates capabilities for a device.
-     
-     - parameter clientCapabilitiesDto: (body) The MediaBrowser.Model.Session.ClientCapabilities. 
+
+     - parameter clientCapabilitiesDto: (body) The MediaBrowser.Model.Session.ClientCapabilities.
      - parameter id: (query) The session id. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -418,11 +404,11 @@ open class SessionAPI {
      Updates capabilities for a device.
      - POST /Sessions/Capabilities/Full
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter clientCapabilitiesDto: (body) The MediaBrowser.Model.Session.ClientCapabilities. 
+     - parameter clientCapabilitiesDto: (body) The MediaBrowser.Model.Session.ClientCapabilities.
      - parameter id: (query) The session id. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func postFullCapabilitiesWithRequestBuilder(clientCapabilitiesDto: ClientCapabilitiesDto, id: String? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Sessions/Capabilities/Full"
@@ -434,22 +420,20 @@ open class SessionAPI {
             "id": id?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Removes an additional user from a session.
-     
-     - parameter sessionId: (path) The session id. 
-     - parameter userId: (path) The user id. 
+
+     - parameter sessionId: (path) The session id.
+     - parameter userId: (path) The user id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -468,11 +452,11 @@ open class SessionAPI {
      Removes an additional user from a session.
      - DELETE /Sessions/{sessionId}/User/{userId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session id. 
-     - parameter userId: (path) The user id. 
-     - returns: RequestBuilder<Void> 
+     - parameter sessionId: (path) The session id.
+     - parameter userId: (path) The user id.
+     - returns: RequestBuilder<Void>
      */
     open class func removeUserFromSessionWithRequestBuilder(sessionId: String, userId: String) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/User/{userId}"
@@ -487,20 +471,18 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that a session has ended.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -519,9 +501,9 @@ open class SessionAPI {
      Reports that a session has ended.
      - POST /Sessions/Logout
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func reportSessionEndedWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/Sessions/Logout"
@@ -530,21 +512,19 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that a session is viewing an item.
-     
-     - parameter itemId: (query) The item id. 
+
+     - parameter itemId: (query) The item id.
      - parameter sessionId: (query) The session id. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -564,11 +544,11 @@ open class SessionAPI {
      Reports that a session is viewing an item.
      - POST /Sessions/Viewing
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (query) The item id. 
+     - parameter itemId: (query) The item id.
      - parameter sessionId: (query) The session id. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func reportViewingWithRequestBuilder(itemId: String, sessionId: String? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Sessions/Viewing"
@@ -581,22 +561,20 @@ open class SessionAPI {
             "itemId": itemId.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Issues a full general command to a client.
-     
-     - parameter sessionId: (path) The session id. 
-     - parameter generalCommand: (body) The MediaBrowser.Model.Session.GeneralCommand. 
+
+     - parameter sessionId: (path) The session id.
+     - parameter generalCommand: (body) The MediaBrowser.Model.Session.GeneralCommand.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -615,11 +593,11 @@ open class SessionAPI {
      Issues a full general command to a client.
      - POST /Sessions/{sessionId}/Command
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session id. 
-     - parameter generalCommand: (body) The MediaBrowser.Model.Session.GeneralCommand. 
-     - returns: RequestBuilder<Void> 
+     - parameter sessionId: (path) The session id.
+     - parameter generalCommand: (body) The MediaBrowser.Model.Session.GeneralCommand.
+     - returns: RequestBuilder<Void>
      */
     open class func sendFullGeneralCommandWithRequestBuilder(sessionId: String, generalCommand: GeneralCommand) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/Command"
@@ -631,22 +609,20 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Issues a general command to a client.
-     
-     - parameter sessionId: (path) The session id. 
-     - parameter command: (path) The command to send. 
+
+     - parameter sessionId: (path) The session id.
+     - parameter command: (path) The command to send.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -665,11 +641,11 @@ open class SessionAPI {
      Issues a general command to a client.
      - POST /Sessions/{sessionId}/Command/{command}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session id. 
-     - parameter command: (path) The command to send. 
-     - returns: RequestBuilder<Void> 
+     - parameter sessionId: (path) The session id.
+     - parameter command: (path) The command to send.
+     - returns: RequestBuilder<Void>
      */
     open class func sendGeneralCommandWithRequestBuilder(sessionId: String, command: GeneralCommandType) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/Command/{command}"
@@ -684,22 +660,20 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Issues a command to a client to display a message to the user.
-     
-     - parameter sessionId: (path) The session id. 
-     - parameter messageCommand: (body) The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs. 
+
+     - parameter sessionId: (path) The session id.
+     - parameter messageCommand: (body) The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -718,11 +692,11 @@ open class SessionAPI {
      Issues a command to a client to display a message to the user.
      - POST /Sessions/{sessionId}/Message
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session id. 
-     - parameter messageCommand: (body) The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs. 
-     - returns: RequestBuilder<Void> 
+     - parameter sessionId: (path) The session id.
+     - parameter messageCommand: (body) The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs.
+     - returns: RequestBuilder<Void>
      */
     open class func sendMessageCommandWithRequestBuilder(sessionId: String, messageCommand: MessageCommand) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/Message"
@@ -734,22 +708,20 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Issues a playstate command to a client.
-     
-     - parameter sessionId: (path) The session id. 
-     - parameter command: (path) The MediaBrowser.Model.Session.PlaystateCommand. 
+
+     - parameter sessionId: (path) The session id.
+     - parameter command: (path) The MediaBrowser.Model.Session.PlaystateCommand.
      - parameter seekPositionTicks: (query) The optional position ticks. (optional)
      - parameter controllingUserId: (query) The optional controlling user id. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -770,13 +742,13 @@ open class SessionAPI {
      Issues a playstate command to a client.
      - POST /Sessions/{sessionId}/Playing/{command}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session id. 
-     - parameter command: (path) The MediaBrowser.Model.Session.PlaystateCommand. 
+     - parameter sessionId: (path) The session id.
+     - parameter command: (path) The MediaBrowser.Model.Session.PlaystateCommand.
      - parameter seekPositionTicks: (query) The optional position ticks. (optional)
      - parameter controllingUserId: (query) The optional controlling user id. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func sendPlaystateCommandWithRequestBuilder(sessionId: String, command: PlaystateCommand, seekPositionTicks: Int64? = nil, controllingUserId: String? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/Playing/{command}"
@@ -795,22 +767,20 @@ open class SessionAPI {
             "controllingUserId": controllingUserId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Issues a system command to a client.
-     
-     - parameter sessionId: (path) The session id. 
-     - parameter command: (path) The command to send. 
+
+     - parameter sessionId: (path) The session id.
+     - parameter command: (path) The command to send.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -829,11 +799,11 @@ open class SessionAPI {
      Issues a system command to a client.
      - POST /Sessions/{sessionId}/System/{command}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter sessionId: (path) The session id. 
-     - parameter command: (path) The command to send. 
-     - returns: RequestBuilder<Void> 
+     - parameter sessionId: (path) The session id.
+     - parameter command: (path) The command to send.
+     - returns: RequestBuilder<Void>
      */
     open class func sendSystemCommandWithRequestBuilder(sessionId: String, command: GeneralCommandType) -> RequestBuilder<Void> {
         var urlPath = "/Sessions/{sessionId}/System/{command}"
@@ -848,15 +818,12 @@ open class SessionAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

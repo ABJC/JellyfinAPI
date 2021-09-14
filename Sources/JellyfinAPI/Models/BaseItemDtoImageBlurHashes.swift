@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Gets or sets the blurhashes for the image tags.  Maps image type to dictionary mapping image tag to blurhash value. */
 public struct BaseItemDtoImageBlurHashes: Codable, Hashable {
-
     public var primary: [String: String]?
     public var art: [String: String]?
     public var backdrop: [String: String]?

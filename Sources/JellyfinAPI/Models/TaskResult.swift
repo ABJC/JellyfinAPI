@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class TaskExecutionInfo. */
 public struct TaskResult: Codable, Hashable {
-
     /** Gets or sets the start time UTC. */
     public var startTimeUtc: Date?
     /** Gets or sets the end time UTC. */

@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Defines the MediaBrowser.Model.Configuration.PathSubstitution. */
 public struct PathSubstitution: Codable, Hashable {
-
     /** Gets or sets the value to substitute. */
     public var from: String?
     /** Gets or sets the value to substitution with. */

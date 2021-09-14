@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Client capabilities dto. */
 public struct ClientCapabilitiesDto: Codable, Hashable {
-
     /** Gets or sets the list of playable media types. */
     public var playableMediaTypes: [String]?
     /** Gets or sets the list of supported commands. */

@@ -11,8 +11,8 @@ import Foundation
 open class ItemUpdateAPI {
     /**
      Gets metadata editor info for an item.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +31,10 @@ open class ItemUpdateAPI {
      Gets metadata editor info for an item.
      - GET /Items/{itemId}/MetadataEditor
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - returns: RequestBuilder<MetadataEditorInfo> 
+     - parameter itemId: (path) The item id.
+     - returns: RequestBuilder<MetadataEditorInfo>
      */
     open class func getMetadataEditorInfoWithRequestBuilder(itemId: String) -> RequestBuilder<MetadataEditorInfo> {
         var urlPath = "/Items/{itemId}/MetadataEditor"
@@ -46,22 +46,20 @@ open class ItemUpdateAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<MetadataEditorInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates an item.
-     
-     - parameter itemId: (path) The item id. 
-     - parameter baseItemDto: (body) The new item properties. 
+
+     - parameter itemId: (path) The item id.
+     - parameter baseItemDto: (body) The new item properties.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -80,11 +78,11 @@ open class ItemUpdateAPI {
      Updates an item.
      - POST /Items/{itemId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - parameter baseItemDto: (body) The new item properties. 
-     - returns: RequestBuilder<Void> 
+     - parameter itemId: (path) The item id.
+     - parameter baseItemDto: (body) The new item properties.
+     - returns: RequestBuilder<Void>
      */
     open class func updateItemWithRequestBuilder(itemId: String, baseItemDto: BaseItemDto) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}"
@@ -96,21 +94,19 @@ open class ItemUpdateAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates an item's content type.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter contentType: (query) The content type of the item. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -130,11 +126,11 @@ open class ItemUpdateAPI {
      Updates an item's content type.
      - POST /Items/{itemId}/ContentType
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter contentType: (query) The content type of the item. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func updateItemContentTypeWithRequestBuilder(itemId: String, contentType: String? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}/ContentType"
@@ -149,15 +145,12 @@ open class ItemUpdateAPI {
             "contentType": contentType?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Plabyback info dto. */
 public struct PlaybackInfoDto: Codable, Hashable {
-
     /** Gets or sets the playback userId. */
     public var userId: String?
     /** Gets or sets the max streaming bitrate. */

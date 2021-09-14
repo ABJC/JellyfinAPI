@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct Version: Codable, Hashable {
-
     public var major: Int?
     public var minor: Int?
     public var build: Int?

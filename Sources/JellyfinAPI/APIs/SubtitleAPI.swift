@@ -11,9 +11,9 @@ import Foundation
 open class SubtitleAPI {
     /**
      Deletes an external subtitle file.
-     
-     - parameter itemId: (path) The item id. 
-     - parameter index: (path) The index of the subtitle file. 
+
+     - parameter itemId: (path) The item id.
+     - parameter index: (path) The index of the subtitle file.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -32,11 +32,11 @@ open class SubtitleAPI {
      Deletes an external subtitle file.
      - DELETE /Videos/{itemId}/Subtitles/{index}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - parameter index: (path) The index of the subtitle file. 
-     - returns: RequestBuilder<Void> 
+     - parameter itemId: (path) The item id.
+     - parameter index: (path) The index of the subtitle file.
+     - returns: RequestBuilder<Void>
      */
     open class func deleteSubtitleWithRequestBuilder(itemId: String, index: Int) -> RequestBuilder<Void> {
         var urlPath = "/Videos/{itemId}/Subtitles/{index}"
@@ -51,22 +51,20 @@ open class SubtitleAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Downloads a remote subtitle.
-     
-     - parameter itemId: (path) The item id. 
-     - parameter subtitleId: (path) The subtitle id. 
+
+     - parameter itemId: (path) The item id.
+     - parameter subtitleId: (path) The subtitle id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -85,11 +83,11 @@ open class SubtitleAPI {
      Downloads a remote subtitle.
      - POST /Items/{itemId}/RemoteSearch/Subtitles/{subtitleId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - parameter subtitleId: (path) The subtitle id. 
-     - returns: RequestBuilder<Void> 
+     - parameter itemId: (path) The item id.
+     - parameter subtitleId: (path) The subtitle id.
+     - returns: RequestBuilder<Void>
      */
     open class func downloadRemoteSubtitlesWithRequestBuilder(itemId: String, subtitleId: String) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}/RemoteSearch/Subtitles/{subtitleId}"
@@ -104,21 +102,19 @@ open class SubtitleAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a fallback font file.
-     
-     - parameter name: (path) The name of the fallback font file to get. 
+
+     - parameter name: (path) The name of the fallback font file to get.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -137,10 +133,10 @@ open class SubtitleAPI {
      Gets a fallback font file.
      - GET /FallbackFont/Fonts/{name}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter name: (path) The name of the fallback font file to get. 
-     - returns: RequestBuilder<URL> 
+     - parameter name: (path) The name of the fallback font file to get.
+     - returns: RequestBuilder<URL>
      */
     open class func getFallbackFontWithRequestBuilder(name: String) -> RequestBuilder<URL> {
         var urlPath = "/FallbackFont/Fonts/{name}"
@@ -152,20 +148,18 @@ open class SubtitleAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of available fallback font files.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -184,9 +178,9 @@ open class SubtitleAPI {
      Gets a list of available fallback font files.
      - GET /FallbackFont/Fonts
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[FontFile]> 
+     - returns: RequestBuilder<[FontFile]>
      */
     open class func getFallbackFontListWithRequestBuilder() -> RequestBuilder<[FontFile]> {
         let urlPath = "/FallbackFont/Fonts"
@@ -195,21 +189,19 @@ open class SubtitleAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[FontFile]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the remote subtitles.
-     
-     - parameter id: (path) The item id. 
+
+     - parameter id: (path) The item id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -228,10 +220,10 @@ open class SubtitleAPI {
      Gets the remote subtitles.
      - GET /Providers/Subtitles/Subtitles/{id}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (path) The item id. 
-     - returns: RequestBuilder<URL> 
+     - parameter id: (path) The item id.
+     - returns: RequestBuilder<URL>
      */
     open class func getRemoteSubtitlesWithRequestBuilder(id: String) -> RequestBuilder<URL> {
         var urlPath = "/Providers/Subtitles/Subtitles/{id}"
@@ -243,24 +235,22 @@ open class SubtitleAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets subtitles in a specified format.
-     
-     - parameter routeItemId: (path) The (route) item id. 
-     - parameter routeMediaSourceId: (path) The (route) media source id. 
-     - parameter routeIndex: (path) The (route) subtitle stream index. 
-     - parameter routeFormat: (path) The (route) format of the returned subtitle. 
+
+     - parameter routeItemId: (path) The (route) item id.
+     - parameter routeMediaSourceId: (path) The (route) media source id.
+     - parameter routeIndex: (path) The (route) subtitle stream index.
+     - parameter routeFormat: (path) The (route) format of the returned subtitle.
      - parameter itemId: (query) The item id. (optional)
      - parameter mediaSourceId: (query) The media source id. (optional)
      - parameter index: (query) The subtitle stream index. (optional)
@@ -286,10 +276,10 @@ open class SubtitleAPI {
     /**
      Gets subtitles in a specified format.
      - GET /Videos/{routeItemId}/routeMediaSourceId/Subtitles/{routeIndex}/Stream.{routeFormat}
-     - parameter routeItemId: (path) The (route) item id. 
-     - parameter routeMediaSourceId: (path) The (route) media source id. 
-     - parameter routeIndex: (path) The (route) subtitle stream index. 
-     - parameter routeFormat: (path) The (route) format of the returned subtitle. 
+     - parameter routeItemId: (path) The (route) item id.
+     - parameter routeMediaSourceId: (path) The (route) media source id.
+     - parameter routeIndex: (path) The (route) subtitle stream index.
+     - parameter routeFormat: (path) The (route) format of the returned subtitle.
      - parameter itemId: (query) The item id. (optional)
      - parameter mediaSourceId: (query) The media source id. (optional)
      - parameter index: (query) The subtitle stream index. (optional)
@@ -298,7 +288,7 @@ open class SubtitleAPI {
      - parameter copyTimestamps: (query) Optional. Whether to copy the timestamps. (optional, default to false)
      - parameter addVttTimeMap: (query) Optional. Whether to add a VTT time map. (optional, default to false)
      - parameter startPositionTicks: (query) The start position of the subtitle in ticks. (optional, default to 0)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func getSubtitleWithRequestBuilder(routeItemId: String, routeMediaSourceId: String, routeIndex: Int, routeFormat: String, itemId: String? = nil, mediaSourceId: String? = nil, index: Int? = nil, format: String? = nil, endPositionTicks: Int64? = nil, copyTimestamps: Bool? = nil, addVttTimeMap: Bool? = nil, startPositionTicks: Int64? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{routeItemId}/routeMediaSourceId/Subtitles/{routeIndex}/Stream.{routeFormat}"
@@ -329,24 +319,22 @@ open class SubtitleAPI {
             "startPositionTicks": startPositionTicks?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets an HLS subtitle playlist.
-     
-     - parameter itemId: (path) The item id. 
-     - parameter index: (path) The subtitle stream index. 
-     - parameter mediaSourceId: (path) The media source id. 
-     - parameter segmentLength: (query) The subtitle segment length. 
+
+     - parameter itemId: (path) The item id.
+     - parameter index: (path) The subtitle stream index.
+     - parameter mediaSourceId: (path) The media source id.
+     - parameter segmentLength: (query) The subtitle segment length.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -365,13 +353,13 @@ open class SubtitleAPI {
      Gets an HLS subtitle playlist.
      - GET /Videos/{itemId}/{mediaSourceId}/Subtitles/{index}/subtitles.m3u8
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - parameter index: (path) The subtitle stream index. 
-     - parameter mediaSourceId: (path) The media source id. 
-     - parameter segmentLength: (query) The subtitle segment length. 
-     - returns: RequestBuilder<URL> 
+     - parameter itemId: (path) The item id.
+     - parameter index: (path) The subtitle stream index.
+     - parameter mediaSourceId: (path) The media source id.
+     - parameter segmentLength: (query) The subtitle segment length.
+     - returns: RequestBuilder<URL>
      */
     open class func getSubtitlePlaylistWithRequestBuilder(itemId: String, index: Int, mediaSourceId: String, segmentLength: Int) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{itemId}/{mediaSourceId}/Subtitles/{index}/subtitles.m3u8"
@@ -392,25 +380,23 @@ open class SubtitleAPI {
             "segmentLength": segmentLength.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets subtitles in a specified format.
-     
-     - parameter routeItemId: (path) The (route) item id. 
-     - parameter routeMediaSourceId: (path) The (route) media source id. 
-     - parameter routeIndex: (path) The (route) subtitle stream index. 
-     - parameter routeStartPositionTicks: (path) The (route) start position of the subtitle in ticks. 
-     - parameter routeFormat: (path) The (route) format of the returned subtitle. 
+
+     - parameter routeItemId: (path) The (route) item id.
+     - parameter routeMediaSourceId: (path) The (route) media source id.
+     - parameter routeIndex: (path) The (route) subtitle stream index.
+     - parameter routeStartPositionTicks: (path) The (route) start position of the subtitle in ticks.
+     - parameter routeFormat: (path) The (route) format of the returned subtitle.
      - parameter itemId: (query) The item id. (optional)
      - parameter mediaSourceId: (query) The media source id. (optional)
      - parameter index: (query) The subtitle stream index. (optional)
@@ -436,11 +422,11 @@ open class SubtitleAPI {
     /**
      Gets subtitles in a specified format.
      - GET /Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat}
-     - parameter routeItemId: (path) The (route) item id. 
-     - parameter routeMediaSourceId: (path) The (route) media source id. 
-     - parameter routeIndex: (path) The (route) subtitle stream index. 
-     - parameter routeStartPositionTicks: (path) The (route) start position of the subtitle in ticks. 
-     - parameter routeFormat: (path) The (route) format of the returned subtitle. 
+     - parameter routeItemId: (path) The (route) item id.
+     - parameter routeMediaSourceId: (path) The (route) media source id.
+     - parameter routeIndex: (path) The (route) subtitle stream index.
+     - parameter routeStartPositionTicks: (path) The (route) start position of the subtitle in ticks.
+     - parameter routeFormat: (path) The (route) format of the returned subtitle.
      - parameter itemId: (query) The item id. (optional)
      - parameter mediaSourceId: (query) The media source id. (optional)
      - parameter index: (query) The subtitle stream index. (optional)
@@ -449,7 +435,7 @@ open class SubtitleAPI {
      - parameter endPositionTicks: (query) Optional. The end position of the subtitle in ticks. (optional)
      - parameter copyTimestamps: (query) Optional. Whether to copy the timestamps. (optional, default to false)
      - parameter addVttTimeMap: (query) Optional. Whether to add a VTT time map. (optional, default to false)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func getSubtitleWithTicksWithRequestBuilder(routeItemId: String, routeMediaSourceId: String, routeIndex: Int, routeStartPositionTicks: Int64, routeFormat: String, itemId: String? = nil, mediaSourceId: String? = nil, index: Int? = nil, startPositionTicks: Int64? = nil, format: String? = nil, endPositionTicks: Int64? = nil, copyTimestamps: Bool? = nil, addVttTimeMap: Bool? = nil) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat}"
@@ -483,22 +469,20 @@ open class SubtitleAPI {
             "addVttTimeMap": addVttTimeMap?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Search remote subtitles.
-     
-     - parameter itemId: (path) The item id. 
-     - parameter language: (path) The language of the subtitles. 
+
+     - parameter itemId: (path) The item id.
+     - parameter language: (path) The language of the subtitles.
      - parameter isPerfectMatch: (query) Optional. Only show subtitles which are a perfect match. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -518,12 +502,12 @@ open class SubtitleAPI {
      Search remote subtitles.
      - GET /Items/{itemId}/RemoteSearch/Subtitles/{language}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - parameter language: (path) The language of the subtitles. 
+     - parameter itemId: (path) The item id.
+     - parameter language: (path) The language of the subtitles.
      - parameter isPerfectMatch: (query) Optional. Only show subtitles which are a perfect match. (optional)
-     - returns: RequestBuilder<[RemoteSubtitleInfo]> 
+     - returns: RequestBuilder<[RemoteSubtitleInfo]>
      */
     open class func searchRemoteSubtitlesWithRequestBuilder(itemId: String, language: String, isPerfectMatch: Bool? = nil) -> RequestBuilder<[RemoteSubtitleInfo]> {
         var urlPath = "/Items/{itemId}/RemoteSearch/Subtitles/{language}"
@@ -541,22 +525,20 @@ open class SubtitleAPI {
             "isPerfectMatch": isPerfectMatch?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSubtitleInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Upload an external subtitle file.
-     
-     - parameter itemId: (path) The item the subtitle belongs to. 
-     - parameter uploadSubtitleDto: (body) The request body. 
+
+     - parameter itemId: (path) The item the subtitle belongs to.
+     - parameter uploadSubtitleDto: (body) The request body.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -575,11 +557,11 @@ open class SubtitleAPI {
      Upload an external subtitle file.
      - POST /Videos/{itemId}/Subtitles
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item the subtitle belongs to. 
-     - parameter uploadSubtitleDto: (body) The request body. 
-     - returns: RequestBuilder<Void> 
+     - parameter itemId: (path) The item the subtitle belongs to.
+     - parameter uploadSubtitleDto: (body) The request body.
+     - returns: RequestBuilder<Void>
      */
     open class func uploadSubtitleWithRequestBuilder(itemId: String, uploadSubtitleDto: UploadSubtitleDto) -> RequestBuilder<Void> {
         var urlPath = "/Videos/{itemId}/Subtitles"
@@ -591,15 +573,12 @@ open class SubtitleAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

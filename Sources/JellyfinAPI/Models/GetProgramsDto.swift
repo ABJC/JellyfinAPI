@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Get programs dto. */
 public struct GetProgramsDto: Codable, Hashable {
-
     /** Gets or sets the channels to return guide information for. */
     public var channelIds: [String]?
     /** Gets or sets optional. Filter by user id. */

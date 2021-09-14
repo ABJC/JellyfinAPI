@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class SystemInfo. */
 public struct SystemInfo: Codable, Hashable {
-
     /** Gets or sets the local address. */
     public var localAddress: String?
     /** Gets or sets the name of the server. */

@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct MetadataEditorInfo: Codable, Hashable {
-
     public var parentalRatingOptions: [ParentalRating]?
     public var countries: [CountryInfo]?
     public var cultures: [CultureDto]?

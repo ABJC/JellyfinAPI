@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Library type options dto. */
 public struct LibraryTypeOptionsDto: Codable, Hashable {
-
     /** Gets or sets the type. */
     public var type: String?
     /** Gets or sets the metadata fetchers. */

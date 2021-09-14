@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct ProblemDetails: Codable, Hashable {
-
     public var type: String?
     public var title: String?
     public var status: Int?

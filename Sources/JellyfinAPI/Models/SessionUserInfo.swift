@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class SessionUserInfo. */
 public struct SessionUserInfo: Codable, Hashable {
-
     /** Gets or sets the user identifier. */
     public var userId: String?
     /** Gets or sets the name of the user. */

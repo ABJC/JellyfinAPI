@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct LogFile: Codable, Hashable {
-
     /** Gets or sets the date created. */
     public var dateCreated: Date?
     /** Gets or sets the date modified. */

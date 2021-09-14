@@ -11,8 +11,8 @@ import Foundation
 open class YearsAPI {
     /**
      Gets a year.
-     
-     - parameter year: (path) The year. 
+
+     - parameter year: (path) The year.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -32,11 +32,11 @@ open class YearsAPI {
      Gets a year.
      - GET /Years/{year}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter year: (path) The year. 
+     - parameter year: (path) The year.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDto> 
+     - returns: RequestBuilder<BaseItemDto>
      */
     open class func getYearWithRequestBuilder(year: Int, userId: String? = nil) -> RequestBuilder<BaseItemDto> {
         var urlPath = "/Years/{year}"
@@ -51,20 +51,18 @@ open class YearsAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get years.
-     
+
      - parameter startIndex: (query) Skips over a given number of items within the results. Use for paging. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter sortOrder: (query) Sort Order - Ascending,Descending. (optional)
@@ -98,7 +96,7 @@ open class YearsAPI {
      Get years.
      - GET /Years
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter startIndex: (query) Skips over a given number of items within the results. Use for paging. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -115,7 +113,7 @@ open class YearsAPI {
      - parameter userId: (query) User Id. (optional)
      - parameter recursive: (query) Search recursively. (optional, default to true)
      - parameter enableImages: (query) Optional. Include image information in output. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getYearsWithRequestBuilder(startIndex: Int? = nil, limit: Int? = nil, sortOrder: [APISortOrder]? = nil, parentId: String? = nil, fields: [ItemFields]? = nil, excludeItemTypes: [String]? = nil, includeItemTypes: [String]? = nil, mediaTypes: [String]? = nil, sortBy: [String]? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, userId: String? = nil, recursive: Bool? = nil, enableImages: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/Years"
@@ -141,15 +139,12 @@ open class YearsAPI {
             "enableImages": enableImages?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

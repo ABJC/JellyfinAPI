@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct ProfileCondition: Codable, Hashable {
-
     public var condition: ProfileConditionType?
     public var property: ProfileConditionValue?
     public var value: String?

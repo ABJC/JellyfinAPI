@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class SearchHintResult. */
 public struct SearchHintResult: Codable, Hashable {
-
     /** Gets or sets the search hints. */
     public var searchHints: [SearchHint]?
     /** Gets or sets the total record count. */

@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct ImageOption: Codable, Hashable {
-
     public var type: ImageType?
     /** Gets or sets the limit. */
     public var limit: Int?

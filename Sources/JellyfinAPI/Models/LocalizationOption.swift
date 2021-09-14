@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct LocalizationOption: Codable, Hashable {
-
     public var name: String?
     public var value: String?
 

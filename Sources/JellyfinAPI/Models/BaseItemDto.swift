@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** This is strictly used as a data transfer object from the api layer.  This holds information about a BaseItem in a format that is convenient for the client. */
 public struct BaseItemDto: Codable, Hashable {
-
     /** Gets or sets the name. */
     public var name: String?
     public var originalTitle: String?

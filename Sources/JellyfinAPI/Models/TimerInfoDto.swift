@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct TimerInfoDto: Codable, Hashable {
-
     /** Id of the recording. */
     public var id: String?
     public var type: String?

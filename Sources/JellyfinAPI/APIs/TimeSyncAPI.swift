@@ -11,7 +11,7 @@ import Foundation
 open class TimeSyncAPI {
     /**
      Gets the current UTC time.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -29,7 +29,7 @@ open class TimeSyncAPI {
     /**
      Gets the current UTC time.
      - GET /GetUtcTime
-     - returns: RequestBuilder<UtcTimeResponse> 
+     - returns: RequestBuilder<UtcTimeResponse>
      */
     open class func getUtcTimeWithRequestBuilder() -> RequestBuilder<UtcTimeResponse> {
         let urlPath = "/GetUtcTime"
@@ -38,15 +38,12 @@ open class TimeSyncAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<UtcTimeResponse>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

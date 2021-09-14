@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct DirectPlayProfile: Codable, Hashable {
-
     public var container: String?
     public var audioCodec: String?
     public var videoCodec: String?

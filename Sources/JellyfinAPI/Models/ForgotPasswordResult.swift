@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct ForgotPasswordResult: Codable, Hashable {
-
     public var action: ForgotPasswordAction?
     /** Gets or sets the pin file. */
     public var pinFile: String?

@@ -11,8 +11,8 @@ import Foundation
 open class SuggestionsAPI {
     /**
      Gets suggestions.
-     
-     - parameter userId: (path) The user id. 
+
+     - parameter userId: (path) The user id.
      - parameter mediaType: (query) The media types. (optional)
      - parameter type: (query) The type. (optional)
      - parameter startIndex: (query) Optional. The start index. (optional)
@@ -36,15 +36,15 @@ open class SuggestionsAPI {
      Gets suggestions.
      - GET /Users/{userId}/Suggestions
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) The user id. 
+     - parameter userId: (path) The user id.
      - parameter mediaType: (query) The media types. (optional)
      - parameter type: (query) The type. (optional)
      - parameter startIndex: (query) Optional. The start index. (optional)
      - parameter limit: (query) Optional. The limit. (optional)
      - parameter enableTotalRecordCount: (query) Whether to enable the total record count. (optional, default to false)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getSuggestionsWithRequestBuilder(userId: String, mediaType: [String]? = nil, type: [String]? = nil, startIndex: Int? = nil, limit: Int? = nil, enableTotalRecordCount: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Users/{userId}/Suggestions"
@@ -63,15 +63,12 @@ open class SuggestionsAPI {
             "enableTotalRecordCount": enableTotalRecordCount?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

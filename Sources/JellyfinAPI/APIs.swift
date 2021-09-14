@@ -9,7 +9,7 @@ import Foundation
 @available(*, deprecated, renamed: "JellyfinAPI")
 public typealias JellyfinAPIAPI = JellyfinAPI
 
-open class JellyfinAPI {
+open enum JellyfinAPI {
     public static var basePath = "http://localhost:8096"
     public static var customHeaders: [String: String] = [:]
     public static var credential: URLCredential?
@@ -29,7 +29,7 @@ open class RequestBuilder<T> {
     /// If you need to get the request's progress in older OS versions, please use Alamofire http client.
     public var onProgressReady: ((Progress) -> Void)?
 
-    required public init(method: String, URLString: String, parameters: [String: Any]?, headers: [String: String] = [:]) {
+    public required init(method: String, URLString: String, parameters: [String: Any]?, headers: [String: String] = [:]) {
         self.method = method
         self.URLString = URLString
         self.parameters = parameters
@@ -44,7 +44,7 @@ open class RequestBuilder<T> {
         }
     }
 
-    open func execute(_ apiResponseQueue: DispatchQueue = JellyfinAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Response<T>, Error>) -> Void) { }
+    open func execute(_: DispatchQueue = JellyfinAPI.apiResponseQueue, _: @escaping (_ result: Swift.Result<Response<T>, Error>) -> Void) {}
 
     public func addHeader(name: String, value: String) -> Self {
         if !value.isEmpty {

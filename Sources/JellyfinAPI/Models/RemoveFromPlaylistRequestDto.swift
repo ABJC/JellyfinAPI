@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class RemoveFromPlaylistRequestDto. */
 public struct RemoveFromPlaylistRequestDto: Codable, Hashable {
-
     /** Gets or sets the playlist identifiers ot the items. */
     public var playlistItemIds: [String]?
 

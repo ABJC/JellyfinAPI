@@ -11,9 +11,9 @@ import Foundation
 open class ItemLookupAPI {
     /**
      Applies search criteria to an item and refreshes metadata.
-     
-     - parameter itemId: (path) Item id. 
-     - parameter remoteSearchResult: (body) The remote search result. 
+
+     - parameter itemId: (path) Item id.
+     - parameter remoteSearchResult: (body) The remote search result.
      - parameter replaceAllImages: (query) Optional. Whether or not to replace all images. Default: True. (optional, default to true)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -33,12 +33,12 @@ open class ItemLookupAPI {
      Applies search criteria to an item and refreshes metadata.
      - POST /Items/RemoteSearch/Apply/{itemId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id. 
-     - parameter remoteSearchResult: (body) The remote search result. 
+     - parameter itemId: (path) Item id.
+     - parameter remoteSearchResult: (body) The remote search result.
      - parameter replaceAllImages: (query) Optional. Whether or not to replace all images. Default: True. (optional, default to true)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func applySearchCriteriaWithRequestBuilder(itemId: String, remoteSearchResult: RemoteSearchResult, replaceAllImages: Bool? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Items/RemoteSearch/Apply/{itemId}"
@@ -53,21 +53,19 @@ open class ItemLookupAPI {
             "replaceAllImages": replaceAllImages?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get book remote search.
-     
-     - parameter bookInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter bookInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -86,10 +84,10 @@ open class ItemLookupAPI {
      Get book remote search.
      - POST /Items/RemoteSearch/Book
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter bookInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter bookInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getBookRemoteSearchResultsWithRequestBuilder(bookInfoRemoteSearchQuery: BookInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/Book"
@@ -98,21 +96,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get box set remote search.
-     
-     - parameter boxSetInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter boxSetInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -131,10 +127,10 @@ open class ItemLookupAPI {
      Get box set remote search.
      - POST /Items/RemoteSearch/BoxSet
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter boxSetInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter boxSetInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getBoxSetRemoteSearchResultsWithRequestBuilder(boxSetInfoRemoteSearchQuery: BoxSetInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/BoxSet"
@@ -143,21 +139,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get the item's external id info.
-     
-     - parameter itemId: (path) Item id. 
+
+     - parameter itemId: (path) Item id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -176,10 +170,10 @@ open class ItemLookupAPI {
      Get the item's external id info.
      - GET /Items/{itemId}/ExternalIdInfos
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id. 
-     - returns: RequestBuilder<[ExternalIdInfo]> 
+     - parameter itemId: (path) Item id.
+     - returns: RequestBuilder<[ExternalIdInfo]>
      */
     open class func getExternalIdInfosWithRequestBuilder(itemId: String) -> RequestBuilder<[ExternalIdInfo]> {
         var urlPath = "/Items/{itemId}/ExternalIdInfos"
@@ -191,21 +185,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[ExternalIdInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get movie remote search.
-     
-     - parameter movieInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter movieInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -224,10 +216,10 @@ open class ItemLookupAPI {
      Get movie remote search.
      - POST /Items/RemoteSearch/Movie
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter movieInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter movieInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getMovieRemoteSearchResultsWithRequestBuilder(movieInfoRemoteSearchQuery: MovieInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/Movie"
@@ -236,21 +228,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get music album remote search.
-     
-     - parameter albumInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter albumInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -269,10 +259,10 @@ open class ItemLookupAPI {
      Get music album remote search.
      - POST /Items/RemoteSearch/MusicAlbum
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter albumInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter albumInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getMusicAlbumRemoteSearchResultsWithRequestBuilder(albumInfoRemoteSearchQuery: AlbumInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/MusicAlbum"
@@ -281,21 +271,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get music artist remote search.
-     
-     - parameter artistInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter artistInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -314,10 +302,10 @@ open class ItemLookupAPI {
      Get music artist remote search.
      - POST /Items/RemoteSearch/MusicArtist
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter artistInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter artistInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getMusicArtistRemoteSearchResultsWithRequestBuilder(artistInfoRemoteSearchQuery: ArtistInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/MusicArtist"
@@ -326,21 +314,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get music video remote search.
-     
-     - parameter musicVideoInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter musicVideoInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -359,10 +345,10 @@ open class ItemLookupAPI {
      Get music video remote search.
      - POST /Items/RemoteSearch/MusicVideo
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter musicVideoInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter musicVideoInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getMusicVideoRemoteSearchResultsWithRequestBuilder(musicVideoInfoRemoteSearchQuery: MusicVideoInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/MusicVideo"
@@ -371,21 +357,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get person remote search.
-     
-     - parameter personLookupInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter personLookupInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -404,10 +388,10 @@ open class ItemLookupAPI {
      Get person remote search.
      - POST /Items/RemoteSearch/Person
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter personLookupInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter personLookupInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getPersonRemoteSearchResultsWithRequestBuilder(personLookupInfoRemoteSearchQuery: PersonLookupInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/Person"
@@ -416,21 +400,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get series remote search.
-     
-     - parameter seriesInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter seriesInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -449,10 +431,10 @@ open class ItemLookupAPI {
      Get series remote search.
      - POST /Items/RemoteSearch/Series
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter seriesInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter seriesInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getSeriesRemoteSearchResultsWithRequestBuilder(seriesInfoRemoteSearchQuery: SeriesInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/Series"
@@ -461,21 +443,19 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get trailer remote search.
-     
-     - parameter trailerInfoRemoteSearchQuery: (body) Remote search query. 
+
+     - parameter trailerInfoRemoteSearchQuery: (body) Remote search query.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -494,10 +474,10 @@ open class ItemLookupAPI {
      Get trailer remote search.
      - POST /Items/RemoteSearch/Trailer
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter trailerInfoRemoteSearchQuery: (body) Remote search query. 
-     - returns: RequestBuilder<[RemoteSearchResult]> 
+     - parameter trailerInfoRemoteSearchQuery: (body) Remote search query.
+     - returns: RequestBuilder<[RemoteSearchResult]>
      */
     open class func getTrailerRemoteSearchResultsWithRequestBuilder(trailerInfoRemoteSearchQuery: TrailerInfoRemoteSearchQuery) -> RequestBuilder<[RemoteSearchResult]> {
         let urlPath = "/Items/RemoteSearch/Trailer"
@@ -506,15 +486,12 @@ open class ItemLookupAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[RemoteSearchResult]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

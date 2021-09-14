@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class RemoteImageInfo. */
 public struct RemoteImageInfo: Codable, Hashable {
-
     /** Gets or sets the name of the provider. */
     public var providerName: String?
     /** Gets or sets the URL. */

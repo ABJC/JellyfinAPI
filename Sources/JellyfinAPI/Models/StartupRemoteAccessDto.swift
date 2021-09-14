@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Startup remote access dto. */
 public struct StartupRemoteAccessDto: Codable, Hashable {
-
     /** Gets or sets a value indicating whether enable remote access. */
     public var enableRemoteAccess: Bool
     /** Gets or sets a value indicating whether enable automatic port mapping. */

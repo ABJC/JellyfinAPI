@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct GeneralCommand: Codable, Hashable {
-
     public var name: GeneralCommandType?
     public var controllingUserId: String?
     public var arguments: [String: String]?

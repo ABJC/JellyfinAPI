@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct ActivityLogEntry: Codable, Hashable {
-
     /** Gets or sets the identifier. */
     public var id: Int64?
     /** Gets or sets the name. */

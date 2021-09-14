@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct PlayerStateInfo: Codable, Hashable {
-
     /** Gets or sets the now playing position ticks. */
     public var positionTicks: Int64?
     /** Gets or sets a value indicating whether this instance can seek. */

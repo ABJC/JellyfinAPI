@@ -11,8 +11,8 @@ import Foundation
 open class StudiosAPI {
     /**
      Gets a studio by name.
-     
-     - parameter name: (path) Studio name. 
+
+     - parameter name: (path) Studio name.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -32,11 +32,11 @@ open class StudiosAPI {
      Gets a studio by name.
      - GET /Studios/{name}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter name: (path) Studio name. 
+     - parameter name: (path) Studio name.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDto> 
+     - returns: RequestBuilder<BaseItemDto>
      */
     open class func getStudioWithRequestBuilder(name: String, userId: String? = nil) -> RequestBuilder<BaseItemDto> {
         var urlPath = "/Studios/{name}"
@@ -51,20 +51,18 @@ open class StudiosAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets all studios from a given item, folder, or the entire library.
-     
+
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter searchTerm: (query) Optional. Search term. (optional)
@@ -100,7 +98,7 @@ open class StudiosAPI {
      Gets all studios from a given item, folder, or the entire library.
      - GET /Studios
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -119,7 +117,7 @@ open class StudiosAPI {
      - parameter nameLessThan: (query) Optional filter by items whose name is equally or lesser than a given input string. (optional)
      - parameter enableImages: (query) Optional, include image information in output. (optional, default to true)
      - parameter enableTotalRecordCount: (query) Total record count. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getStudiosWithRequestBuilder(startIndex: Int? = nil, limit: Int? = nil, searchTerm: String? = nil, parentId: String? = nil, fields: [ItemFields]? = nil, excludeItemTypes: [String]? = nil, includeItemTypes: [String]? = nil, isFavorite: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, userId: String? = nil, nameStartsWithOrGreater: String? = nil, nameStartsWith: String? = nil, nameLessThan: String? = nil, enableImages: Bool? = nil, enableTotalRecordCount: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/Studios"
@@ -147,15 +145,12 @@ open class StudiosAPI {
             "enableTotalRecordCount": enableTotalRecordCount?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

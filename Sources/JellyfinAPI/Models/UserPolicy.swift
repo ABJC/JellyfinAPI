@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct UserPolicy: Codable, Hashable {
-
     /** Gets or sets a value indicating whether this instance is administrator. */
     public var isAdministrator: Bool?
     /** Gets or sets a value indicating whether this instance is hidden. */

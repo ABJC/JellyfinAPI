@@ -11,10 +11,10 @@ import Foundation
 open class VideoAttachmentsAPI {
     /**
      Get video attachment.
-     
-     - parameter videoId: (path) Video ID. 
-     - parameter mediaSourceId: (path) Media Source ID. 
-     - parameter index: (path) Attachment Index. 
+
+     - parameter videoId: (path) Video ID.
+     - parameter mediaSourceId: (path) Media Source ID.
+     - parameter index: (path) Attachment Index.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -32,10 +32,10 @@ open class VideoAttachmentsAPI {
     /**
      Get video attachment.
      - GET /Videos/{videoId}/{mediaSourceId}/Attachments/{index}
-     - parameter videoId: (path) Video ID. 
-     - parameter mediaSourceId: (path) Media Source ID. 
-     - parameter index: (path) Attachment Index. 
-     - returns: RequestBuilder<URL> 
+     - parameter videoId: (path) Video ID.
+     - parameter mediaSourceId: (path) Media Source ID.
+     - parameter index: (path) Attachment Index.
+     - returns: RequestBuilder<URL>
      */
     open class func getAttachmentWithRequestBuilder(videoId: String, mediaSourceId: String, index: Int) -> RequestBuilder<URL> {
         var urlPath = "/Videos/{videoId}/{mediaSourceId}/Attachments/{index}"
@@ -53,15 +53,12 @@ open class VideoAttachmentsAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

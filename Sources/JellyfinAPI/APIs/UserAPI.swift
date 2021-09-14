@@ -11,9 +11,9 @@ import Foundation
 open class UserAPI {
     /**
      Authenticates a user.
-     
-     - parameter userId: (path) The user id. 
-     - parameter pw: (query) The password as plain text. 
+
+     - parameter userId: (path) The user id.
+     - parameter pw: (query) The password as plain text.
      - parameter password: (query) The password sha1-hash. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -32,10 +32,10 @@ open class UserAPI {
     /**
      Authenticates a user.
      - POST /Users/{userId}/Authenticate
-     - parameter userId: (path) The user id. 
-     - parameter pw: (query) The password as plain text. 
+     - parameter userId: (path) The user id.
+     - parameter pw: (query) The password as plain text.
      - parameter password: (query) The password sha1-hash. (optional)
-     - returns: RequestBuilder<AuthenticationResult> 
+     - returns: RequestBuilder<AuthenticationResult>
      */
     open class func authenticateUserWithRequestBuilder(userId: String, pw: String, password: String? = nil) -> RequestBuilder<AuthenticationResult> {
         var urlPath = "/Users/{userId}/Authenticate"
@@ -51,21 +51,19 @@ open class UserAPI {
             "password": password?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<AuthenticationResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Authenticates a user by name.
-     
-     - parameter authenticateUserByName: (body) The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request. 
+
+     - parameter authenticateUserByName: (body) The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -83,8 +81,8 @@ open class UserAPI {
     /**
      Authenticates a user by name.
      - POST /Users/AuthenticateByName
-     - parameter authenticateUserByName: (body) The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request. 
-     - returns: RequestBuilder<AuthenticationResult> 
+     - parameter authenticateUserByName: (body) The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request.
+     - returns: RequestBuilder<AuthenticationResult>
      */
     open class func authenticateUserByNameWithRequestBuilder(authenticateUserByName: AuthenticateUserByName) -> RequestBuilder<AuthenticationResult> {
         let urlPath = "/Users/AuthenticateByName"
@@ -93,21 +91,19 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<AuthenticationResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Authenticates a user with quick connect.
-     
-     - parameter quickConnectDto: (body) The Jellyfin.Api.Models.UserDtos.QuickConnectDto request. 
+
+     - parameter quickConnectDto: (body) The Jellyfin.Api.Models.UserDtos.QuickConnectDto request.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -125,8 +121,8 @@ open class UserAPI {
     /**
      Authenticates a user with quick connect.
      - POST /Users/AuthenticateWithQuickConnect
-     - parameter quickConnectDto: (body) The Jellyfin.Api.Models.UserDtos.QuickConnectDto request. 
-     - returns: RequestBuilder<AuthenticationResult> 
+     - parameter quickConnectDto: (body) The Jellyfin.Api.Models.UserDtos.QuickConnectDto request.
+     - returns: RequestBuilder<AuthenticationResult>
      */
     open class func authenticateWithQuickConnectWithRequestBuilder(quickConnectDto: QuickConnectDto) -> RequestBuilder<AuthenticationResult> {
         let urlPath = "/Users/AuthenticateWithQuickConnect"
@@ -135,21 +131,19 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<AuthenticationResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates a user.
-     
-     - parameter createUserByName: (body) The create user by name request body. 
+
+     - parameter createUserByName: (body) The create user by name request body.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -168,10 +162,10 @@ open class UserAPI {
      Creates a user.
      - POST /Users/New
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter createUserByName: (body) The create user by name request body. 
-     - returns: RequestBuilder<UserDto> 
+     - parameter createUserByName: (body) The create user by name request body.
+     - returns: RequestBuilder<UserDto>
      */
     open class func createUserByNameWithRequestBuilder(createUserByName: CreateUserByName) -> RequestBuilder<UserDto> {
         let urlPath = "/Users/New"
@@ -180,21 +174,19 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<UserDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Deletes a user.
-     
-     - parameter userId: (path) The user id. 
+
+     - parameter userId: (path) The user id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -213,10 +205,10 @@ open class UserAPI {
      Deletes a user.
      - DELETE /Users/{userId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) The user id. 
-     - returns: RequestBuilder<Void> 
+     - parameter userId: (path) The user id.
+     - returns: RequestBuilder<Void>
      */
     open class func deleteUserWithRequestBuilder(userId: String) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}"
@@ -228,21 +220,19 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Initiates the forgot password process for a local user.
-     
-     - parameter forgotPasswordDto: (body) The forgot password request containing the entered username. 
+
+     - parameter forgotPasswordDto: (body) The forgot password request containing the entered username.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -260,8 +250,8 @@ open class UserAPI {
     /**
      Initiates the forgot password process for a local user.
      - POST /Users/ForgotPassword
-     - parameter forgotPasswordDto: (body) The forgot password request containing the entered username. 
-     - returns: RequestBuilder<ForgotPasswordResult> 
+     - parameter forgotPasswordDto: (body) The forgot password request containing the entered username.
+     - returns: RequestBuilder<ForgotPasswordResult>
      */
     open class func forgotPasswordWithRequestBuilder(forgotPasswordDto: ForgotPasswordDto) -> RequestBuilder<ForgotPasswordResult> {
         let urlPath = "/Users/ForgotPassword"
@@ -270,21 +260,19 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ForgotPasswordResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Redeems a forgot password pin.
-     
-     - parameter forgotPasswordPinDto: (body) The forgot password pin request containing the entered pin. 
+
+     - parameter forgotPasswordPinDto: (body) The forgot password pin request containing the entered pin.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -302,8 +290,8 @@ open class UserAPI {
     /**
      Redeems a forgot password pin.
      - POST /Users/ForgotPassword/Pin
-     - parameter forgotPasswordPinDto: (body) The forgot password pin request containing the entered pin. 
-     - returns: RequestBuilder<PinRedeemResult> 
+     - parameter forgotPasswordPinDto: (body) The forgot password pin request containing the entered pin.
+     - returns: RequestBuilder<PinRedeemResult>
      */
     open class func forgotPasswordPinWithRequestBuilder(forgotPasswordPinDto: ForgotPasswordPinDto) -> RequestBuilder<PinRedeemResult> {
         let urlPath = "/Users/ForgotPassword/Pin"
@@ -312,20 +300,18 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<PinRedeemResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the user based on auth token.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -344,9 +330,9 @@ open class UserAPI {
      Gets the user based on auth token.
      - GET /Users/Me
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<UserDto> 
+     - returns: RequestBuilder<UserDto>
      */
     open class func getCurrentUserWithRequestBuilder() -> RequestBuilder<UserDto> {
         let urlPath = "/Users/Me"
@@ -355,20 +341,18 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<UserDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of publicly visible users for display on a login screen.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -386,7 +370,7 @@ open class UserAPI {
     /**
      Gets a list of publicly visible users for display on a login screen.
      - GET /Users/Public
-     - returns: RequestBuilder<[UserDto]> 
+     - returns: RequestBuilder<[UserDto]>
      */
     open class func getPublicUsersWithRequestBuilder() -> RequestBuilder<[UserDto]> {
         let urlPath = "/Users/Public"
@@ -395,21 +379,19 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[UserDto]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a user by Id.
-     
-     - parameter userId: (path) The user id. 
+
+     - parameter userId: (path) The user id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -428,10 +410,10 @@ open class UserAPI {
      Gets a user by Id.
      - GET /Users/{userId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) The user id. 
-     - returns: RequestBuilder<UserDto> 
+     - parameter userId: (path) The user id.
+     - returns: RequestBuilder<UserDto>
      */
     open class func getUserByIdWithRequestBuilder(userId: String) -> RequestBuilder<UserDto> {
         var urlPath = "/Users/{userId}"
@@ -443,20 +425,18 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<UserDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of users.
-     
+
      - parameter isHidden: (query) Optional filter by IsHidden&#x3D;true or false. (optional)
      - parameter isDisabled: (query) Optional filter by IsDisabled&#x3D;true or false. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -477,11 +457,11 @@ open class UserAPI {
      Gets a list of users.
      - GET /Users
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter isHidden: (query) Optional filter by IsHidden&#x3D;true or false. (optional)
      - parameter isDisabled: (query) Optional filter by IsDisabled&#x3D;true or false. (optional)
-     - returns: RequestBuilder<[UserDto]> 
+     - returns: RequestBuilder<[UserDto]>
      */
     open class func getUsersWithRequestBuilder(isHidden: Bool? = nil, isDisabled: Bool? = nil) -> RequestBuilder<[UserDto]> {
         let urlPath = "/Users"
@@ -494,22 +474,20 @@ open class UserAPI {
             "isDisabled": isDisabled?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[UserDto]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a user.
-     
-     - parameter userId: (path) The user id. 
-     - parameter userDto: (body) The updated user model. 
+
+     - parameter userId: (path) The user id.
+     - parameter userDto: (body) The updated user model.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -528,11 +506,11 @@ open class UserAPI {
      Updates a user.
      - POST /Users/{userId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) The user id. 
-     - parameter userDto: (body) The updated user model. 
-     - returns: RequestBuilder<Void> 
+     - parameter userId: (path) The user id.
+     - parameter userDto: (body) The updated user model.
+     - returns: RequestBuilder<Void>
      */
     open class func updateUserWithRequestBuilder(userId: String, userDto: UserDto) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}"
@@ -544,22 +522,20 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a user configuration.
-     
-     - parameter userId: (path) The user id. 
-     - parameter userConfiguration: (body) The new user configuration. 
+
+     - parameter userId: (path) The user id.
+     - parameter userConfiguration: (body) The new user configuration.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -578,11 +554,11 @@ open class UserAPI {
      Updates a user configuration.
      - POST /Users/{userId}/Configuration
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) The user id. 
-     - parameter userConfiguration: (body) The new user configuration. 
-     - returns: RequestBuilder<Void> 
+     - parameter userId: (path) The user id.
+     - parameter userConfiguration: (body) The new user configuration.
+     - returns: RequestBuilder<Void>
      */
     open class func updateUserConfigurationWithRequestBuilder(userId: String, userConfiguration: UserConfiguration) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/Configuration"
@@ -594,22 +570,20 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a user's easy password.
-     
-     - parameter userId: (path) The user id. 
-     - parameter updateUserEasyPassword: (body) The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request. 
+
+     - parameter userId: (path) The user id.
+     - parameter updateUserEasyPassword: (body) The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -628,11 +602,11 @@ open class UserAPI {
      Updates a user's easy password.
      - POST /Users/{userId}/EasyPassword
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) The user id. 
-     - parameter updateUserEasyPassword: (body) The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request. 
-     - returns: RequestBuilder<Void> 
+     - parameter userId: (path) The user id.
+     - parameter updateUserEasyPassword: (body) The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request.
+     - returns: RequestBuilder<Void>
      */
     open class func updateUserEasyPasswordWithRequestBuilder(userId: String, updateUserEasyPassword: UpdateUserEasyPassword) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/EasyPassword"
@@ -644,22 +618,20 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a user's password.
-     
-     - parameter userId: (path) The user id. 
-     - parameter updateUserPassword: (body) The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request. 
+
+     - parameter userId: (path) The user id.
+     - parameter updateUserPassword: (body) The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -678,11 +650,11 @@ open class UserAPI {
      Updates a user's password.
      - POST /Users/{userId}/Password
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) The user id. 
-     - parameter updateUserPassword: (body) The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request. 
-     - returns: RequestBuilder<Void> 
+     - parameter userId: (path) The user id.
+     - parameter updateUserPassword: (body) The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.
+     - returns: RequestBuilder<Void>
      */
     open class func updateUserPasswordWithRequestBuilder(userId: String, updateUserPassword: UpdateUserPassword) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/Password"
@@ -694,22 +666,20 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a user policy.
-     
-     - parameter userId: (path) The user id. 
-     - parameter userPolicy: (body) The new user policy. 
+
+     - parameter userId: (path) The user id.
+     - parameter userPolicy: (body) The new user policy.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -728,11 +698,11 @@ open class UserAPI {
      Updates a user policy.
      - POST /Users/{userId}/Policy
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter userId: (path) The user id. 
-     - parameter userPolicy: (body) The new user policy. 
-     - returns: RequestBuilder<Void> 
+     - parameter userId: (path) The user id.
+     - parameter userPolicy: (body) The new user policy.
+     - returns: RequestBuilder<Void>
      */
     open class func updateUserPolicyWithRequestBuilder(userId: String, userPolicy: UserPolicy) -> RequestBuilder<Void> {
         var urlPath = "/Users/{userId}/Policy"
@@ -744,15 +714,12 @@ open class UserAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

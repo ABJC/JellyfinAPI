@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Forgot Password Pin enter request body DTO. */
 public struct ForgotPasswordPinDto: Codable, Hashable {
-
     /** Gets or sets the entered pin to have the password reset. */
     public var pin: String
 

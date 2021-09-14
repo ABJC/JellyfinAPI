@@ -11,8 +11,8 @@ import Foundation
 open class MediaInfoAPI {
     /**
      Closes a media source.
-     
-     - parameter liveStreamId: (query) The livestream id. 
+
+     - parameter liveStreamId: (query) The livestream id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +31,10 @@ open class MediaInfoAPI {
      Closes a media source.
      - POST /LiveStreams/Close
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter liveStreamId: (query) The livestream id. 
-     - returns: RequestBuilder<Void> 
+     - parameter liveStreamId: (query) The livestream id.
+     - returns: RequestBuilder<Void>
      */
     open class func closeLiveStreamWithRequestBuilder(liveStreamId: String) -> RequestBuilder<Void> {
         let urlPath = "/LiveStreams/Close"
@@ -46,20 +46,18 @@ open class MediaInfoAPI {
             "liveStreamId": liveStreamId.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Tests the network with a request with the size of the bitrate.
-     
+
      - parameter size: (query) The bitrate. Defaults to 102400. (optional, default to 102400)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -79,10 +77,10 @@ open class MediaInfoAPI {
      Tests the network with a request with the size of the bitrate.
      - GET /Playback/BitrateTest
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter size: (query) The bitrate. Defaults to 102400. (optional, default to 102400)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func getBitrateTestBytesWithRequestBuilder(size: Int? = nil) -> RequestBuilder<URL> {
         let urlPath = "/Playback/BitrateTest"
@@ -94,22 +92,20 @@ open class MediaInfoAPI {
             "size": size?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets live playback media info for an item.
-     
-     - parameter itemId: (path) The item id. 
-     - parameter userId: (query) The user id. 
+
+     - parameter itemId: (path) The item id.
+     - parameter userId: (query) The user id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -128,11 +124,11 @@ open class MediaInfoAPI {
      Gets live playback media info for an item.
      - GET /Items/{itemId}/PlaybackInfo
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - parameter userId: (query) The user id. 
-     - returns: RequestBuilder<PlaybackInfoResponse> 
+     - parameter itemId: (path) The item id.
+     - parameter userId: (query) The user id.
+     - returns: RequestBuilder<PlaybackInfoResponse>
      */
     open class func getPlaybackInfoWithRequestBuilder(itemId: String, userId: String) -> RequestBuilder<PlaybackInfoResponse> {
         var urlPath = "/Items/{itemId}/PlaybackInfo"
@@ -147,21 +143,19 @@ open class MediaInfoAPI {
             "userId": userId.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<PlaybackInfoResponse>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets live playback media info for an item.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) The user id. (optional)
      - parameter maxStreamingBitrate: (query) The maximum streaming bitrate. (optional)
      - parameter startTimeTicks: (query) The start time in ticks. (optional)
@@ -196,9 +190,9 @@ open class MediaInfoAPI {
      - POST /Items/{itemId}/PlaybackInfo
      - For backwards compatibility parameters can be sent via Query or Body, with Query having higher precedence.  Query parameters are obsolete.
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) The user id. (optional)
      - parameter maxStreamingBitrate: (query) The maximum streaming bitrate. (optional)
      - parameter startTimeTicks: (query) The start time in ticks. (optional)
@@ -214,7 +208,7 @@ open class MediaInfoAPI {
      - parameter allowVideoStreamCopy: (query) Whether to allow to copy the video stream. Default: true. (optional)
      - parameter allowAudioStreamCopy: (query) Whether to allow to copy the audio stream. Default: true. (optional)
      - parameter playbackInfoDto: (body) The playback info. (optional)
-     - returns: RequestBuilder<PlaybackInfoResponse> 
+     - returns: RequestBuilder<PlaybackInfoResponse>
      */
     open class func getPostedPlaybackInfoWithRequestBuilder(itemId: String, userId: String? = nil, maxStreamingBitrate: Int? = nil, startTimeTicks: Int64? = nil, audioStreamIndex: Int? = nil, subtitleStreamIndex: Int? = nil, maxAudioChannels: Int? = nil, mediaSourceId: String? = nil, liveStreamId: String? = nil, autoOpenLiveStream: Bool? = nil, enableDirectPlay: Bool? = nil, enableDirectStream: Bool? = nil, enableTranscoding: Bool? = nil, allowVideoStreamCopy: Bool? = nil, allowAudioStreamCopy: Bool? = nil, playbackInfoDto: PlaybackInfoDto? = nil) -> RequestBuilder<PlaybackInfoResponse> {
         var urlPath = "/Items/{itemId}/PlaybackInfo"
@@ -242,20 +236,18 @@ open class MediaInfoAPI {
             "allowAudioStreamCopy": allowAudioStreamCopy?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<PlaybackInfoResponse>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Opens a media source.
-     
+
      - parameter openToken: (query) The open token. (optional)
      - parameter userId: (query) The user id. (optional)
      - parameter playSessionId: (query) The play session id. (optional)
@@ -286,7 +278,7 @@ open class MediaInfoAPI {
      Opens a media source.
      - POST /LiveStreams/Open
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter openToken: (query) The open token. (optional)
      - parameter userId: (query) The user id. (optional)
@@ -300,7 +292,7 @@ open class MediaInfoAPI {
      - parameter enableDirectPlay: (query) Whether to enable direct play. Default: true. (optional)
      - parameter enableDirectStream: (query) Whether to enable direct stream. Default: true. (optional)
      - parameter openLiveStreamDto: (body) The open live stream dto. (optional)
-     - returns: RequestBuilder<LiveStreamResponse> 
+     - returns: RequestBuilder<LiveStreamResponse>
      */
     open class func openLiveStreamWithRequestBuilder(openToken: String? = nil, userId: String? = nil, playSessionId: String? = nil, maxStreamingBitrate: Int? = nil, startTimeTicks: Int64? = nil, audioStreamIndex: Int? = nil, subtitleStreamIndex: Int? = nil, maxAudioChannels: Int? = nil, itemId: String? = nil, enableDirectPlay: Bool? = nil, enableDirectStream: Bool? = nil, openLiveStreamDto: OpenLiveStreamDto? = nil) -> RequestBuilder<LiveStreamResponse> {
         let urlPath = "/LiveStreams/Open"
@@ -322,15 +314,12 @@ open class MediaInfoAPI {
             "enableDirectStream": enableDirectStream?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<LiveStreamResponse>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public enum ImageOrientation: String, Codable, CaseIterable {

@@ -11,8 +11,8 @@ import Foundation
 open class LibraryAPI {
     /**
      Deletes an item from the library and filesystem.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -31,10 +31,10 @@ open class LibraryAPI {
      Deletes an item from the library and filesystem.
      - DELETE /Items/{itemId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - returns: RequestBuilder<Void> 
+     - parameter itemId: (path) The item id.
+     - returns: RequestBuilder<Void>
      */
     open class func deleteItemWithRequestBuilder(itemId: String) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}"
@@ -46,20 +46,18 @@ open class LibraryAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Deletes items from the library and filesystem.
-     
+
      - parameter ids: (query) The item ids. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -79,10 +77,10 @@ open class LibraryAPI {
      Deletes items from the library and filesystem.
      - DELETE /Items
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter ids: (query) The item ids. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func deleteItemsWithRequestBuilder(ids: [String]? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Items"
@@ -94,21 +92,19 @@ open class LibraryAPI {
             "ids": ids?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets all parents of an item.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -128,11 +124,11 @@ open class LibraryAPI {
      Gets all parents of an item.
      - GET /Items/{itemId}/Ancestors
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
-     - returns: RequestBuilder<[BaseItemDto]> 
+     - returns: RequestBuilder<[BaseItemDto]>
      */
     open class func getAncestorsWithRequestBuilder(itemId: String, userId: String? = nil) -> RequestBuilder<[BaseItemDto]> {
         var urlPath = "/Items/{itemId}/Ancestors"
@@ -147,21 +143,19 @@ open class LibraryAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[BaseItemDto]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets critic review for an item.
-     
-     - parameter itemId: (path)  
+
+     - parameter itemId: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -181,10 +175,10 @@ open class LibraryAPI {
      Gets critic review for an item.
      - GET /Items/{itemId}/CriticReviews
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path)  
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - parameter itemId: (path)
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func getCriticReviewsWithRequestBuilder(itemId: String) -> RequestBuilder<BaseItemDtoQueryResult> {
@@ -197,21 +191,19 @@ open class LibraryAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Downloads item media.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -230,10 +222,10 @@ open class LibraryAPI {
      Downloads item media.
      - GET /Items/{itemId}/Download
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - returns: RequestBuilder<URL> 
+     - parameter itemId: (path) The item id.
+     - returns: RequestBuilder<URL>
      */
     open class func getDownloadWithRequestBuilder(itemId: String) -> RequestBuilder<URL> {
         var urlPath = "/Items/{itemId}/Download"
@@ -245,21 +237,19 @@ open class LibraryAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get the original file of an item.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -278,10 +268,10 @@ open class LibraryAPI {
      Get the original file of an item.
      - GET /Items/{itemId}/File
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
-     - returns: RequestBuilder<URL> 
+     - parameter itemId: (path) The item id.
+     - returns: RequestBuilder<URL>
      */
     open class func getFileWithRequestBuilder(itemId: String) -> RequestBuilder<URL> {
         var urlPath = "/Items/{itemId}/File"
@@ -293,20 +283,18 @@ open class LibraryAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get item counts.
-     
+
      - parameter userId: (query) Optional. Get counts from a specific user&#39;s library. (optional)
      - parameter isFavorite: (query) Optional. Get counts of favorite items. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -327,11 +315,11 @@ open class LibraryAPI {
      Get item counts.
      - GET /Items/Counts
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter userId: (query) Optional. Get counts from a specific user&#39;s library. (optional)
      - parameter isFavorite: (query) Optional. Get counts of favorite items. (optional)
-     - returns: RequestBuilder<ItemCounts> 
+     - returns: RequestBuilder<ItemCounts>
      */
     open class func getItemCountsWithRequestBuilder(userId: String? = nil, isFavorite: Bool? = nil) -> RequestBuilder<ItemCounts> {
         let urlPath = "/Items/Counts"
@@ -344,20 +332,18 @@ open class LibraryAPI {
             "isFavorite": isFavorite?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ItemCounts>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the library options info.
-     
+
      - parameter libraryContentType: (query) Library content type. (optional)
      - parameter isNewLibrary: (query) Whether this is a new library. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -378,11 +364,11 @@ open class LibraryAPI {
      Gets the library options info.
      - GET /Libraries/AvailableOptions
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter libraryContentType: (query) Library content type. (optional)
      - parameter isNewLibrary: (query) Whether this is a new library. (optional, default to false)
-     - returns: RequestBuilder<LibraryOptionsResultDto> 
+     - returns: RequestBuilder<LibraryOptionsResultDto>
      */
     open class func getLibraryOptionsInfoWithRequestBuilder(libraryContentType: String? = nil, isNewLibrary: Bool? = nil) -> RequestBuilder<LibraryOptionsResultDto> {
         let urlPath = "/Libraries/AvailableOptions"
@@ -395,20 +381,18 @@ open class LibraryAPI {
             "isNewLibrary": isNewLibrary?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<LibraryOptionsResultDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets all user media folders.
-     
+
      - parameter isHidden: (query) Optional. Filter by folders that are marked hidden, or not. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -428,10 +412,10 @@ open class LibraryAPI {
      Gets all user media folders.
      - GET /Library/MediaFolders
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter isHidden: (query) Optional. Filter by folders that are marked hidden, or not. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getMediaFoldersWithRequestBuilder(isHidden: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/Library/MediaFolders"
@@ -443,20 +427,18 @@ open class LibraryAPI {
             "isHidden": isHidden?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of physical paths from virtual folders.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -475,9 +457,9 @@ open class LibraryAPI {
      Gets a list of physical paths from virtual folders.
      - GET /Library/PhysicalPaths
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[String]> 
+     - returns: RequestBuilder<[String]>
      */
     open class func getPhysicalPathsWithRequestBuilder() -> RequestBuilder<[String]> {
         let urlPath = "/Library/PhysicalPaths"
@@ -486,21 +468,19 @@ open class LibraryAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[String]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets similar items.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -523,14 +503,14 @@ open class LibraryAPI {
      Gets similar items.
      - GET /Albums/{itemId}/Similar
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getSimilarAlbumsWithRequestBuilder(itemId: String, excludeArtistIds: [String]? = nil, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Albums/{itemId}/Similar"
@@ -548,21 +528,19 @@ open class LibraryAPI {
             "fields": fields?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets similar items.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -585,14 +563,14 @@ open class LibraryAPI {
      Gets similar items.
      - GET /Artists/{itemId}/Similar
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getSimilarArtistsWithRequestBuilder(itemId: String, excludeArtistIds: [String]? = nil, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Artists/{itemId}/Similar"
@@ -610,21 +588,19 @@ open class LibraryAPI {
             "fields": fields?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets similar items.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -647,14 +623,14 @@ open class LibraryAPI {
      Gets similar items.
      - GET /Items/{itemId}/Similar
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getSimilarItemsWithRequestBuilder(itemId: String, excludeArtistIds: [String]? = nil, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Items/{itemId}/Similar"
@@ -672,21 +648,19 @@ open class LibraryAPI {
             "fields": fields?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets similar items.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -709,14 +683,14 @@ open class LibraryAPI {
      Gets similar items.
      - GET /Movies/{itemId}/Similar
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getSimilarMoviesWithRequestBuilder(itemId: String, excludeArtistIds: [String]? = nil, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Movies/{itemId}/Similar"
@@ -734,21 +708,19 @@ open class LibraryAPI {
             "fields": fields?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets similar items.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -771,14 +743,14 @@ open class LibraryAPI {
      Gets similar items.
      - GET /Shows/{itemId}/Similar
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getSimilarShowsWithRequestBuilder(itemId: String, excludeArtistIds: [String]? = nil, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Shows/{itemId}/Similar"
@@ -796,21 +768,19 @@ open class LibraryAPI {
             "fields": fields?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets similar items.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -833,14 +803,14 @@ open class LibraryAPI {
      Gets similar items.
      - GET /Trailers/{itemId}/Similar
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter excludeArtistIds: (query) Exclude artist ids. (optional)
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getSimilarTrailersWithRequestBuilder(itemId: String, excludeArtistIds: [String]? = nil, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Trailers/{itemId}/Similar"
@@ -858,21 +828,19 @@ open class LibraryAPI {
             "fields": fields?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get theme songs and videos for an item.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter inheritFromParent: (query) Optional. Determines whether or not parent items should be searched for theme media. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -893,12 +861,12 @@ open class LibraryAPI {
      Get theme songs and videos for an item.
      - GET /Items/{itemId}/ThemeMedia
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter inheritFromParent: (query) Optional. Determines whether or not parent items should be searched for theme media. (optional, default to false)
-     - returns: RequestBuilder<AllThemeMediaResult> 
+     - returns: RequestBuilder<AllThemeMediaResult>
      */
     open class func getThemeMediaWithRequestBuilder(itemId: String, userId: String? = nil, inheritFromParent: Bool? = nil) -> RequestBuilder<AllThemeMediaResult> {
         var urlPath = "/Items/{itemId}/ThemeMedia"
@@ -914,21 +882,19 @@ open class LibraryAPI {
             "inheritFromParent": inheritFromParent?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<AllThemeMediaResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get theme songs for an item.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter inheritFromParent: (query) Optional. Determines whether or not parent items should be searched for theme media. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -949,12 +915,12 @@ open class LibraryAPI {
      Get theme songs for an item.
      - GET /Items/{itemId}/ThemeSongs
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter inheritFromParent: (query) Optional. Determines whether or not parent items should be searched for theme media. (optional, default to false)
-     - returns: RequestBuilder<ThemeMediaResult> 
+     - returns: RequestBuilder<ThemeMediaResult>
      */
     open class func getThemeSongsWithRequestBuilder(itemId: String, userId: String? = nil, inheritFromParent: Bool? = nil) -> RequestBuilder<ThemeMediaResult> {
         var urlPath = "/Items/{itemId}/ThemeSongs"
@@ -970,21 +936,19 @@ open class LibraryAPI {
             "inheritFromParent": inheritFromParent?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ThemeMediaResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get theme videos for an item.
-     
-     - parameter itemId: (path) The item id. 
+
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter inheritFromParent: (query) Optional. Determines whether or not parent items should be searched for theme media. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -1005,12 +969,12 @@ open class LibraryAPI {
      Get theme videos for an item.
      - GET /Items/{itemId}/ThemeVideos
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) The item id. 
+     - parameter itemId: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter inheritFromParent: (query) Optional. Determines whether or not parent items should be searched for theme media. (optional, default to false)
-     - returns: RequestBuilder<ThemeMediaResult> 
+     - returns: RequestBuilder<ThemeMediaResult>
      */
     open class func getThemeVideosWithRequestBuilder(itemId: String, userId: String? = nil, inheritFromParent: Bool? = nil) -> RequestBuilder<ThemeMediaResult> {
         var urlPath = "/Items/{itemId}/ThemeVideos"
@@ -1026,20 +990,18 @@ open class LibraryAPI {
             "inheritFromParent": inheritFromParent?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ThemeMediaResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that new movies have been added by an external source.
-     
+
      - parameter tmdbId: (query) The tmdbId. (optional)
      - parameter imdbId: (query) The imdbId. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -1060,11 +1022,11 @@ open class LibraryAPI {
      Reports that new movies have been added by an external source.
      - POST /Library/Movies/Added
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter tmdbId: (query) The tmdbId. (optional)
      - parameter imdbId: (query) The imdbId. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func postAddedMoviesWithRequestBuilder(tmdbId: String? = nil, imdbId: String? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/Movies/Added"
@@ -1077,20 +1039,18 @@ open class LibraryAPI {
             "imdbId": imdbId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that new episodes of a series have been added by an external source.
-     
+
      - parameter tvdbId: (query) The tvdbId. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -1110,10 +1070,10 @@ open class LibraryAPI {
      Reports that new episodes of a series have been added by an external source.
      - POST /Library/Series/Added
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter tvdbId: (query) The tvdbId. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func postAddedSeriesWithRequestBuilder(tvdbId: String? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/Series/Added"
@@ -1125,21 +1085,19 @@ open class LibraryAPI {
             "tvdbId": tvdbId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that new movies have been added by an external source.
-     
-     - parameter mediaUpdateInfoDto: (body) The update paths. 
+
+     - parameter mediaUpdateInfoDto: (body) The update paths.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -1158,10 +1116,10 @@ open class LibraryAPI {
      Reports that new movies have been added by an external source.
      - POST /Library/Media/Updated
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter mediaUpdateInfoDto: (body) The update paths. 
-     - returns: RequestBuilder<Void> 
+     - parameter mediaUpdateInfoDto: (body) The update paths.
+     - returns: RequestBuilder<Void>
      */
     open class func postUpdatedMediaWithRequestBuilder(mediaUpdateInfoDto: MediaUpdateInfoDto) -> RequestBuilder<Void> {
         let urlPath = "/Library/Media/Updated"
@@ -1170,20 +1128,18 @@ open class LibraryAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that new movies have been added by an external source.
-     
+
      - parameter tmdbId: (query) The tmdbId. (optional)
      - parameter imdbId: (query) The imdbId. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -1204,11 +1160,11 @@ open class LibraryAPI {
      Reports that new movies have been added by an external source.
      - POST /Library/Movies/Updated
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter tmdbId: (query) The tmdbId. (optional)
      - parameter imdbId: (query) The imdbId. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func postUpdatedMoviesWithRequestBuilder(tmdbId: String? = nil, imdbId: String? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/Movies/Updated"
@@ -1221,20 +1177,18 @@ open class LibraryAPI {
             "imdbId": imdbId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Reports that new episodes of a series have been added by an external source.
-     
+
      - parameter tvdbId: (query) The tvdbId. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -1254,10 +1208,10 @@ open class LibraryAPI {
      Reports that new episodes of a series have been added by an external source.
      - POST /Library/Series/Updated
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter tvdbId: (query) The tvdbId. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func postUpdatedSeriesWithRequestBuilder(tvdbId: String? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/Series/Updated"
@@ -1269,20 +1223,18 @@ open class LibraryAPI {
             "tvdbId": tvdbId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Starts a library scan.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -1301,9 +1253,9 @@ open class LibraryAPI {
      Starts a library scan.
      - POST /Library/Refresh
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func refreshLibraryWithRequestBuilder() -> RequestBuilder<Void> {
         let urlPath = "/Library/Refresh"
@@ -1312,15 +1264,12 @@ open class LibraryAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

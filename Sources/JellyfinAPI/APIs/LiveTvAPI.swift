@@ -11,7 +11,7 @@ import Foundation
 open class LiveTvAPI {
     /**
      Adds a listings provider.
-     
+
      - parameter pw: (query) Password. (optional)
      - parameter validateListings: (query) Validate listings. (optional, default to false)
      - parameter validateLogin: (query) Validate login. (optional, default to false)
@@ -34,13 +34,13 @@ open class LiveTvAPI {
      Adds a listings provider.
      - POST /LiveTv/ListingProviders
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter pw: (query) Password. (optional)
      - parameter validateListings: (query) Validate listings. (optional, default to false)
      - parameter validateLogin: (query) Validate login. (optional, default to false)
      - parameter listingsProviderInfo: (body) New listings info. (optional)
-     - returns: RequestBuilder<ListingsProviderInfo> 
+     - returns: RequestBuilder<ListingsProviderInfo>
      */
     open class func addListingProviderWithRequestBuilder(pw: String? = nil, validateListings: Bool? = nil, validateLogin: Bool? = nil, listingsProviderInfo: ListingsProviderInfo? = nil) -> RequestBuilder<ListingsProviderInfo> {
         let urlPath = "/LiveTv/ListingProviders"
@@ -54,20 +54,18 @@ open class LiveTvAPI {
             "validateLogin": validateLogin?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ListingsProviderInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Adds a tuner host.
-     
+
      - parameter tunerHostInfo: (body) New tuner host. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -87,10 +85,10 @@ open class LiveTvAPI {
      Adds a tuner host.
      - POST /LiveTv/TunerHosts
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter tunerHostInfo: (body) New tuner host. (optional)
-     - returns: RequestBuilder<TunerHostInfo> 
+     - returns: RequestBuilder<TunerHostInfo>
      */
     open class func addTunerHostWithRequestBuilder(tunerHostInfo: TunerHostInfo? = nil) -> RequestBuilder<TunerHostInfo> {
         let urlPath = "/LiveTv/TunerHosts"
@@ -99,21 +97,19 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<TunerHostInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Cancels a live tv series timer.
-     
-     - parameter timerId: (path) Timer id. 
+
+     - parameter timerId: (path) Timer id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -132,10 +128,10 @@ open class LiveTvAPI {
      Cancels a live tv series timer.
      - DELETE /LiveTv/SeriesTimers/{timerId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter timerId: (path) Timer id. 
-     - returns: RequestBuilder<Void> 
+     - parameter timerId: (path) Timer id.
+     - returns: RequestBuilder<Void>
      */
     open class func cancelSeriesTimerWithRequestBuilder(timerId: String) -> RequestBuilder<Void> {
         var urlPath = "/LiveTv/SeriesTimers/{timerId}"
@@ -147,21 +143,19 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Cancels a live tv timer.
-     
-     - parameter timerId: (path) Timer id. 
+
+     - parameter timerId: (path) Timer id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -180,10 +174,10 @@ open class LiveTvAPI {
      Cancels a live tv timer.
      - DELETE /LiveTv/Timers/{timerId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter timerId: (path) Timer id. 
-     - returns: RequestBuilder<Void> 
+     - parameter timerId: (path) Timer id.
+     - returns: RequestBuilder<Void>
      */
     open class func cancelTimerWithRequestBuilder(timerId: String) -> RequestBuilder<Void> {
         var urlPath = "/LiveTv/Timers/{timerId}"
@@ -195,20 +189,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates a live tv series timer.
-     
+
      - parameter seriesTimerInfoDto: (body) New series timer info. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -228,10 +220,10 @@ open class LiveTvAPI {
      Creates a live tv series timer.
      - POST /LiveTv/SeriesTimers
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter seriesTimerInfoDto: (body) New series timer info. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func createSeriesTimerWithRequestBuilder(seriesTimerInfoDto: SeriesTimerInfoDto? = nil) -> RequestBuilder<Void> {
         let urlPath = "/LiveTv/SeriesTimers"
@@ -240,20 +232,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates a live tv timer.
-     
+
      - parameter timerInfoDto: (body) New timer info. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -273,10 +263,10 @@ open class LiveTvAPI {
      Creates a live tv timer.
      - POST /LiveTv/Timers
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter timerInfoDto: (body) New timer info. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func createTimerWithRequestBuilder(timerInfoDto: TimerInfoDto? = nil) -> RequestBuilder<Void> {
         let urlPath = "/LiveTv/Timers"
@@ -285,20 +275,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Delete listing provider.
-     
+
      - parameter id: (query) Listing provider id. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -318,10 +306,10 @@ open class LiveTvAPI {
      Delete listing provider.
      - DELETE /LiveTv/ListingProviders
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter id: (query) Listing provider id. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func deleteListingProviderWithRequestBuilder(id: String? = nil) -> RequestBuilder<Void> {
         let urlPath = "/LiveTv/ListingProviders"
@@ -333,21 +321,19 @@ open class LiveTvAPI {
             "id": id?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Deletes a live tv recording.
-     
-     - parameter recordingId: (path) Recording id. 
+
+     - parameter recordingId: (path) Recording id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -366,10 +352,10 @@ open class LiveTvAPI {
      Deletes a live tv recording.
      - DELETE /LiveTv/Recordings/{recordingId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter recordingId: (path) Recording id. 
-     - returns: RequestBuilder<Void> 
+     - parameter recordingId: (path) Recording id.
+     - returns: RequestBuilder<Void>
      */
     open class func deleteRecordingWithRequestBuilder(recordingId: String) -> RequestBuilder<Void> {
         var urlPath = "/LiveTv/Recordings/{recordingId}"
@@ -381,20 +367,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Deletes a tuner host.
-     
+
      - parameter id: (query) Tuner host id. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -414,10 +398,10 @@ open class LiveTvAPI {
      Deletes a tuner host.
      - DELETE /LiveTv/TunerHosts
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter id: (query) Tuner host id. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func deleteTunerHostWithRequestBuilder(id: String? = nil) -> RequestBuilder<Void> {
         let urlPath = "/LiveTv/TunerHosts"
@@ -429,20 +413,18 @@ open class LiveTvAPI {
             "id": id?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Discover tuners.
-     
+
      - parameter newDevicesOnly: (query) Only discover new tuners. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -462,10 +444,10 @@ open class LiveTvAPI {
      Discover tuners.
      - GET /LiveTv/Tuners/Discover
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter newDevicesOnly: (query) Only discover new tuners. (optional, default to false)
-     - returns: RequestBuilder<[TunerHostInfo]> 
+     - returns: RequestBuilder<[TunerHostInfo]>
      */
     open class func discoverTunersWithRequestBuilder(newDevicesOnly: Bool? = nil) -> RequestBuilder<[TunerHostInfo]> {
         let urlPath = "/LiveTv/Tuners/Discover"
@@ -477,20 +459,18 @@ open class LiveTvAPI {
             "newDevicesOnly": newDevicesOnly?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[TunerHostInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Discover tuners.
-     
+
      - parameter newDevicesOnly: (query) Only discover new tuners. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -510,10 +490,10 @@ open class LiveTvAPI {
      Discover tuners.
      - GET /LiveTv/Tuners/Discvover
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter newDevicesOnly: (query) Only discover new tuners. (optional, default to false)
-     - returns: RequestBuilder<[TunerHostInfo]> 
+     - returns: RequestBuilder<[TunerHostInfo]>
      */
     open class func discvoverTunersWithRequestBuilder(newDevicesOnly: Bool? = nil) -> RequestBuilder<[TunerHostInfo]> {
         let urlPath = "/LiveTv/Tuners/Discvover"
@@ -525,21 +505,19 @@ open class LiveTvAPI {
             "newDevicesOnly": newDevicesOnly?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[TunerHostInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a live tv channel.
-     
-     - parameter channelId: (path) Channel id. 
+
+     - parameter channelId: (path) Channel id.
      - parameter userId: (query) Optional. Attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -559,11 +537,11 @@ open class LiveTvAPI {
      Gets a live tv channel.
      - GET /LiveTv/Channels/{channelId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter channelId: (path) Channel id. 
+     - parameter channelId: (path) Channel id.
      - parameter userId: (query) Optional. Attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDto> 
+     - returns: RequestBuilder<BaseItemDto>
      */
     open class func getChannelWithRequestBuilder(channelId: String, userId: String? = nil) -> RequestBuilder<BaseItemDto> {
         var urlPath = "/LiveTv/Channels/{channelId}"
@@ -578,20 +556,18 @@ open class LiveTvAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get channel mapping options.
-     
+
      - parameter providerId: (query) Provider id. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -611,10 +587,10 @@ open class LiveTvAPI {
      Get channel mapping options.
      - GET /LiveTv/ChannelMappingOptions
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter providerId: (query) Provider id. (optional)
-     - returns: RequestBuilder<ChannelMappingOptionsDto> 
+     - returns: RequestBuilder<ChannelMappingOptionsDto>
      */
     open class func getChannelMappingOptionsWithRequestBuilder(providerId: String? = nil) -> RequestBuilder<ChannelMappingOptionsDto> {
         let urlPath = "/LiveTv/ChannelMappingOptions"
@@ -626,20 +602,18 @@ open class LiveTvAPI {
             "providerId": providerId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ChannelMappingOptionsDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets default listings provider info.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -658,9 +632,9 @@ open class LiveTvAPI {
      Gets default listings provider info.
      - GET /LiveTv/ListingProviders/Default
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<ListingsProviderInfo> 
+     - returns: RequestBuilder<ListingsProviderInfo>
      */
     open class func getDefaultListingProviderWithRequestBuilder() -> RequestBuilder<ListingsProviderInfo> {
         let urlPath = "/LiveTv/ListingProviders/Default"
@@ -669,20 +643,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ListingsProviderInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the default values for a new timer.
-     
+
      - parameter programId: (query) Optional. To attach default values based on a program. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -702,10 +674,10 @@ open class LiveTvAPI {
      Gets the default values for a new timer.
      - GET /LiveTv/Timers/Defaults
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter programId: (query) Optional. To attach default values based on a program. (optional)
-     - returns: RequestBuilder<SeriesTimerInfoDto> 
+     - returns: RequestBuilder<SeriesTimerInfoDto>
      */
     open class func getDefaultTimerWithRequestBuilder(programId: String? = nil) -> RequestBuilder<SeriesTimerInfoDto> {
         let urlPath = "/LiveTv/Timers/Defaults"
@@ -717,20 +689,18 @@ open class LiveTvAPI {
             "programId": programId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<SeriesTimerInfoDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get guid info.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -749,9 +719,9 @@ open class LiveTvAPI {
      Get guid info.
      - GET /LiveTv/GuideInfo
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<GuideInfo> 
+     - returns: RequestBuilder<GuideInfo>
      */
     open class func getGuideInfoWithRequestBuilder() -> RequestBuilder<GuideInfo> {
         let urlPath = "/LiveTv/GuideInfo"
@@ -760,20 +730,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<GuideInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available lineups.
-     
+
      - parameter id: (query) Provider id. (optional)
      - parameter type: (query) Provider type. (optional)
      - parameter location: (query) Location. (optional)
@@ -796,13 +764,13 @@ open class LiveTvAPI {
      Gets available lineups.
      - GET /LiveTv/ListingProviders/Lineups
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter id: (query) Provider id. (optional)
      - parameter type: (query) Provider type. (optional)
      - parameter location: (query) Location. (optional)
      - parameter country: (query) Country. (optional)
-     - returns: RequestBuilder<[NameIdPair]> 
+     - returns: RequestBuilder<[NameIdPair]>
      */
     open class func getLineupsWithRequestBuilder(id: String? = nil, type: String? = nil, location: String? = nil, country: String? = nil) -> RequestBuilder<[NameIdPair]> {
         let urlPath = "/LiveTv/ListingProviders/Lineups"
@@ -817,21 +785,19 @@ open class LiveTvAPI {
             "country": country?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[NameIdPair]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a live tv recording stream.
-     
-     - parameter recordingId: (path) Recording id. 
+
+     - parameter recordingId: (path) Recording id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -849,8 +815,8 @@ open class LiveTvAPI {
     /**
      Gets a live tv recording stream.
      - GET /LiveTv/LiveRecordings/{recordingId}/stream
-     - parameter recordingId: (path) Recording id. 
-     - returns: RequestBuilder<URL> 
+     - parameter recordingId: (path) Recording id.
+     - returns: RequestBuilder<URL>
      */
     open class func getLiveRecordingFileWithRequestBuilder(recordingId: String) -> RequestBuilder<URL> {
         var urlPath = "/LiveTv/LiveRecordings/{recordingId}/stream"
@@ -862,22 +828,20 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a live tv channel stream.
-     
-     - parameter streamId: (path) Stream id. 
-     - parameter container: (path) Container type. 
+
+     - parameter streamId: (path) Stream id.
+     - parameter container: (path) Container type.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -895,9 +859,9 @@ open class LiveTvAPI {
     /**
      Gets a live tv channel stream.
      - GET /LiveTv/LiveStreamFiles/{streamId}/stream.{container}
-     - parameter streamId: (path) Stream id. 
-     - parameter container: (path) Container type. 
-     - returns: RequestBuilder<URL> 
+     - parameter streamId: (path) Stream id.
+     - parameter container: (path) Container type.
+     - returns: RequestBuilder<URL>
      */
     open class func getLiveStreamFileWithRequestBuilder(streamId: String, container: String) -> RequestBuilder<URL> {
         var urlPath = "/LiveTv/LiveStreamFiles/{streamId}/stream.{container}"
@@ -912,20 +876,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available live tv channels.
-     
+
      - parameter type: (query) Optional. Filter by channel type. (optional)
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
@@ -965,7 +927,7 @@ open class LiveTvAPI {
      Gets available live tv channels.
      - GET /LiveTv/Channels
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter type: (query) Optional. Filter by channel type. (optional)
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
@@ -988,7 +950,7 @@ open class LiveTvAPI {
      - parameter sortOrder: (query) Optional. Sort order. (optional)
      - parameter enableFavoriteSorting: (query) Optional. Incorporate favorite and like status into channel sorting. (optional, default to false)
      - parameter addCurrentProgram: (query) Optional. Adds current program info to each channel. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getLiveTvChannelsWithRequestBuilder(type: ChannelType? = nil, userId: String? = nil, startIndex: Int? = nil, isMovie: Bool? = nil, isSeries: Bool? = nil, isNews: Bool? = nil, isKids: Bool? = nil, isSports: Bool? = nil, limit: Int? = nil, isFavorite: Bool? = nil, isLiked: Bool? = nil, isDisliked: Bool? = nil, enableImages: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, fields: [ItemFields]? = nil, enableUserData: Bool? = nil, sortBy: [String]? = nil, sortOrder: APISortOrder? = nil, enableFavoriteSorting: Bool? = nil, addCurrentProgram: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/LiveTv/Channels"
@@ -1020,20 +982,18 @@ open class LiveTvAPI {
             "addCurrentProgram": addCurrentProgram?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available live tv services.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -1052,9 +1012,9 @@ open class LiveTvAPI {
      Gets available live tv services.
      - GET /LiveTv/Info
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<LiveTvInfo> 
+     - returns: RequestBuilder<LiveTvInfo>
      */
     open class func getLiveTvInfoWithRequestBuilder() -> RequestBuilder<LiveTvInfo> {
         let urlPath = "/LiveTv/Info"
@@ -1063,20 +1023,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<LiveTvInfo>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available live tv epgs.
-     
+
      - parameter channelIds: (query) The channels to return guide information for. (optional)
      - parameter userId: (query) Optional. Filter by user id. (optional)
      - parameter minStartDate: (query) Optional. The minimum premiere start date. (optional)
@@ -1122,7 +1080,7 @@ open class LiveTvAPI {
      Gets available live tv epgs.
      - GET /LiveTv/Programs
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter channelIds: (query) The channels to return guide information for. (optional)
      - parameter userId: (query) Optional. Filter by user id. (optional)
@@ -1151,7 +1109,7 @@ open class LiveTvAPI {
      - parameter librarySeriesId: (query) Optional. Filter by library series id. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
      - parameter enableTotalRecordCount: (query) Retrieve total record count. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getLiveTvProgramsWithRequestBuilder(channelIds: [String]? = nil, userId: String? = nil, minStartDate: Date? = nil, hasAired: Bool? = nil, isAiring: Bool? = nil, maxStartDate: Date? = nil, minEndDate: Date? = nil, maxEndDate: Date? = nil, isMovie: Bool? = nil, isSeries: Bool? = nil, isNews: Bool? = nil, isKids: Bool? = nil, isSports: Bool? = nil, startIndex: Int? = nil, limit: Int? = nil, sortBy: [String]? = nil, sortOrder: [APISortOrder]? = nil, genres: [String]? = nil, genreIds: [String]? = nil, enableImages: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, enableUserData: Bool? = nil, seriesTimerId: String? = nil, librarySeriesId: String? = nil, fields: [ItemFields]? = nil, enableTotalRecordCount: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/LiveTv/Programs"
@@ -1189,21 +1147,19 @@ open class LiveTvAPI {
             "enableTotalRecordCount": enableTotalRecordCount?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a live tv program.
-     
-     - parameter programId: (path) Program id. 
+
+     - parameter programId: (path) Program id.
      - parameter userId: (query) Optional. Attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -1223,11 +1179,11 @@ open class LiveTvAPI {
      Gets a live tv program.
      - GET /LiveTv/Programs/{programId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter programId: (path) Program id. 
+     - parameter programId: (path) Program id.
      - parameter userId: (query) Optional. Attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDto> 
+     - returns: RequestBuilder<BaseItemDto>
      */
     open class func getProgramWithRequestBuilder(programId: String, userId: String? = nil) -> RequestBuilder<BaseItemDto> {
         var urlPath = "/LiveTv/Programs/{programId}"
@@ -1242,20 +1198,18 @@ open class LiveTvAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available live tv epgs.
-     
+
      - parameter getProgramsDto: (body) Request body. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -1275,10 +1229,10 @@ open class LiveTvAPI {
      Gets available live tv epgs.
      - POST /LiveTv/Programs
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter getProgramsDto: (body) Request body. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getProgramsWithRequestBuilder(getProgramsDto: GetProgramsDto? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/LiveTv/Programs"
@@ -1287,20 +1241,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets recommended live tv epgs.
-     
+
      - parameter userId: (query) Optional. filter by user id. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter isAiring: (query) Optional. Filter by programs that are currently airing, or not. (optional)
@@ -1335,7 +1287,7 @@ open class LiveTvAPI {
      Gets recommended live tv epgs.
      - GET /LiveTv/Programs/Recommended
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter userId: (query) Optional. filter by user id. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -1353,7 +1305,7 @@ open class LiveTvAPI {
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
      - parameter enableUserData: (query) Optional. include user data. (optional)
      - parameter enableTotalRecordCount: (query) Retrieve total record count. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getRecommendedProgramsWithRequestBuilder(userId: String? = nil, limit: Int? = nil, isAiring: Bool? = nil, hasAired: Bool? = nil, isSeries: Bool? = nil, isMovie: Bool? = nil, isNews: Bool? = nil, isKids: Bool? = nil, isSports: Bool? = nil, enableImages: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, genreIds: [String]? = nil, fields: [ItemFields]? = nil, enableUserData: Bool? = nil, enableTotalRecordCount: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/LiveTv/Programs/Recommended"
@@ -1380,21 +1332,19 @@ open class LiveTvAPI {
             "enableTotalRecordCount": enableTotalRecordCount?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a live tv recording.
-     
-     - parameter recordingId: (path) Recording id. 
+
+     - parameter recordingId: (path) Recording id.
      - parameter userId: (query) Optional. Attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -1414,11 +1364,11 @@ open class LiveTvAPI {
      Gets a live tv recording.
      - GET /LiveTv/Recordings/{recordingId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter recordingId: (path) Recording id. 
+     - parameter recordingId: (path) Recording id.
      - parameter userId: (query) Optional. Attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDto> 
+     - returns: RequestBuilder<BaseItemDto>
      */
     open class func getRecordingWithRequestBuilder(recordingId: String, userId: String? = nil) -> RequestBuilder<BaseItemDto> {
         var urlPath = "/LiveTv/Recordings/{recordingId}"
@@ -1433,20 +1383,18 @@ open class LiveTvAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets recording folders.
-     
+
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -1466,10 +1414,10 @@ open class LiveTvAPI {
      Gets recording folders.
      - GET /LiveTv/Recordings/Folders
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getRecordingFoldersWithRequestBuilder(userId: String? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/LiveTv/Recordings/Folders"
@@ -1481,21 +1429,19 @@ open class LiveTvAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get recording group.
-     
-     - parameter groupId: (path) Group id. 
+
+     - parameter groupId: (path) Group id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -1515,10 +1461,10 @@ open class LiveTvAPI {
      Get recording group.
      - GET /LiveTv/Recordings/Groups/{groupId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter groupId: (path) Group id. 
-     - returns: RequestBuilder<Void> 
+     - parameter groupId: (path) Group id.
+     - returns: RequestBuilder<Void>
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func getRecordingGroupWithRequestBuilder(groupId: String) -> RequestBuilder<Void> {
@@ -1531,20 +1477,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets live tv recording groups.
-     
+
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -1565,10 +1509,10 @@ open class LiveTvAPI {
      Gets live tv recording groups.
      - GET /LiveTv/Recordings/Groups
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func getRecordingGroupsWithRequestBuilder(userId: String? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
@@ -1581,20 +1525,18 @@ open class LiveTvAPI {
             "userId": userId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets live tv recordings.
-     
+
      - parameter channelId: (query) Optional. Filter by channel id. (optional)
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
@@ -1632,7 +1574,7 @@ open class LiveTvAPI {
      Gets live tv recordings.
      - GET /LiveTv/Recordings
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter channelId: (query) Optional. Filter by channel id. (optional)
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
@@ -1653,7 +1595,7 @@ open class LiveTvAPI {
      - parameter isNews: (query) Optional. Filter for news. (optional)
      - parameter isLibraryItem: (query) Optional. Filter for is library item. (optional)
      - parameter enableTotalRecordCount: (query) Optional. Return total record count. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getRecordingsWithRequestBuilder(channelId: String? = nil, userId: String? = nil, startIndex: Int? = nil, limit: Int? = nil, status: RecordingStatus? = nil, isInProgress: Bool? = nil, seriesTimerId: String? = nil, enableImages: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, fields: [ItemFields]? = nil, enableUserData: Bool? = nil, isMovie: Bool? = nil, isSeries: Bool? = nil, isKids: Bool? = nil, isSports: Bool? = nil, isNews: Bool? = nil, isLibraryItem: Bool? = nil, enableTotalRecordCount: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/LiveTv/Recordings"
@@ -1683,20 +1625,18 @@ open class LiveTvAPI {
             "enableTotalRecordCount": enableTotalRecordCount?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets live tv recording series.
-     
+
      - parameter channelId: (query) Optional. Filter by channel id. (optional)
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
      - parameter groupId: (query) Optional. Filter by recording group. (optional)
@@ -1730,7 +1670,7 @@ open class LiveTvAPI {
      Gets live tv recording series.
      - GET /LiveTv/Recordings/Series
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter channelId: (query) Optional. Filter by channel id. (optional)
      - parameter userId: (query) Optional. Filter by user and attach user data. (optional)
@@ -1746,7 +1686,7 @@ open class LiveTvAPI {
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter enableTotalRecordCount: (query) Optional. Return total record count. (optional, default to true)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func getRecordingsSeriesWithRequestBuilder(channelId: String? = nil, userId: String? = nil, groupId: String? = nil, startIndex: Int? = nil, limit: Int? = nil, status: RecordingStatus? = nil, isInProgress: Bool? = nil, seriesTimerId: String? = nil, enableImages: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, fields: [ItemFields]? = nil, enableUserData: Bool? = nil, enableTotalRecordCount: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
@@ -1772,20 +1712,18 @@ open class LiveTvAPI {
             "enableTotalRecordCount": enableTotalRecordCount?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets available countries.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -1804,9 +1742,9 @@ open class LiveTvAPI {
      Gets available countries.
      - GET /LiveTv/ListingProviders/SchedulesDirect/Countries
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func getSchedulesDirectCountriesWithRequestBuilder() -> RequestBuilder<URL> {
         let urlPath = "/LiveTv/ListingProviders/SchedulesDirect/Countries"
@@ -1815,21 +1753,19 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a live tv series timer.
-     
-     - parameter timerId: (path) Timer id. 
+
+     - parameter timerId: (path) Timer id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -1848,10 +1784,10 @@ open class LiveTvAPI {
      Gets a live tv series timer.
      - GET /LiveTv/SeriesTimers/{timerId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter timerId: (path) Timer id. 
-     - returns: RequestBuilder<SeriesTimerInfoDto> 
+     - parameter timerId: (path) Timer id.
+     - returns: RequestBuilder<SeriesTimerInfoDto>
      */
     open class func getSeriesTimerWithRequestBuilder(timerId: String) -> RequestBuilder<SeriesTimerInfoDto> {
         var urlPath = "/LiveTv/SeriesTimers/{timerId}"
@@ -1863,20 +1799,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<SeriesTimerInfoDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets live tv series timers.
-     
+
      - parameter sortBy: (query) Optional. Sort by SortName or Priority. (optional)
      - parameter sortOrder: (query) Optional. Sort in Ascending or Descending order. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -1897,11 +1831,11 @@ open class LiveTvAPI {
      Gets live tv series timers.
      - GET /LiveTv/SeriesTimers
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter sortBy: (query) Optional. Sort by SortName or Priority. (optional)
      - parameter sortOrder: (query) Optional. Sort in Ascending or Descending order. (optional)
-     - returns: RequestBuilder<SeriesTimerInfoDtoQueryResult> 
+     - returns: RequestBuilder<SeriesTimerInfoDtoQueryResult>
      */
     open class func getSeriesTimersWithRequestBuilder(sortBy: String? = nil, sortOrder: APISortOrder? = nil) -> RequestBuilder<SeriesTimerInfoDtoQueryResult> {
         let urlPath = "/LiveTv/SeriesTimers"
@@ -1914,21 +1848,19 @@ open class LiveTvAPI {
             "sortOrder": sortOrder?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<SeriesTimerInfoDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a timer.
-     
-     - parameter timerId: (path) Timer id. 
+
+     - parameter timerId: (path) Timer id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -1947,10 +1879,10 @@ open class LiveTvAPI {
      Gets a timer.
      - GET /LiveTv/Timers/{timerId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter timerId: (path) Timer id. 
-     - returns: RequestBuilder<TimerInfoDto> 
+     - parameter timerId: (path) Timer id.
+     - returns: RequestBuilder<TimerInfoDto>
      */
     open class func getTimerWithRequestBuilder(timerId: String) -> RequestBuilder<TimerInfoDto> {
         var urlPath = "/LiveTv/Timers/{timerId}"
@@ -1962,20 +1894,18 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<TimerInfoDto>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets the live tv timers.
-     
+
      - parameter channelId: (query) Optional. Filter by channel id. (optional)
      - parameter seriesTimerId: (query) Optional. Filter by timers belonging to a series timer. (optional)
      - parameter isActive: (query) Optional. Filter by timers that are active. (optional)
@@ -1998,13 +1928,13 @@ open class LiveTvAPI {
      Gets the live tv timers.
      - GET /LiveTv/Timers
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter channelId: (query) Optional. Filter by channel id. (optional)
      - parameter seriesTimerId: (query) Optional. Filter by timers belonging to a series timer. (optional)
      - parameter isActive: (query) Optional. Filter by timers that are active. (optional)
      - parameter isScheduled: (query) Optional. Filter by timers that are scheduled. (optional)
-     - returns: RequestBuilder<TimerInfoDtoQueryResult> 
+     - returns: RequestBuilder<TimerInfoDtoQueryResult>
      */
     open class func getTimersWithRequestBuilder(channelId: String? = nil, seriesTimerId: String? = nil, isActive: Bool? = nil, isScheduled: Bool? = nil) -> RequestBuilder<TimerInfoDtoQueryResult> {
         let urlPath = "/LiveTv/Timers"
@@ -2019,20 +1949,18 @@ open class LiveTvAPI {
             "isScheduled": isScheduled?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<TimerInfoDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Get tuner host types.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -2051,9 +1979,9 @@ open class LiveTvAPI {
      Get tuner host types.
      - GET /LiveTv/TunerHosts/Types
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[NameIdPair]> 
+     - returns: RequestBuilder<[NameIdPair]>
      */
     open class func getTunerHostTypesWithRequestBuilder() -> RequestBuilder<[NameIdPair]> {
         let urlPath = "/LiveTv/TunerHosts/Types"
@@ -2062,21 +1990,19 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[NameIdPair]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Resets a tv tuner.
-     
-     - parameter tunerId: (path) Tuner id. 
+
+     - parameter tunerId: (path) Tuner id.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -2095,10 +2021,10 @@ open class LiveTvAPI {
      Resets a tv tuner.
      - POST /LiveTv/Tuners/{tunerId}/Reset
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter tunerId: (path) Tuner id. 
-     - returns: RequestBuilder<Void> 
+     - parameter tunerId: (path) Tuner id.
+     - returns: RequestBuilder<Void>
      */
     open class func resetTunerWithRequestBuilder(tunerId: String) -> RequestBuilder<Void> {
         var urlPath = "/LiveTv/Tuners/{tunerId}/Reset"
@@ -2110,21 +2036,19 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Set channel mappings.
-     
-     - parameter setChannelMappingDto: (body) The set channel mapping dto. 
+
+     - parameter setChannelMappingDto: (body) The set channel mapping dto.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -2143,10 +2067,10 @@ open class LiveTvAPI {
      Set channel mappings.
      - POST /LiveTv/ChannelMappings
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter setChannelMappingDto: (body) The set channel mapping dto. 
-     - returns: RequestBuilder<TunerChannelMapping> 
+     - parameter setChannelMappingDto: (body) The set channel mapping dto.
+     - returns: RequestBuilder<TunerChannelMapping>
      */
     open class func setChannelMappingWithRequestBuilder(setChannelMappingDto: SetChannelMappingDto) -> RequestBuilder<TunerChannelMapping> {
         let urlPath = "/LiveTv/ChannelMappings"
@@ -2155,21 +2079,19 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<TunerChannelMapping>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a live tv series timer.
-     
-     - parameter timerId: (path) Timer id. 
+
+     - parameter timerId: (path) Timer id.
      - parameter seriesTimerInfoDto: (body) New series timer info. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -2189,11 +2111,11 @@ open class LiveTvAPI {
      Updates a live tv series timer.
      - POST /LiveTv/SeriesTimers/{timerId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter timerId: (path) Timer id. 
+     - parameter timerId: (path) Timer id.
      - parameter seriesTimerInfoDto: (body) New series timer info. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func updateSeriesTimerWithRequestBuilder(timerId: String, seriesTimerInfoDto: SeriesTimerInfoDto? = nil) -> RequestBuilder<Void> {
         var urlPath = "/LiveTv/SeriesTimers/{timerId}"
@@ -2205,21 +2127,19 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a live tv timer.
-     
-     - parameter timerId: (path) Timer id. 
+
+     - parameter timerId: (path) Timer id.
      - parameter timerInfoDto: (body) New timer info. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -2239,11 +2159,11 @@ open class LiveTvAPI {
      Updates a live tv timer.
      - POST /LiveTv/Timers/{timerId}
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter timerId: (path) Timer id. 
+     - parameter timerId: (path) Timer id.
      - parameter timerInfoDto: (body) New timer info. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func updateTimerWithRequestBuilder(timerId: String, timerInfoDto: TimerInfoDto? = nil) -> RequestBuilder<Void> {
         var urlPath = "/LiveTv/Timers/{timerId}"
@@ -2255,15 +2175,12 @@ open class LiveTvAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

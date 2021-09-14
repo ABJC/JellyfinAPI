@@ -11,8 +11,8 @@ import Foundation
 open class TvShowsAPI {
     /**
      Gets episodes for a tv season.
-     
-     - parameter seriesId: (path) The series id. 
+
+     - parameter seriesId: (path) The series id.
      - parameter userId: (query) The user id. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
      - parameter season: (query) Optional filter by season number. (optional)
@@ -45,9 +45,9 @@ open class TvShowsAPI {
      Gets episodes for a tv season.
      - GET /Shows/{seriesId}/Episodes
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter seriesId: (path) The series id. 
+     - parameter seriesId: (path) The series id.
      - parameter userId: (query) The user id. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
      - parameter season: (query) Optional filter by season number. (optional)
@@ -62,7 +62,7 @@ open class TvShowsAPI {
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter sortBy: (query) Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getEpisodesWithRequestBuilder(seriesId: String, userId: String? = nil, fields: [ItemFields]? = nil, season: Int? = nil, seasonId: String? = nil, isMissing: Bool? = nil, adjacentTo: String? = nil, startItemId: String? = nil, startIndex: Int? = nil, limit: Int? = nil, enableImages: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, enableUserData: Bool? = nil, sortBy: String? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Shows/{seriesId}/Episodes"
@@ -90,20 +90,18 @@ open class TvShowsAPI {
             "sortBy": sortBy?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of next up episodes.
-     
+
      - parameter userId: (query) The user id of the user to get the next up episodes for. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -134,7 +132,7 @@ open class TvShowsAPI {
      Gets a list of next up episodes.
      - GET /Shows/NextUp
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter userId: (query) The user id of the user to get the next up episodes for. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
@@ -148,7 +146,7 @@ open class TvShowsAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter enableTotalRecordCount: (query) Whether to enable the total records count. Defaults to true. (optional, default to true)
      - parameter disableFirstEpisode: (query) Whether to disable sending the first episode in a series as next up. (optional, default to false)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getNextUpWithRequestBuilder(userId: String? = nil, startIndex: Int? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, seriesId: String? = nil, parentId: String? = nil, enableImges: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, enableUserData: Bool? = nil, enableTotalRecordCount: Bool? = nil, disableFirstEpisode: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/Shows/NextUp"
@@ -171,21 +169,19 @@ open class TvShowsAPI {
             "disableFirstEpisode": disableFirstEpisode?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets seasons for a tv series.
-     
-     - parameter seriesId: (path) The series id. 
+
+     - parameter seriesId: (path) The series id.
      - parameter userId: (query) The user id. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
      - parameter isSpecialSeason: (query) Optional. Filter by special season. (optional)
@@ -213,9 +209,9 @@ open class TvShowsAPI {
      Gets seasons for a tv series.
      - GET /Shows/{seriesId}/Seasons
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter seriesId: (path) The series id. 
+     - parameter seriesId: (path) The series id.
      - parameter userId: (query) The user id. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. (optional)
      - parameter isSpecialSeason: (query) Optional. Filter by special season. (optional)
@@ -225,7 +221,7 @@ open class TvShowsAPI {
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
      - parameter enableUserData: (query) Optional. Include user data. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getSeasonsWithRequestBuilder(seriesId: String, userId: String? = nil, fields: [ItemFields]? = nil, isSpecialSeason: Bool? = nil, isMissing: Bool? = nil, adjacentTo: String? = nil, enableImages: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, enableUserData: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Shows/{seriesId}/Seasons"
@@ -248,20 +244,18 @@ open class TvShowsAPI {
             "enableUserData": enableUserData?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a list of upcoming episodes.
-     
+
      - parameter userId: (query) The user id of the user to get the upcoming episodes for. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
@@ -289,7 +283,7 @@ open class TvShowsAPI {
      Gets a list of upcoming episodes.
      - GET /Shows/Upcoming
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter userId: (query) The user id of the user to get the upcoming episodes for. (optional)
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
@@ -300,7 +294,7 @@ open class TvShowsAPI {
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
      - parameter enableUserData: (query) Optional. Include user data. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getUpcomingEpisodesWithRequestBuilder(userId: String? = nil, startIndex: Int? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, parentId: String? = nil, enableImges: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil, enableUserData: Bool? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         let urlPath = "/Shows/Upcoming"
@@ -320,15 +314,12 @@ open class TvShowsAPI {
             "enableUserData": enableUserData?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class QueueRequestDto. */
 public struct QueueRequestDto: Codable, Hashable {
-
     /** Gets or sets the items to enqueue. */
     public var itemIds: [String]?
     public var mode: GroupQueueMode?

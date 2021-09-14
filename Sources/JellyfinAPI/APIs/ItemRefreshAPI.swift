@@ -11,8 +11,8 @@ import Foundation
 open class ItemRefreshAPI {
     /**
      Refreshes metadata for an item.
-     
-     - parameter itemId: (path) Item id. 
+
+     - parameter itemId: (path) Item id.
      - parameter metadataRefreshMode: (query) (Optional) Specifies the metadata refresh mode. (optional)
      - parameter imageRefreshMode: (query) (Optional) Specifies the image refresh mode. (optional)
      - parameter replaceAllMetadata: (query) (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh. (optional, default to false)
@@ -35,14 +35,14 @@ open class ItemRefreshAPI {
      Refreshes metadata for an item.
      - POST /Items/{itemId}/Refresh
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter itemId: (path) Item id. 
+     - parameter itemId: (path) Item id.
      - parameter metadataRefreshMode: (query) (Optional) Specifies the metadata refresh mode. (optional)
      - parameter imageRefreshMode: (query) (Optional) Specifies the image refresh mode. (optional)
      - parameter replaceAllMetadata: (query) (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh. (optional, default to false)
      - parameter replaceAllImages: (query) (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh. (optional, default to false)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func postWithRequestBuilder(itemId: String, metadataRefreshMode: MetadataRefreshMode? = nil, imageRefreshMode: MetadataRefreshMode? = nil, replaceAllMetadata: Bool? = nil, replaceAllImages: Bool? = nil) -> RequestBuilder<Void> {
         var urlPath = "/Items/{itemId}/Refresh"
@@ -60,15 +60,12 @@ open class ItemRefreshAPI {
             "replaceAllImages": replaceAllImages?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

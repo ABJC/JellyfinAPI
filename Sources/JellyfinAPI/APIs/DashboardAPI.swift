@@ -11,7 +11,7 @@ import Foundation
 open class DashboardAPI {
     /**
      Gets the configuration pages.
-     
+
      - parameter enableInMainMenu: (query) Whether to enable in the main menu. (optional)
      - parameter pageType: (query) The Jellyfin.Api.Models.ConfigurationPageInfo. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -33,7 +33,7 @@ open class DashboardAPI {
      - GET /web/ConfigurationPages
      - parameter enableInMainMenu: (query) Whether to enable in the main menu. (optional)
      - parameter pageType: (query) The Jellyfin.Api.Models.ConfigurationPageInfo. (optional)
-     - returns: RequestBuilder<[ConfigurationPageInfo]> 
+     - returns: RequestBuilder<[ConfigurationPageInfo]>
      */
     open class func getConfigurationPagesWithRequestBuilder(enableInMainMenu: Bool? = nil, pageType: ConfigurationPageType? = nil) -> RequestBuilder<[ConfigurationPageInfo]> {
         let urlPath = "/web/ConfigurationPages"
@@ -46,20 +46,18 @@ open class DashboardAPI {
             "pageType": pageType?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[ConfigurationPageInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets a dashboard configuration page.
-     
+
      - parameter name: (query) The name of the page. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -79,7 +77,7 @@ open class DashboardAPI {
      Gets a dashboard configuration page.
      - GET /web/ConfigurationPage
      - parameter name: (query) The name of the page. (optional)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<URL>
      */
     open class func getDashboardConfigurationPageWithRequestBuilder(name: String? = nil) -> RequestBuilder<URL> {
         let urlPath = "/web/ConfigurationPage"
@@ -91,15 +89,12 @@ open class DashboardAPI {
             "name": name?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<URL>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class PlayRequestDto. */
 public struct PlayRequestDto: Codable, Hashable {
-
     /** Gets or sets the playing queue. */
     public var playingQueue: [String]?
     /** Gets or sets the position of the playing item in the queue. */

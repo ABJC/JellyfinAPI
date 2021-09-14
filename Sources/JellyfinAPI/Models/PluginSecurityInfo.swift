@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Plugin security info. */
 public struct PluginSecurityInfo: Codable, Hashable {
-
     /** Gets or sets the supporter key. */
     public var supporterKey: String?
     /** Gets or sets a value indicating whether is mb supporter. */

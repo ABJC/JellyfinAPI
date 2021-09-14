@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Class BufferRequestDto. */
 public struct BufferRequestDto: Codable, Hashable {
-
     /** Gets or sets when the request has been made by the client. */
     public var when: Date?
     /** Gets or sets the position ticks. */

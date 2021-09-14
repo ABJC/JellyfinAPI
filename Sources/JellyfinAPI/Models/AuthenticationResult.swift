@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct AuthenticationResult: Codable, Hashable {
-
     public var user: UserDto?
     public var sessionInfo: SessionInfo?
     public var accessToken: String?

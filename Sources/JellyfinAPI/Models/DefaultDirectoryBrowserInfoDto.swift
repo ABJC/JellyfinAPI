@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Default directory browser info. */
 public struct DefaultDirectoryBrowserInfoDto: Codable, Hashable {
-
     /** Gets or sets the path. */
     public var path: String?
 

@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct AuthenticationInfoQueryResult: Codable, Hashable {
-
     /** Gets or sets the items. */
     public var items: [AuthenticationInfo]?
     /** The total number of records available. */

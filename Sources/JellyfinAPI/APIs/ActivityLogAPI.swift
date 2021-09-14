@@ -11,7 +11,7 @@ import Foundation
 open class ActivityLogAPI {
     /**
      Gets activity log entries.
-     
+
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter minDate: (query) Optional. The minimum date. Format &#x3D; ISO. (optional)
@@ -34,13 +34,13 @@ open class ActivityLogAPI {
      Gets activity log entries.
      - GET /System/ActivityLog/Entries
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter startIndex: (query) Optional. The record index to start at. All items with a lower index will be dropped from the results. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter minDate: (query) Optional. The minimum date. Format &#x3D; ISO. (optional)
      - parameter hasUserId: (query) Optional. Filter log entries if it has user id, or not. (optional)
-     - returns: RequestBuilder<ActivityLogEntryQueryResult> 
+     - returns: RequestBuilder<ActivityLogEntryQueryResult>
      */
     open class func getLogEntriesWithRequestBuilder(startIndex: Int? = nil, limit: Int? = nil, minDate: Date? = nil, hasUserId: Bool? = nil) -> RequestBuilder<ActivityLogEntryQueryResult> {
         let urlPath = "/System/ActivityLog/Entries"
@@ -55,15 +55,12 @@ open class ActivityLogAPI {
             "hasUserId": hasUserId?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ActivityLogEntryQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

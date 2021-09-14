@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct LiveTvInfo: Codable, Hashable {
-
     /** Gets or sets the services. */
     public var services: [LiveTvServiceInfo]?
     /** Gets or sets a value indicating whether this instance is enabled. */

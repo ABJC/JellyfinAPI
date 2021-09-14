@@ -7,11 +7,10 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 public struct PinRedeemResult: Codable, Hashable {
-
     /** Gets or sets a value indicating whether this MediaBrowser.Model.Users.PinRedeemResult is success. */
     public var success: Bool?
     /** Gets or sets the users reset. */

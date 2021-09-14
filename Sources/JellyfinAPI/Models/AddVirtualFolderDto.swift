@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** Add virtual folder dto. */
 public struct AddVirtualFolderDto: Codable, Hashable {
-
     public var libraryOptions: LibraryOptions?
 
     public init(libraryOptions: LibraryOptions? = nil) {

@@ -11,8 +11,8 @@ import Foundation
 open class LibraryStructureAPI {
     /**
      Add a media path to a library.
-     
-     - parameter mediaPathDto: (body) The media path dto. 
+
+     - parameter mediaPathDto: (body) The media path dto.
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -32,11 +32,11 @@ open class LibraryStructureAPI {
      Add a media path to a library.
      - POST /Library/VirtualFolders/Paths
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter mediaPathDto: (body) The media path dto. 
+     - parameter mediaPathDto: (body) The media path dto.
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func addMediaPathWithRequestBuilder(mediaPathDto: MediaPathDto, refreshLibrary: Bool? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/VirtualFolders/Paths"
@@ -48,20 +48,18 @@ open class LibraryStructureAPI {
             "refreshLibrary": refreshLibrary?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Adds a virtual folder.
-     
+
      - parameter name: (query) The name of the virtual folder. (optional)
      - parameter collectionType: (query) The type of the collection. (optional)
      - parameter paths: (query) The paths of the virtual folder. (optional)
@@ -85,14 +83,14 @@ open class LibraryStructureAPI {
      Adds a virtual folder.
      - POST /Library/VirtualFolders
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter name: (query) The name of the virtual folder. (optional)
      - parameter collectionType: (query) The type of the collection. (optional)
      - parameter paths: (query) The paths of the virtual folder. (optional)
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
      - parameter addVirtualFolderDto: (body) The library options. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func addVirtualFolderWithRequestBuilder(name: String? = nil, collectionType: CollectionTypeOptions? = nil, paths: [String]? = nil, refreshLibrary: Bool? = nil, addVirtualFolderDto: AddVirtualFolderDto? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/VirtualFolders"
@@ -107,20 +105,18 @@ open class LibraryStructureAPI {
             "refreshLibrary": refreshLibrary?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets all virtual folders.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -139,9 +135,9 @@ open class LibraryStructureAPI {
      Gets all virtual folders.
      - GET /Library/VirtualFolders
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[VirtualFolderInfo]> 
+     - returns: RequestBuilder<[VirtualFolderInfo]>
      */
     open class func getVirtualFoldersWithRequestBuilder() -> RequestBuilder<[VirtualFolderInfo]> {
         let urlPath = "/Library/VirtualFolders"
@@ -150,20 +146,18 @@ open class LibraryStructureAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[VirtualFolderInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Remove a media path.
-     
+
      - parameter name: (query) The name of the library. (optional)
      - parameter path: (query) The path to remove. (optional)
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
@@ -185,12 +179,12 @@ open class LibraryStructureAPI {
      Remove a media path.
      - DELETE /Library/VirtualFolders/Paths
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter name: (query) The name of the library. (optional)
      - parameter path: (query) The path to remove. (optional)
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func removeMediaPathWithRequestBuilder(name: String? = nil, path: String? = nil, refreshLibrary: Bool? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/VirtualFolders/Paths"
@@ -204,20 +198,18 @@ open class LibraryStructureAPI {
             "refreshLibrary": refreshLibrary?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Removes a virtual folder.
-     
+
      - parameter name: (query) The name of the folder. (optional)
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -238,11 +230,11 @@ open class LibraryStructureAPI {
      Removes a virtual folder.
      - DELETE /Library/VirtualFolders
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter name: (query) The name of the folder. (optional)
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func removeVirtualFolderWithRequestBuilder(name: String? = nil, refreshLibrary: Bool? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/VirtualFolders"
@@ -255,20 +247,18 @@ open class LibraryStructureAPI {
             "refreshLibrary": refreshLibrary?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Renames a virtual folder.
-     
+
      - parameter name: (query) The name of the virtual folder. (optional)
      - parameter newName: (query) The new name. (optional)
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
@@ -290,12 +280,12 @@ open class LibraryStructureAPI {
      Renames a virtual folder.
      - POST /Library/VirtualFolders/Name
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter name: (query) The name of the virtual folder. (optional)
      - parameter newName: (query) The new name. (optional)
      - parameter refreshLibrary: (query) Whether to refresh the library. (optional, default to false)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func renameVirtualFolderWithRequestBuilder(name: String? = nil, newName: String? = nil, refreshLibrary: Bool? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/VirtualFolders/Name"
@@ -309,20 +299,18 @@ open class LibraryStructureAPI {
             "refreshLibrary": refreshLibrary?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Update library options.
-     
+
      - parameter updateLibraryOptionsDto: (body) The library name and options. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -342,10 +330,10 @@ open class LibraryStructureAPI {
      Update library options.
      - POST /Library/VirtualFolders/LibraryOptions
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
      - parameter updateLibraryOptionsDto: (body) The library name and options. (optional)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func updateLibraryOptionsWithRequestBuilder(updateLibraryOptionsDto: UpdateLibraryOptionsDto? = nil) -> RequestBuilder<Void> {
         let urlPath = "/Library/VirtualFolders/LibraryOptions"
@@ -354,21 +342,19 @@ open class LibraryStructureAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Updates a media path.
-     
-     - parameter updateMediaPathRequestDto: (body) The name of the library and path infos. 
+
+     - parameter updateMediaPathRequestDto: (body) The name of the library and path infos.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -387,10 +373,10 @@ open class LibraryStructureAPI {
      Updates a media path.
      - POST /Library/VirtualFolders/Paths/Update
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter updateMediaPathRequestDto: (body) The name of the library and path infos. 
-     - returns: RequestBuilder<Void> 
+     - parameter updateMediaPathRequestDto: (body) The name of the library and path infos.
+     - returns: RequestBuilder<Void>
      */
     open class func updateMediaPathWithRequestBuilder(updateMediaPathRequestDto: UpdateMediaPathRequestDto) -> RequestBuilder<Void> {
         let urlPath = "/Library/VirtualFolders/Paths/Update"
@@ -399,15 +385,12 @@ open class LibraryStructureAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Void>.Type = JellyfinAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

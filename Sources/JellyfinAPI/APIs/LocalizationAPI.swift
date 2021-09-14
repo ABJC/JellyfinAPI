@@ -11,7 +11,7 @@ import Foundation
 open class LocalizationAPI {
     /**
      Gets known countries.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -30,9 +30,9 @@ open class LocalizationAPI {
      Gets known countries.
      - GET /Localization/Countries
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[CountryInfo]> 
+     - returns: RequestBuilder<[CountryInfo]>
      */
     open class func getCountriesWithRequestBuilder() -> RequestBuilder<[CountryInfo]> {
         let urlPath = "/Localization/Countries"
@@ -41,20 +41,18 @@ open class LocalizationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[CountryInfo]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets known cultures.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -73,9 +71,9 @@ open class LocalizationAPI {
      Gets known cultures.
      - GET /Localization/Cultures
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[CultureDto]> 
+     - returns: RequestBuilder<[CultureDto]>
      */
     open class func getCulturesWithRequestBuilder() -> RequestBuilder<[CultureDto]> {
         let urlPath = "/Localization/Cultures"
@@ -84,20 +82,18 @@ open class LocalizationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[CultureDto]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets localization options.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -116,9 +112,9 @@ open class LocalizationAPI {
      Gets localization options.
      - GET /Localization/Options
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[LocalizationOption]> 
+     - returns: RequestBuilder<[LocalizationOption]>
      */
     open class func getLocalizationOptionsWithRequestBuilder() -> RequestBuilder<[LocalizationOption]> {
         let urlPath = "/Localization/Options"
@@ -127,20 +123,18 @@ open class LocalizationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[LocalizationOption]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Gets known parental ratings.
-     
+
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -159,9 +153,9 @@ open class LocalizationAPI {
      Gets known parental ratings.
      - GET /Localization/ParentalRatings
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - returns: RequestBuilder<[ParentalRating]> 
+     - returns: RequestBuilder<[ParentalRating]>
      */
     open class func getParentalRatingsWithRequestBuilder() -> RequestBuilder<[ParentalRating]> {
         let urlPath = "/Localization/ParentalRatings"
@@ -170,15 +164,12 @@ open class LocalizationAPI {
 
         let urlComponents = URLComponents(string: URLString)
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<[ParentalRating]>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

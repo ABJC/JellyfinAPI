@@ -11,8 +11,8 @@ import Foundation
 open class InstantMixAPI {
     /**
      Creates an instant playlist based on a given album.
-     
-     - parameter id: (path) The item id. 
+
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -38,9 +38,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given album.
      - GET /Albums/{id}/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (path) The item id. 
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -48,7 +48,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getInstantMixFromAlbumWithRequestBuilder(id: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Albums/{id}/InstantMix"
@@ -69,21 +69,19 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates an instant playlist based on a given artist.
-     
-     - parameter id: (path) The item id. 
+
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -109,9 +107,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given artist.
      - GET /Artists/{id}/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (path) The item id. 
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -119,7 +117,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getInstantMixFromArtistsWithRequestBuilder(id: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Artists/{id}/InstantMix"
@@ -140,21 +138,19 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates an instant playlist based on a given artist.
-     
-     - parameter id: (query) The item id. 
+
+     - parameter id: (query) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -181,9 +177,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given artist.
      - GET /Artists/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (query) The item id. 
+     - parameter id: (query) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -191,7 +187,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func getInstantMixFromArtists2WithRequestBuilder(id: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
@@ -211,21 +207,19 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates an instant playlist based on a given item.
-     
-     - parameter id: (path) The item id. 
+
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -251,9 +245,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given item.
      - GET /Items/{id}/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (path) The item id. 
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -261,7 +255,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getInstantMixFromItemWithRequestBuilder(id: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Items/{id}/InstantMix"
@@ -282,21 +276,19 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates an instant playlist based on a given genre.
-     
-     - parameter id: (path) The item id. 
+
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -322,9 +314,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given genre.
      - GET /MusicGenres/{id}/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (path) The item id. 
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -332,7 +324,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getInstantMixFromMusicGenreByIdWithRequestBuilder(id: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/MusicGenres/{id}/InstantMix"
@@ -353,21 +345,19 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates an instant playlist based on a given genre.
-     
-     - parameter id: (query) The item id. 
+
+     - parameter id: (query) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -394,9 +384,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given genre.
      - GET /MusicGenres/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (query) The item id. 
+     - parameter id: (query) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -404,7 +394,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     open class func getInstantMixFromMusicGenreById2WithRequestBuilder(id: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
@@ -424,21 +414,19 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates an instant playlist based on a given genre.
-     
-     - parameter name: (path) The genre name. 
+
+     - parameter name: (path) The genre name.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -464,9 +452,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given genre.
      - GET /MusicGenres/{name}/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter name: (path) The genre name. 
+     - parameter name: (path) The genre name.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -474,7 +462,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getInstantMixFromMusicGenreByNameWithRequestBuilder(name: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/MusicGenres/{name}/InstantMix"
@@ -495,21 +483,19 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates an instant playlist based on a given playlist.
-     
-     - parameter id: (path) The item id. 
+
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -535,9 +521,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given playlist.
      - GET /Playlists/{id}/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (path) The item id. 
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -545,7 +531,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getInstantMixFromPlaylistWithRequestBuilder(id: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Playlists/{id}/InstantMix"
@@ -566,21 +552,19 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
 
     /**
      Creates an instant playlist based on a given song.
-     
-     - parameter id: (path) The item id. 
+
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -606,9 +590,9 @@ open class InstantMixAPI {
      Creates an instant playlist based on a given song.
      - GET /Songs/{id}/InstantMix
      - API Key:
-       - type: apiKey X-Emby-Authorization 
+       - type: apiKey X-Emby-Authorization
        - name: CustomAuthentication
-     - parameter id: (path) The item id. 
+     - parameter id: (path) The item id.
      - parameter userId: (query) Optional. Filter by user id, and attach user data. (optional)
      - parameter limit: (query) Optional. The maximum number of records to return. (optional)
      - parameter fields: (query) Optional. Specify additional fields of information to return in the output. (optional)
@@ -616,7 +600,7 @@ open class InstantMixAPI {
      - parameter enableUserData: (query) Optional. Include user data. (optional)
      - parameter imageTypeLimit: (query) Optional. The max number of images to return, per image type. (optional)
      - parameter enableImageTypes: (query) Optional. The image types to include in the output. (optional)
-     - returns: RequestBuilder<BaseItemDtoQueryResult> 
+     - returns: RequestBuilder<BaseItemDtoQueryResult>
      */
     open class func getInstantMixFromSongWithRequestBuilder(id: String, userId: String? = nil, limit: Int? = nil, fields: [ItemFields]? = nil, enableImages: Bool? = nil, enableUserData: Bool? = nil, imageTypeLimit: Int? = nil, enableImageTypes: [ImageType]? = nil) -> RequestBuilder<BaseItemDtoQueryResult> {
         var urlPath = "/Songs/{id}/InstantMix"
@@ -637,15 +621,12 @@ open class InstantMixAPI {
             "enableImageTypes": enableImageTypes?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
+        let nillableHeaders: [String: Any?] = [:]
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<BaseItemDtoQueryResult>.Type = JellyfinAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: urlComponents?.string ?? URLString, parameters: parameters, headers: headerParameters)
     }
-
 }

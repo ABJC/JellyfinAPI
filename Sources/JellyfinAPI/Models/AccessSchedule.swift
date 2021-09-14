@@ -7,12 +7,11 @@
 
 import Foundation
 #if canImport(AnyCodable)
-import AnyCodable
+    import AnyCodable
 #endif
 
 /** An entity representing a user&#39;s access schedule. */
 public struct AccessSchedule: Codable, Hashable {
-
     /** Gets or sets the id of this instance. */
     public var id: Int
     /** Gets or sets the id of the associated user. */
