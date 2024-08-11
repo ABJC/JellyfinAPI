@@ -17,20 +17,20 @@ public extension Provider {
         response: LogCondition = .always
 
     ) {
-        let conditions = (0..<interceptors.count).compactMap({ i in
-            if let interceptor = interceptors[i] as? DebugInterceptor {
-                interceptors.remove(at: i)
-                return interceptor
-            } else {
-                return nil
-            }
-        })
-
-        for (i, interceptor) in self.interceptors.enumerated() {
-            if type(of: interceptors[i]) == DebugInterceptor.self {
-                let previous = interceptors.remove(at: i)
-            }
-        }
+//        let conditions = (0..<interceptors.count).compactMap({ i in
+//            if let interceptor = interceptors[i] as? DebugInterceptor {
+//                interceptors.remove(at: i)
+//                return interceptor
+//            } else {
+//                return nil
+//            }
+//        })
+//
+//        for (i, interceptor) in self.interceptors.enumerated() {
+//            if type(of: interceptors[i]) == DebugInterceptor.self {
+//                let previous = interceptors.remove(at: i)
+//            }
+//        }
 
         self.interceptors.append(DebugInterceptor(request: request, response: response))
     }
@@ -45,6 +45,10 @@ public struct LogCondition {
 
     public static var always: Self {
         .init({ _ in true })
+    }
+
+    public static func not(_ condition: LogCondition) -> Self {
+        .init({ !condition.evaluate($0) })
     }
 
     public static func statusCode(_ code: Int) -> Self {

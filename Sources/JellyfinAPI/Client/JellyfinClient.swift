@@ -21,7 +21,7 @@ public class JellyfinClient: RequestModifier {
     public let provider: Provider
 
     public let users: UsersServiceAPI
-    public let systems: SystemsServiceAPI
+    public let system: SystemServiceAPI
 
     public init(server: Server, clientHeader: MediaBrowserHeader, credentials: Credentials? = nil) {
         self.server = server
@@ -31,20 +31,18 @@ public class JellyfinClient: RequestModifier {
 
         self.provider = provider
         self.users = UsersServiceAPI(provider: provider)
-        self.systems = SystemsServiceAPI(provider: provider)
+        self.system = SystemServiceAPI(provider: provider)
 
         provider.modifiers.append(self)
 
         provider.interceptors.append(DebugInterceptor(
-            request: .always,
-            response: .always
+            when: .not(.statusCode(200..<300))
         ))
-
     }
 }
 
 public extension JellyfinClient {
-    struct Credentials {
+    struct Credentials: Codable {
         public let userId: String
         public let accessToken: String
 
@@ -54,7 +52,7 @@ public extension JellyfinClient {
         }
     }
 
-    struct Server: Hashable {
+    struct Server: Hashable, Codable {
         public let id: String
         public var name: String
         public let address: String

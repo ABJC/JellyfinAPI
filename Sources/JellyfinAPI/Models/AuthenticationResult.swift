@@ -2,13 +2,13 @@ import Foundation
 
 // MARK: - AuthenticationResult
 public struct AuthenticationResult: Codable {
-    public let serverID: String
+    public let serverId: String
     public let user: User
     public let accessToken: String
     public let sessionInfo: SessionInfo
 
-    public init(serverID: String, user: User, accessToken: String, sessionInfo: SessionInfo) {
-        self.serverID = serverID
+    public init(serverId: String, user: User, accessToken: String, sessionInfo: SessionInfo) {
+        self.serverId = serverId
         self.user = user
         self.accessToken = accessToken
         self.sessionInfo = sessionInfo
@@ -31,13 +31,13 @@ public struct SessionInfo: Codable {
     public let playState: PlayState
     public let hasCustomDeviceName: Bool
 //    public let nowPlayingQueue: [JSONAny]
-    public let deviceID: String
+    public let deviceId: String
     public let id: String
     public let isActive: Bool
     public let remoteEndPoint: String
-    public let userID: String
+    public let userId: String
     public let lastPlaybackCheckIn: String
-    public let serverID: String
+    public let serverId: String
     public let deviceName: String
 //    public let playableMediaTypes: [JSONAny]
 }
@@ -85,14 +85,14 @@ public struct Policy: Codable {
     public let remoteClientBitrateLimit: Int
     public let isAdministrator: Bool
     public let enableLiveTvAccess: Bool
-    public let passwordResetProviderID: String
+    public let passwordResetProviderId: String
     public let maxActiveSessions: Int
 #warning("missing properties")
     public let enableSharedDeviceControl: Bool
 //    public let enabledFolders: [JSONAny]
 //    public let blockedMediaFolders: [JSONAny]
 //    public let blockUnratedItems: [JSONAny]
-    public let authenticationProviderID: String
+    public let authenticationProviderId: String
 //    public let enabledDevices: [JSONAny]
     public let syncPlayAccess: String
     public let isHidden: Bool

@@ -10,7 +10,7 @@ public class Jellyfin {
     public let client: JellyfinClient
 
     public var users: UsersServiceAPI { client.users }
-    public var system: SystemsServiceAPI { client.systems }
+    public var system: SystemServiceAPI { client.system }
 
     public var currentUser: User? = nil
     public var session: SessionInfo? = nil
@@ -47,20 +47,35 @@ extension Jellyfin {
         )
     }
 
+    @discardableResult
     public func authenticate(
         name: String,
         password: String
-    ) async throws {
+    ) async throws -> AuthenticationResult {
         let result = try await self.client.users.authenticateByName(username: name, pw: password)
 
         self.didAuthenticate(result)
         await self.updateSession(result.sessionInfo)
+        return result
     }
 
-    public func authenticate(id: String, password: String) async throws {
+    @discardableResult
+    public func authenticate(id: String, password: String) async throws -> AuthenticationResult {
         let result = try await self.client.users.authenticate(userId: id, pw: password)
 
         self.didAuthenticate(result)
         await self.updateSession(result.sessionInfo)
+        return result
+    }
+
+    public func authenticate(id: String, token: String) async throws {
+        let user = try await self.client.users.me()
+
+        self.currentUser = user
+
+        self.client.credentials = .init(
+            userId: id,
+            accessToken: token
+        )
     }
 }
