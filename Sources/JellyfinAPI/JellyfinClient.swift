@@ -55,10 +55,11 @@ fileprivate func printRequest(_ request: URLRequest) {
     print("--- ---")
 }
 
+@Observable
 public class JellyfinClient {
     private let session: URLSession
 
-    public let baseURI: URL
+    public internal(set) var baseURI: URL
     public let clientInfo: ClientInfo
     public let device: DeviceInfo
     public internal(set) var credentials: Credentials? = nil
@@ -173,50 +174,49 @@ extension JellyfinClient {
 
 
 // MARK: Configuration
-public extension JellyfinClient {
-    struct ClientInfo {
-        /// The name of the client
-        public let id: String
+public struct ClientInfo {
+    /// The name of the client
+    public let id: String
 
-        /// The version of the client
-        public let version: String
+    /// The version of the client
+    public let version: String
 
-        public init(id: String, version: String) {
-            self.id = id
-            self.version = version
-        }
-    }
-
-    struct DeviceInfo {
-        /// The device name
-        public let name: String
-
-        /// The device name
-        public let id: String
-
-        public init(name: String, id: String) {
-            self.name = name
-            self.id = id
-        }
-    }
-
-    struct Credentials {
-        public let token: String
-        public let userSpecificId: String
-
-        public init(token: String, userSpecificId: String) {
-            self.token = token
-            self.userSpecificId = userSpecificId
-        }
-    }
-
-    struct ServerInfo {
-        public let id: String
-        public let name: String?
-
-        public init(id: String, name: String?) {
-            self.id = id
-            self.name = name
-        }
+    public init(id: String, version: String) {
+        self.id = id
+        self.version = version
     }
 }
+
+public struct DeviceInfo {
+    /// The device name
+    public let name: String
+
+    /// The device name
+    public let id: String
+
+    public init(name: String, id: String) {
+        self.name = name
+        self.id = id
+    }
+}
+
+public struct Credentials {
+    public let token: String
+    public let userSpecificId: String
+
+    public init(token: String, userSpecificId: String) {
+        self.token = token
+        self.userSpecificId = userSpecificId
+    }
+}
+
+public struct ServerInfo {
+    public let id: String
+    public let name: String?
+
+    public init(id: String, name: String?) {
+        self.id = id
+        self.name = name
+    }
+}
+

@@ -1,7 +1,7 @@
 
 import Foundation
 
-public struct User: Codable {
+public struct User: Identifiable, Codable, Equatable, Hashable {
     public var id: String
     public var name: String
 
@@ -22,6 +22,22 @@ public struct User: Codable {
 
     public var configuration: Configuration
 
+    public init(id: String, name: String, serverId: String, serverName: String? = nil, primaryImageTag: String? = nil, primaryImageAspectRatio: Double? = nil, hasPassword: Bool, hasConfiguredPassword: Bool, hasConfiguredEasyPassword: Bool, enableAutoLogin: Bool, lastLoginDate: Date? = nil, lastActivityDate: Date? = nil, configuration: Configuration) {
+        self.id = id
+        self.name = name
+        self.serverId = serverId
+        self.serverName = serverName
+        self.primaryImageTag = primaryImageTag
+        self.primaryImageAspectRatio = primaryImageAspectRatio
+        self.hasPassword = hasPassword
+        self.hasConfiguredPassword = hasConfiguredPassword
+        self.hasConfiguredEasyPassword = hasConfiguredEasyPassword
+        self.enableAutoLogin = enableAutoLogin
+        self.lastLoginDate = lastLoginDate
+        self.lastActivityDate = lastActivityDate
+        self.configuration = configuration
+    }
+    
     public enum CodingKeys: String, CodingKey {
         case name = "Name"
         case serverId = "ServerId"
@@ -56,6 +72,24 @@ public extension User {
         public var rememberAudioSelections: Bool?
         public var rememberSubtitleSelections: Bool?
         public var enableNextEpisodeAutoPlay: Bool?
+
+        public init(audioLanguagePreference: String? = nil, playDefaultAudioTrack: Bool? = nil, subtitleLanguagePreference: String? = nil, displayMissingEpisodes: Bool? = nil, groupedFolders: [String]? = nil, subtitleMode: SubtitlePlaybackMode? = nil, displayCollectionsView: Bool? = nil, enableLocalPassword: Bool? = nil, orderedViews: [String]? = nil, latestItemsExcludes: [String]? = nil, myMediaExcludes: [String]? = nil, hidePlayedInLatest: Bool? = nil, rememberAudioSelections: Bool? = nil, rememberSubtitleSelections: Bool? = nil, enableNextEpisodeAutoPlay: Bool? = nil) {
+            self.audioLanguagePreference = audioLanguagePreference
+            self.playDefaultAudioTrack = playDefaultAudioTrack
+            self.subtitleLanguagePreference = subtitleLanguagePreference
+            self.displayMissingEpisodes = displayMissingEpisodes
+            self.groupedFolders = groupedFolders
+            self.subtitleMode = subtitleMode
+            self.displayCollectionsView = displayCollectionsView
+            self.enableLocalPassword = enableLocalPassword
+            self.orderedViews = orderedViews
+            self.latestItemsExcludes = latestItemsExcludes
+            self.myMediaExcludes = myMediaExcludes
+            self.hidePlayedInLatest = hidePlayedInLatest
+            self.rememberAudioSelections = rememberAudioSelections
+            self.rememberSubtitleSelections = rememberSubtitleSelections
+            self.enableNextEpisodeAutoPlay = enableNextEpisodeAutoPlay
+        }
 
         public enum CodingKeys: String, CodingKey {
             case audioLanguagePreference = "AudioLanguagePreference"

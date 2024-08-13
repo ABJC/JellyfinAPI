@@ -54,9 +54,6 @@ public extension JellyfinClient {
     ) async throws -> AuthenticationResult {
         let endpoint = Endpoints.AuthenticateByName(body: .init(username: username, password: password))
         let result = try await self.run(endpoint)
-
-        self.credentials = .init(token: result.accessToken, userSpecificId: result.user.id)
-
         return result
     }
 
@@ -67,9 +64,6 @@ public extension JellyfinClient {
     ) async throws -> AuthenticationResult {
         let endpoint = Endpoints.Authenticate(userId: id, query: .init(password: password))
         let result = try await self.run(endpoint)
-
-        self.credentials = .init(token: result.accessToken, userSpecificId: result.user.id)
-
         return result
     }
 }

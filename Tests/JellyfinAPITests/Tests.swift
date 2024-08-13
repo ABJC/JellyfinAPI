@@ -30,18 +30,47 @@ struct Authentication {
     @Test("username")
     func byName() async throws {
         let jellyfin = Jellyfin(client: .test())
-        try await jellyfin.client.authenticate(username: "John", password: "johns-password")
+        let result = try await jellyfin.user.authenticate(username: "John", password: "johns-password")
+
+        #expect(jellyfin.user.current?.id == result.user.id)
+        #expect(jellyfin.client.credentials?.token == result.accessToken)
     }
 
     @Test("user id")
     func byId() async throws {
         let jellyfin = Jellyfin(client: .test())
-        try await jellyfin.client.authenticate(id: "94f3fb1540114e6a9af2d7c2962df2f2", password: "johns-password")
+        try await jellyfin.user.authenticate(id: "94f3fb1540114e6a9af2d7c2962df2f2", password: "johns-password")
     }
 
     @Test("get public users")
     func publicUsers() async throws {
         let jellyfin = Jellyfin(client: .test())
-        try await jellyfin.client.authenticate(id: "94f3fb1540114e6a9af2d7c2962df2f2", password: "johns-password")
+        let users = try await jellyfin.user.publicUsers()
+        #expect(users.count > 0)
+    }
+}
+
+@Suite
+struct System {
+    @Test("Public Info")
+    func publicInfo() async throws {
+        let jellyfin = Jellyfin(client: .test())
+        let info = try await jellyfin.system.publicInfo()
+
+        #expect(jellyfin.system.serverId == info.id)
+        #expect(jellyfin.system.serverName == info.serverName)
+    }
+
+    @Test("user id")
+    func byId() async throws {
+        let jellyfin = Jellyfin(client: .test())
+        try await jellyfin.user.authenticate(id: "94f3fb1540114e6a9af2d7c2962df2f2", password: "johns-password")
+    }
+
+    @Test("get public users")
+    func publicUsers() async throws {
+        let jellyfin = Jellyfin(client: .test())
+        let users = try await jellyfin.user.publicUsers()
+        #expect(users.count > 0)
     }
 }

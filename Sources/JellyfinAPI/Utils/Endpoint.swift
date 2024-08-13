@@ -5,6 +5,23 @@ import AsyncHTTPClient
 public struct EmptyCodable: Codable {}
 
 public enum Endpoints {}
+extension Endpoint {
+    static func GET<Query: Encodable, Response: Decodable>(_ path: String, query: Query) -> Self where Self == Endpoints.Get<Query, Response> {
+        Endpoints.Get(path: path, query: query)
+    }
+
+    static func GET<Response: Decodable>(_ path: String) -> Self where Self == Endpoints.Get<EmptyCodable, Response> {
+        Endpoints.Get(path: path, query: EmptyCodable())
+    }
+}
+extension Endpoints {
+    struct Get<Query: Encodable, Response>: Endpoint {
+        let path: String
+        let query: Query
+    }
+}
+
+
 
 public protocol Endpoint {
     associatedtype Response = EmptyCodable
