@@ -12,17 +12,23 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/joshuawright11/papyrus.git", from: "0.6.0")
+        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.9.0"),
+        .package(url: "https://github.com/elegantchaos/DictionaryCoding", from: "1.0.9"),
     ],
     targets: [
         .target(
             name: "JellyfinAPI",
             dependencies: [
-                .product(name: "Papyrus", package: "papyrus"),
+                .product(name: "AsyncHTTPClient", package: "async-http-client"),
+                "DictionaryCoding"
             ],
             swiftSettings: [
                 .unsafeFlags(["-enable-bare-slash-regex"])
             ]
+        ),
+        .testTarget(
+            name: "JellyfinAPITests",
+            dependencies: ["JellyfinAPI"]
         )
     ]
 )
