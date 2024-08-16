@@ -9,12 +9,14 @@ public class Jellyfin {
 
     public let system: SystemService
 
+    public let items: ItemsService
     public init(
         client: JellyfinClient
     ) {
         self.client = client
         self.user = UserService(client: client)
         self.system = SystemService(client: client)
+        self.items = ItemsService(client: client)
     }
 
     public convenience init(

@@ -3,7 +3,11 @@ services:
     image: jellyfin/jellyfin
     container_name: jellyfin
     ports:
-      - "8096:8096"
+      - "8096:8096" # HTTP traffic
+      - "8920:8920" # HTTPS traffic
+      - "1900:1900/udp" # Service auto-discovery
+      - "7359:7359/udp" # Service auto-discovery
+
     volumes:
       - ./config:/config
       - ./cache:/cache
